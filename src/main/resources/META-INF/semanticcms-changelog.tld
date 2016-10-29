@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+semanticcms-changelog-taglib - Taglib for managing changelogs in a JSP environment.
+Copyright (C) 2016  AO Industries, Inc.
+	support@aoindustries.com
+	7262 Bull Pen Cir
+	Mobile, AL 36695
+
+This file is part of semanticcms-changelog-taglib.
+
+semanticcms-changelog-taglib is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+semanticcms-changelog-taglib is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+	version="2.1">
+	<description>Taglib for managing changelogs in a JSP environment.</description>
+	<display-name>semanticcms-changelog-taglib</display-name>
+	<tlib-version>1.0</tlib-version>
+	<short-name>changelog</short-name>
+	<uri>https://semanticcms.com/changelog/taglib/</uri>
+	<tag>
+		<description><![CDATA[
+			Adds a changelog entry to the current page.
+		]]></description>
+		<name>release</name>
+		<tag-class>com.semanticcms.changelog.taglib.ReleaseTag</tag-class>
+		<body-content>scriptless</body-content>
+		<attribute>
+			<description><![CDATA[
+				The name of the project that has been released.
+			]]></description>
+			<name>projectName</name>
+			<required>true</required>
+			<deferred-value>
+				<type>java.lang.String</type>
+			</deferred-value>
+		</attribute>
+		<attribute>
+			<description><![CDATA[
+				The version of the release in <a href="http://semver.org/">Semantic Versioning</a> format.
+			]]></description>
+			<name>version</name>
+			<required>true</required>
+			<deferred-value>
+				<type>java.lang.String</type>
+			</deferred-value>
+		</attribute>
+		<attribute>
+			<description><![CDATA[
+				<p>
+					The date of the release, in ISO 8601 format.  At least YYYY-MM-DD is required,
+					and when time not specified will default to midnight in the current system time zone.
+					A long value of <code>-1</code> or <code>0</code> is converted to <code>null</code>.
+					Any value accepted by Joda Time DateTime is accepted.
+				</p>
+				<p>
+					Required unless is a "*-SNAPSHOT" version.
+				</p>
+			]]></description>
+			<name>dateCreated</name>
+			<required>false</required>
+			<deferred-value>
+				<type>java.lang.Object</type>
+			</deferred-value>
+		</attribute>
+		<attribute>
+			<description><![CDATA[
+				The optional groupId as used in the Maven repository.
+				artifactId required when this is provided.
+			]]></description>
+			<name>groupId</name>
+			<required>false</required>
+			<deferred-value>
+				<type>java.lang.String</type>
+			</deferred-value>
+		</attribute>
+		<attribute>
+			<description><![CDATA[
+				The optional artifactId as used in the Maven repository.
+				groupId required when this is provided.
+			]]></description>
+			<name>artifactId</name>
+			<required>false</required>
+			<deferred-value>
+				<type>java.lang.String</type>
+			</deferred-value>
+		</attribute>
+		<attribute>
+			<description><![CDATA[
+				The optional Maven repository.  When not provided, an appropriate
+				link will be created to https://search.maven.org/.
+				artifactId and groupId required when this is provided.
+			]]></description>
+			<name>repository</name>
+			<required>false</required>
+			<deferred-value>
+				<type>java.lang.String</type>
+			</deferred-value>
+		</attribute>
+		<attribute>
+			<description><![CDATA[
+				The base source control management URL.  The path to the release
+				is automatically added to this base.
+			]]></description>
+			<name>scmUrl</name>
+			<required>false</required>
+			<deferred-value>
+				<type>java.lang.String</type>
+			</deferred-value>
+		</attribute>
+	</tag>
+</taglib>

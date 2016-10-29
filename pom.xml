@@ -36,8 +36,13 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 	<packaging>jar</packaging>
 
 	<properties>
-		<bookPath>/changelog-taglib</bookPath>
+		<bookPath>/changelog/taglib</bookPath>
 		<shortTitle>Changelog Taglib</shortTitle>
+		<!-- Java 1.8+ required for Lambdas -->
+		<javaVersion>1.8</javaVersion>
+		<compiler.bootclasspath>${bootclasspath.jdk18}</compiler.bootclasspath>
+		<javac.bootclasspath>${bootclasspath.jdk18}</javac.bootclasspath>
+		<javac.link.javaApi>${javac.link.javaApi.jdk18}</javac.link.javaApi>
 	</properties>
 
 	<name>SemanticCMS Changelog Taglib</name>
@@ -66,12 +71,11 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 								<links>
 									<link>https://docs.oracle.com/javaee/6/api/</link>
 									<link>http://www.joda.org/joda-time/apidocs/</link>
-									<link>https://www.aoindustries.com/ao-io-buffer/apidocs/</link>
-									<link>https://www.aoindustries.com/ao-servlet-filter/apidocs/</link>
 									<link>https://www.aoindustries.com/ao-taglib/apidocs/</link>
 									<link>https://www.aoindustries.com/aocode-public/apidocs/</link>
-									<link>https://semanticcms.com/core/model/apidocs/</link>
 									<link>https://semanticcms.com/core/servlet/apidocs/</link>
+									<link>https://semanticcms.com/news/servlet/apidocs/</link>
+									<link>https://semanticcms.com/section/servlet/apidocs/</link>
 								</links>
 							</configuration>
 						</plugin>
@@ -94,12 +98,6 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 			<version>2.2.5</version>
 			<scope>provided</scope>
 		</dependency>
-		<!-- JSTL: See http://stackoverflow.com/questions/6094329/tomcat-7-and-jstl -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.2</version>
-		</dependency>
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>javax.servlet.jsp-api</artifactId>
@@ -107,38 +105,9 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.glassfish.web</groupId>
-			<artifactId>jstl-impl</artifactId>
-			<version>1.2</version>
-			<exclusions>
-				<exclusion>
-					<groupId>javax.servlet</groupId>
-					<artifactId>servlet-api</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>javax.servlet.jsp</groupId>
-					<artifactId>jsp-api</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>javax.servlet.jsp.jstl</groupId>
-					<artifactId>jstl-api</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
 			<groupId>joda-time</groupId>
 			<artifactId>joda-time</artifactId>
 			<version>2.9.4</version>
-		</dependency>
-		<dependency>
-			<groupId>com.aoindustries</groupId>
-			<artifactId>ao-io-buffer</artifactId>
-			<version>2.0.2-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>com.aoindustries</groupId>
-			<artifactId>ao-servlet-filter</artifactId>
-			<version>1.4.2-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.aoindustries</groupId>
@@ -152,13 +121,18 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		</dependency>
 		<dependency>
 			<groupId>com.semanticcms</groupId>
-			<artifactId>semanticcms-core-model</artifactId>
-			<version>1.8.1-SNAPSHOT</version>
+			<artifactId>semanticcms-core-servlet</artifactId>
+			<version>1.9.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.semanticcms</groupId>
-			<artifactId>semanticcms-core-servlet</artifactId>
-			<version>1.9.1-SNAPSHOT</version>
+			<artifactId>semanticcms-news-servlet</artifactId>
+			<version>1.1.2-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.semanticcms</groupId>
+			<artifactId>semanticcms-section-servlet</artifactId>
+			<version>1.4.2-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 </project>
