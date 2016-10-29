@@ -88,6 +88,11 @@ public class ReleaseTag extends SimpleTagSupport {
 		this.repositoryExpr = repository;
 	}
 
+	private ValueExpression tagExpr;
+	public void setTag(ValueExpression tag) {
+		this.tagExpr = tag;
+	}
+
 	private ValueExpression scmUrlExpr;
 	public void setScmUrl(ValueExpression scmUrl) {
 		this.scmUrlExpr = scmUrl;
@@ -107,6 +112,7 @@ public class ReleaseTag extends SimpleTagSupport {
 			final String groupId = resolveValue(this.groupIdExpr, String.class, elContext);
 			final String artifactId = resolveValue(this.artifactIdExpr, String.class, elContext);
 			final String repository = resolveValue(this.repositoryExpr, String.class, elContext);
+			String tag = resolveValue(this.tagExpr, String.class, elContext);
 			final String scmUrl = resolveValue(this.scmUrlExpr, String.class, elContext);
 			// Check rules between attribute values vs documented in semanticcms-changelog.tld
 			boolean isSnapshot = version.endsWith(SNAPSHOT_END);
@@ -122,6 +128,11 @@ public class ReleaseTag extends SimpleTagSupport {
 			if(repository != null && (groupId == null || artifactId == null)) {
 				throw new JspException("Both groupId and artifactId required when repository provided");
 			}
+			if(artifactId == null && tag == null) {
+				throw new JspException("tag required when artifactId is not provided");
+			}
+			// Create tag if not provided
+			final String tagName = tag!=null ? tag : (artifactId + '-' + version);
 			// Create elements via servlet API
 			final PrintWriter pw = new PrintWriter(pageContext.getOut()) {
 				@Override
@@ -143,7 +154,7 @@ public class ReleaseTag extends SimpleTagSupport {
 							throw new NotImplementedException();
 						}
 					},
-					artifactId + "-" + version
+					tagName
 				).id("version-" + version).invoke(() -> {
 					if(dateCreated != null && captureLevel == CaptureLevel.BODY) {
 						print("<footer><time itemprop=\"datePublished\" datetime=\"");
@@ -204,9 +215,7 @@ public class ReleaseTag extends SimpleTagSupport {
 								if(!isSnapshot) {
 									if(!scmUrl.endsWith("/")) print('/');
 									print("releases/tag/");
-									encodeTextInXhtmlAttribute(artifactId);
-									print('-');
-									encodeTextInXhtmlAttribute(version);
+									encodeTextInXhtmlAttribute(tagName);
 								}
 								print("\">");
 								if(scmUrl.startsWith(GITHUB_START)) {

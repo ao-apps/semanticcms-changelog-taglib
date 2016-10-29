@@ -111,6 +111,17 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		</attribute>
 		<attribute>
 			<description><![CDATA[
+				The tag used in source control, defaults to "artifactId-version".
+				Required when artifactId is not provided.
+			]]></description>
+			<name>tag</name>
+			<required>false</required>
+			<deferred-value>
+				<type>java.lang.String</type>
+			</deferred-value>
+		</attribute>
+		<attribute>
+			<description><![CDATA[
 				The base source control management URL.  The path to the release
 				is automatically added to this base.
 			]]></description>
