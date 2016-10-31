@@ -165,6 +165,8 @@ public class ReleaseTag extends SimpleTagSupport {
 						print("</time></footer>\n");
 					}
 					if(!isSnapshot) new News(dateCreated, projectName + " " + version + " released.").invoke();
+					// TODO: Here and other places, make and use a new "Nav" tag as section, instead of just section everywhere.
+					//       This might help search engines distinguish content from nav blocks.
 					new Section(isSnapshot ? "Snapshot Links" : "Release Links").id("release-links-" + version).invoke(() -> {
 						if(captureLevel == CaptureLevel.BODY) {
 							print("<ul>\n"
