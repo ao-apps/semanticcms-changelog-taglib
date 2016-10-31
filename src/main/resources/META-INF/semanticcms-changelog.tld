@@ -69,7 +69,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 					Required unless is a "*-SNAPSHOT" version.
 				</p>
 			]]></description>
-			<name>dateCreated</name>
+			<name>datePublished</name>
 			<required>false</required>
 			<deferred-value>
 				<type>java.lang.Object</type>

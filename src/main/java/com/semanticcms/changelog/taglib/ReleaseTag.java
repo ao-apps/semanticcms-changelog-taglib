@@ -69,9 +69,9 @@ public class ReleaseTag extends SimpleTagSupport {
 	}
 
 	// TODO: Rename this to datePublished
-	private ValueExpression dateCreatedExpr;
-	public void setDateCreated(ValueExpression dateCreated) {
-		this.dateCreatedExpr = dateCreated;
+	private ValueExpression datePublishedExpr;
+	public void setDatePublished(ValueExpression datePublished) {
+		this.datePublishedExpr = datePublished;
 	}
 
 	private ValueExpression groupIdExpr;
@@ -109,7 +109,7 @@ public class ReleaseTag extends SimpleTagSupport {
 			ELContext elContext = pageContext.getELContext();
 			final String projectName = resolveValue(this.projectNameExpr, String.class, elContext);
 			final String version = resolveValue(this.versionExpr, String.class, elContext);
-			final ReadableDateTime dateCreated = PageUtils.toDateTime(resolveValue(this.dateCreatedExpr, Object.class, elContext));
+			final ReadableDateTime datePublished = PageUtils.toDateTime(resolveValue(this.datePublishedExpr, Object.class, elContext));
 			final String groupId = resolveValue(this.groupIdExpr, String.class, elContext);
 			final String artifactId = resolveValue(this.artifactIdExpr, String.class, elContext);
 			final String repository = resolveValue(this.repositoryExpr, String.class, elContext);
@@ -117,8 +117,8 @@ public class ReleaseTag extends SimpleTagSupport {
 			final String scmUrl = resolveValue(this.scmUrlExpr, String.class, elContext);
 			// Check rules between attribute values vs documented in semanticcms-changelog.tld
 			boolean isSnapshot = version.endsWith(SNAPSHOT_END);
-			if(!isSnapshot && dateCreated == null) {
-				throw new JspTagException("dateCreated required for non-snapshot releases");
+			if(!isSnapshot && datePublished == null) {
+				throw new JspTagException("datePublished required for non-snapshot releases");
 			}
 			if(groupId != null && artifactId == null) {
 				throw new JspException("artifactId required when groupId provided");
@@ -157,14 +157,14 @@ public class ReleaseTag extends SimpleTagSupport {
 					},
 					tagName
 				).id("version-" + version).invoke(() -> {
-					if(dateCreated != null && captureLevel == CaptureLevel.BODY) {
+					if(datePublished != null && captureLevel == CaptureLevel.BODY) {
 						print("<footer><time itemprop=\"datePublished\" datetime=\"");
-						encodeTextInXhtmlAttribute(dateCreated.toString());
+						encodeTextInXhtmlAttribute(datePublished.toString());
 						print("\">");
-						encodeTextInXhtml(SQLUtility.getDate(dateCreated.getMillis()));
+						encodeTextInXhtml(SQLUtility.getDate(datePublished.getMillis()));
 						print("</time></footer>\n");
 					}
-					if(!isSnapshot) new News(dateCreated, projectName + " " + version + " released.").invoke();
+					if(!isSnapshot) new News(datePublished, projectName + " " + version + " released.").invoke();
 					// TODO: Here and other places, make and use a new "Nav" tag as section, instead of just section everywhere.
 					//       This might help search engines distinguish content from nav blocks.
 					new Section(isSnapshot ? "Snapshot Links" : "Release Links").id("release-links-" + version).invoke(() -> {
