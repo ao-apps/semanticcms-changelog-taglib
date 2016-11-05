@@ -231,9 +231,9 @@ public class ReleaseTag extends SimpleTagSupport {
 							print("</ul>\n");
 						}
 					});
-					new Section(isSnapshot ? "Snapshot Notes" : "Release Notes").id("release-notes-body-" + version).invoke(() -> {
-						JspFragment body = getJspBody();
-						if(body != null) {
+					JspFragment body = getJspBody();
+					if(body != null) {
+						new Section(isSnapshot ? "Snapshot Notes" : "Release Notes").id("release-notes-body-" + version).invoke(() -> {
 							try {
 								body.invoke(com.semanticcms.core.servlet.PageContext.getOut());
 							} catch(SkipPageException e) {
@@ -241,8 +241,8 @@ public class ReleaseTag extends SimpleTagSupport {
 							} catch(JspException e) {
 								throw new ServletException(e);
 							}
-						}
-					});
+						});
+					}
 				});
 			} catch(ServletException e) {
 				throw new JspTagException(e);
