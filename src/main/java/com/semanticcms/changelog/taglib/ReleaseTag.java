@@ -156,7 +156,7 @@ public class ReleaseTag extends SimpleTagSupport {
 						}
 					},
 					tagName
-				).id("version-" + version).invoke(() -> {
+				).id("release-notes-" + version).invoke(() -> {
 					if(datePublished != null && captureLevel == CaptureLevel.BODY) {
 						print("<footer><time itemprop=\"datePublished\" datetime=\"");
 						encodeTextInXhtmlAttribute(datePublished.toString());
@@ -231,7 +231,7 @@ public class ReleaseTag extends SimpleTagSupport {
 							print("</ul>\n");
 						}
 					});
-					new Section(isSnapshot ? "Snapshot Notes" : "Release Notes").id("release-notes-" + version).invoke(() -> {
+					new Section(isSnapshot ? "Snapshot Notes" : "Release Notes").id("release-notes-body-" + version).invoke(() -> {
 						JspFragment body = getJspBody();
 						if(body != null) {
 							try {
