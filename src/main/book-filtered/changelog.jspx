@@ -54,6 +54,11 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 						Unfortunately, we cannot include "-SNAPSHOT" on snapshot builds due to the requirement of "Dewey decimal"
 						for taglib versions.  The unambiguous full version is annotated via comment.
 					</li>
+					<li>"release-notes-\${version}" id moved to overall release section so links go to overall release.
+						Previously they went specifically to the release notes and the release version was scrolled
+						off the top of the browser.  This keeps things in context.
+					</li>
+					<li>"Release Notes" section no longer included when the release tag has no JSP body.</li>
 				</ul>
 			</changelog:release>
 		</c:if>
