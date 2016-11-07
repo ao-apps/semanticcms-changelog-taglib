@@ -25,7 +25,9 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
 	version="2.1">
-	<description>@{project.description}</description>
+	<description><![CDATA[
+		<p>@{project.description}</p>
+	]]></description>
 	<display-name>@{project.name}</display-name>
 	<tlib-version>
 		<!-- Release: @{project.version} -->
@@ -35,14 +37,14 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 	<uri>@{project.url}</uri>
 	<tag>
 		<description><![CDATA[
-			Adds a changelog entry to the current page.
+			<p>Adds a changelog entry to the current page.</p>
 		]]></description>
 		<name>release</name>
 		<tag-class>com.semanticcms.changelog.taglib.ReleaseTag</tag-class>
 		<body-content>scriptless</body-content>
 		<attribute>
 			<description><![CDATA[
-				The name of the project that has been released.
+				<p>The name of the project that has been released.</p>
 			]]></description>
 			<name>projectName</name>
 			<required>true</required>
@@ -52,7 +54,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		</attribute>
 		<attribute>
 			<description><![CDATA[
-				The version of the release in <a href="http://semver.org/">Semantic Versioning</a> format.
+				<p>The version of the release in <a href="http://semver.org/">Semantic Versioning</a> format.</p>
 			]]></description>
 			<name>version</name>
 			<required>true</required>
@@ -80,8 +82,10 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		</attribute>
 		<attribute>
 			<description><![CDATA[
-				The optional groupId as used in the Maven repository.
-				artifactId required when this is provided.
+				<p>
+					The optional groupId as used in the Maven repository.
+					artifactId required when this is provided.
+				</p>
 			]]></description>
 			<name>groupId</name>
 			<required>false</required>
@@ -91,8 +95,10 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		</attribute>
 		<attribute>
 			<description><![CDATA[
-				The optional artifactId as used in the Maven repository.
-				groupId required when this is provided.
+				<p>
+					The optional artifactId as used in the Maven repository.
+					groupId required when this is provided.
+				</p>
 			]]></description>
 			<name>artifactId</name>
 			<required>false</required>
@@ -102,9 +108,11 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		</attribute>
 		<attribute>
 			<description><![CDATA[
-				The optional Maven repository.  When not provided, an appropriate
-				link will be created to https://search.maven.org/.
-				artifactId and groupId required when this is provided.
+				<p>
+					The optional Maven repository.  When not provided, an appropriate
+					link will be created to https://search.maven.org/.
+					artifactId and groupId required when this is provided.
+				</p>
 			]]></description>
 			<name>repository</name>
 			<required>false</required>
@@ -114,8 +122,10 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		</attribute>
 		<attribute>
 			<description><![CDATA[
-				The tag used in source control, defaults to "artifactId-version".
-				Required when artifactId is not provided.
+				<p>
+					The tag used in source control, defaults to "artifactId-version".
+					Required when artifactId is not provided.
+				</p>
 			]]></description>
 			<name>tag</name>
 			<required>false</required>
@@ -125,8 +135,10 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		</attribute>
 		<attribute>
 			<description><![CDATA[
-				The base source control management URL.  The path to the release
-				is automatically added to this base.
+				<p>
+					The base source control management URL.  The path to the release
+					is automatically added to this base.
+				</p>
 			]]></description>
 			<name>scmUrl</name>
 			<required>false</required>
