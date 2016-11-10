@@ -37,7 +37,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		<core:child page="changelog.jspx" />
 		<core:child page="apidocs/index.jspx" />
 		<p>
-			@{description.html}
+			@{documented.description}
 		</p>
 		<section:section label="Project Links">
 			<ul>
