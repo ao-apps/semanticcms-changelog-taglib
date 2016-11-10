@@ -36,7 +36,6 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 	<packaging>jar</packaging>
 
 	<properties>
-		<bookPath>/changelog/taglib</bookPath>
 		<shortTitle>Changelog Taglib</shortTitle>
 		<!-- Java 1.8+ required for Lambdas -->
 		<javaVersion>1.8</javaVersion>
@@ -46,7 +45,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 	</properties>
 
 	<name>SemanticCMS Changelog Taglib</name>
-	<url>https://semanticcms.com${bookPath}/</url><!-- Can't inherit due to multi-module -->
+	<url>https://semanticcms.com/changelog/taglib/</url>
 	<description>Taglib for managing changelogs in a JSP environment.</description>
 	<inceptionYear>2016</inceptionYear>
 
