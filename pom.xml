@@ -37,6 +37,8 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 
 	<properties>
 		<shortTitle>Changelog Taglib</shortTitle>
+		<javadoc.taglibReference><![CDATA[<li><a target="_top" href="${project.url}semanticcms-changelog.tld/">Taglib Reference</a></li>]]></javadoc.taglibReference>
+		<jodaTimeApidocs>http://www.joda.org/joda-time/apidocs/</jodaTimeApidocs>
 		<!-- Java 1.8+ required for Lambdas -->
 		<javaVersion>1.8</javaVersion>
 		<compiler.bootclasspath>${bootclasspath.jdk18}</compiler.bootclasspath>
@@ -69,7 +71,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 							<configuration>
 								<links>
 									<link>https://docs.oracle.com/javaee/6/api/</link>
-									<link>http://www.joda.org/joda-time/apidocs/</link>
+									<link>${jodaTimeApidocs}</link>
 									<link>https://aoindustries.com/ao-taglib/apidocs/</link>
 									<link>https://aoindustries.com/aocode-public/apidocs/</link>
 									<link>https://semanticcms.com/core/servlet/apidocs/</link>
