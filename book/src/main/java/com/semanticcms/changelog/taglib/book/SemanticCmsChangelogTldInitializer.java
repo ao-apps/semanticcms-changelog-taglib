@@ -23,32 +23,22 @@
 package com.semanticcms.changelog.taglib.book;
 
 import com.semanticcms.tagreference.TagReferenceInitializer;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.Collections;
 
 /**
  * @author  AO Industries, Inc.
  */
 public class SemanticCmsChangelogTldInitializer extends TagReferenceInitializer {
 
-	private static final String TLD_BOOK = "/changelog/taglib";
-	private static final String TLD_PATH = "/semanticcms-changelog.tld";
-	static final String TLD_SERVLET_PATH = TLD_BOOK + TLD_PATH;
-
-	private static final Map<String,String> additionalApiLinks = new LinkedHashMap<String,String>();
-	static {
-		additionalApiLinks.put("com.semanticcms.changelog.taglib.", "https://semanticcms.com/changelog/taglib/apidocs/");
-	}
-
 	public SemanticCmsChangelogTldInitializer() {
 		super(
 			"Changelog Taglib Reference",
 			"Taglib Reference",
-			TLD_BOOK,
-			TLD_PATH,
+			"/changelog/taglib",
+			"/semanticcms-changelog.tld",
 			"https://docs.oracle.com/javase/8/docs/api/",
 			"https://docs.oracle.com/javaee/6/api/",
-			additionalApiLinks
+			Collections.singletonMap("com.semanticcms.changelog.taglib.", "https://semanticcms.com/changelog/taglib/apidocs/")
 		);
 	}
 }
