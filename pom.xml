@@ -26,8 +26,9 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 
 	<parent>
 		<groupId>com.semanticcms</groupId>
-		<artifactId>semanticcms</artifactId>
-		<version>1.5.1-SNAPSHOT</version>
+		<artifactId>semanticcms-parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 
 	<groupId>com.semanticcms</groupId>

@@ -26,9 +26,9 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 
 	<parent>
 		<groupId>com.semanticcms</groupId>
-		<artifactId>semanticcms</artifactId>
-		<version>1.5.1-SNAPSHOT</version>
-		<relativePath>../../pom.xml</relativePath>
+		<artifactId>semanticcms-parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>../../parent/pom.xml</relativePath>
 	</parent>
 
 	<groupId>com.semanticcms</groupId>
@@ -40,15 +40,14 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		<!-- These values are copied from the project being documented -->
 		<documented.groupId>com.semanticcms</documented.groupId>
 		<documented.artifactId>semanticcms-changelog-taglib</documented.artifactId>
-
 		<documented.name>SemanticCMS Changelog Taglib</documented.name>
 		<documented.shortTitle>Changelog Taglib</documented.shortTitle>
 		<documented.url>https://semanticcms.com/changelog/taglib/</documented.url>
 		<documented.description>Taglib for managing changelogs in a JSP environment.</documented.description>
 		<documented.inceptionYear>2016</documented.inceptionYear>
-
 		<documented.scm.url>https://github.com/aoindustries/${documented.artifactId}</documented.scm.url>
 
+		<shortTitle>Changelog Taglib Book</shortTitle>
 		<description.html><![CDATA[Documentation for <a target="_top" href="${documented.url}">${documented.name}</a> in <a target="_top" href="https://semanticcms.com/">SemanticCMS</a> format.]]></description.html>
 	</properties>
 
@@ -208,6 +207,15 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 			<groupId>com.semanticcms</groupId>
 			<artifactId>semanticcms-tag-reference</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		<!-- Dependency for dependencyversion-maven-plugin only -->
+		<dependency>
+			<groupId>com.semanticcms</groupId>
+			<artifactId>semanticcms-changelog-taglib</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+			<type>pom</type>
+			<scope>provided</scope>
+			<optional>true</optional>
 		</dependency>
 	</dependencies>
 </project>
