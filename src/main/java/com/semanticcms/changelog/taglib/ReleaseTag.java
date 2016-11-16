@@ -68,7 +68,6 @@ public class ReleaseTag extends SimpleTagSupport {
 		this.versionExpr = version;
 	}
 
-	// TODO: Rename this to datePublished
 	private ValueExpression datePublishedExpr;
 	public void setDatePublished(ValueExpression datePublished) {
 		this.datePublishedExpr = datePublished;
