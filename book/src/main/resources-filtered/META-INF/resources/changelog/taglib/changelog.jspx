@@ -36,7 +36,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-10-30T16:08:35-0500"
-		dateModified="2016-11-13T21:10:46-0600"
+		dateModified="2016-11-15T19:25:50-0600"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-changelog-taglib:pom.version}" />
@@ -51,21 +51,30 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 				groupId="@{documented.groupId}"
 				artifactId="@{documented.artifactId}"
 				scmUrl="@{documented.scm.url}"
-			>
-				<ul>
-					<li>New project to assist in formatting changelogs.</li>
-					<li>
-						Taglib tlib-version is now set automatically during build.
-						Unfortunately, we cannot include "-SNAPSHOT" on snapshot builds due to the requirement of "Dewey decimal"
-						for taglib versions.  The unambiguous full version is annotated via comment.
-					</li>
-					<li>"release-notes-\${version}" id moved to overall release section so links go to overall release.
-						Previously they went specifically to the release notes and the release version was scrolled
-						off the top of the browser.  This keeps things in context.
-					</li>
-					<li>"Release Notes" section no longer included when the release tag has no JSP body.</li>
-				</ul>
-			</changelog:release>
+			/>
 		</c:if>
+
+		<changelog:release
+			projectName="@{documented.name}"
+			version="1.0.0"
+			datePublished="2016-11-15T19:25:50-0600"
+			groupId="@{documented.groupId}"
+			artifactId="@{documented.artifactId}"
+			scmUrl="@{documented.scm.url}"
+		>
+			<ul>
+				<li>New project to assist in formatting changelogs.</li>
+				<li>
+					Taglib tlib-version is now set automatically during build.
+					Unfortunately, we cannot include "-SNAPSHOT" on snapshot builds due to the requirement of "Dewey decimal"
+					for taglib versions.  The unambiguous full version is annotated via comment.
+				</li>
+				<li>"release-notes-\${version}" id moved to overall release section so links go to overall release.
+					Previously they went specifically to the release notes and the release version was scrolled
+					off the top of the browser.  This keeps things in context.
+				</li>
+				<li>"Release Notes" section no longer included when the release tag has no JSP body.</li>
+			</ul>
+		</changelog:release>
 	</core:page>
 </jsp:root>
