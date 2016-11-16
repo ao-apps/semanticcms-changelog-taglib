@@ -33,7 +33,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 
 	<groupId>com.semanticcms</groupId>
 	<artifactId>semanticcms-changelog-taglib-book</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
 	<properties>
@@ -61,7 +61,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		<connection>scm:git:git://github.com/aoindustries/${documented.artifactId}.git</connection>
 		<developerConnection>scm:git:git@github.com:aoindustries/${documented.artifactId}.git</developerConnection>
 		<url>${documented.scm.url}</url>
-		<tag>HEAD</tag>
+		<tag>semanticcms-changelog-taglib-book-1.0.0</tag>
 	</scm>
 
 	<build>
