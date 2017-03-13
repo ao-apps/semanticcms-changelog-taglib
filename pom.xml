@@ -73,6 +73,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 								<links>
 									<link>https://docs.oracle.com/javaee/6/api/</link>
 									<link>${jodaTimeApidocs}</link>
+									<link>https://aoindustries.com/ao-lang/apidocs/</link>
 									<link>https://aoindustries.com/ao-taglib/apidocs/</link>
 									<link>https://aoindustries.com/aocode-public/apidocs/</link>
 									<link>https://semanticcms.com/core/servlet/apidocs/</link>
@@ -113,13 +114,18 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		</dependency>
 		<dependency>
 			<groupId>com.aoindustries</groupId>
+			<artifactId>ao-lang</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.aoindustries</groupId>
 			<artifactId>ao-taglib</artifactId>
 			<version>2.3.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.aoindustries</groupId>
 			<artifactId>aocode-public</artifactId>
-			<version>1.8.3</version>
+			<version>1.9.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.semanticcms</groupId>
