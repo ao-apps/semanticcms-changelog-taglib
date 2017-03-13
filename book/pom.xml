@@ -191,7 +191,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		<dependency>
 			<groupId>com.semanticcms</groupId>
 			<artifactId>semanticcms-changelog-taglib</artifactId>
-			<version>1.0.0</version>
+			<version>1.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.semanticcms</groupId>
