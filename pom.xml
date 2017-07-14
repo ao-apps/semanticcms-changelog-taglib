@@ -71,7 +71,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 							<artifactId>maven-javadoc-plugin</artifactId>
 							<configuration>
 								<links>
-									<link>https://docs.oracle.com/javaee/6/api/</link>
+									<link>${javac.link.javaeeApi.6}</link>
 									<link>${jodaTimeApidocs}</link>
 									<link>https://aoindustries.com/ao-lang/apidocs/</link>
 									<link>https://aoindustries.com/ao-taglib/apidocs/</link>
@@ -135,7 +135,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		<dependency>
 			<groupId>com.semanticcms</groupId>
 			<artifactId>semanticcms-news-servlet</artifactId>
-			<version>1.1.2</version>
+			<version>1.1.3-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.semanticcms</groupId>
