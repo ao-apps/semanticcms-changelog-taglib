@@ -1,6 +1,6 @@
 /*
  * semanticcms-changelog-taglib - Taglib for managing changelogs in a JSP environment.
- * Copyright (C) 2016, 2017  AO Industries, Inc.
+ * Copyright (C) 2017  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -22,23 +22,23 @@
  */
 package com.semanticcms.changelog.taglib.book;
 
-import com.semanticcms.tagreference.TagReferenceInitializer;
-import java.util.Collections;
+import com.aoindustries.util.PropertiesUtils;
+import java.io.IOException;
+import java.util.Properties;
 
 /**
  * @author  AO Industries, Inc.
  */
-public class SemanticCmsChangelogTldInitializer extends TagReferenceInitializer {
+class Maven {
 
-	public SemanticCmsChangelogTldInitializer() {
-		super(
-			"Changelog Taglib Reference",
-			"Taglib Reference",
-			"/changelog/taglib",
-			"/semanticcms-changelog.tld",
-			Maven.properties.getProperty("javac.link.javaApi.jdk18"),
-			Maven.properties.getProperty("javac.link.javaeeApi.6"),
-			Collections.singletonMap("com.semanticcms.changelog.taglib.", Maven.properties.getProperty("documented.url") + "apidocs/")
-		);
+	static final Properties properties;
+	static {
+		try {
+			properties = PropertiesUtils.loadFromResource(Maven.class, "Maven.properties");
+		} catch(IOException e) {
+			throw new ExceptionInInitializerError(e);
+		}
 	}
+
+	private Maven() {}
 }
