@@ -26,7 +26,8 @@ Creates a "form" tag of class "semanticcms-changelog-taglib-generated-dependenci
 providing generated dependency settings for various build systems.
 
 Arguments:
-	arg.releaase  The release to generate dependencies for.  If null, no output is generated
+	arg.release      The release to generate dependencies for.  If null, no output is generated
+	arg.dependency1  Optional dependency for the release.  Not used when arg.release is null.
 -->
 <jsp:root
 	xmlns:ao="https://aoindustries.com/ao-taglib/"
@@ -38,7 +39,21 @@ Arguments:
 	<jsp:directive.page language="java" pageEncoding="UTF-8" session="false" />
 	<c:if test="${!empty arg.release}">
 		<ao:form class="semanticcms-changelog-taglib-generated-dependencies">
-			<div><ao:textarea style="white-space:pre; overflow-wrap:normal; overflow-x: scroll;" name="output" cols="60" rows="5" readonly="true"><changelog:generateDependency release="#{arg.release}" buildSystem="Maven" /></ao:textarea></div>
+			<div>
+				<ao:textarea
+					style="white-space:pre; overflow-wrap:normal; overflow-x: scroll;"
+					name="output"
+					cols="60"
+					rows="${empty arg.dependency1 ? 5 : 10}"
+					readonly="true"
+				>
+					<changelog:generateDependency release="#{arg.release}" buildSystem="Maven" />
+					<c:if test="${!empty arg.dependency1}">
+						<!-- Add newline --><!CDATA[
+]]><changelog:generateDependency release="#{arg.dependency1}" buildSystem="Maven" />
+					</c:if>
+				</ao:textarea>
+			</div>
 			<div>
 				<!-- TODO: Use cookie to remember user's selected build system? -->
 				<ao:select>
@@ -52,19 +67,40 @@ Arguments:
 					<ao:onchange>
 						var selected = this.options[this.selectedIndex].value;
 						if(selected == "Maven") {
-							this.form.output.value = <changelog:generateDependency release="#{arg.release}" buildSystem="Maven" />;
+							this.form.output.value = <changelog:generateDependency release="#{arg.release}" buildSystem="Maven" />
+							<c:if test="${!empty arg.dependency1}">
+								+ "\n" + <changelog:generateDependency release="#{arg.dependency1}" buildSystem="Maven" />
+							</c:if>;
 						} else if(selected == "Buildr") {
-							this.form.output.value = <changelog:generateDependency release="#{arg.release}" buildSystem="Buildr" />;
+							this.form.output.value = <changelog:generateDependency release="#{arg.release}" buildSystem="Buildr" />
+							<c:if test="${!empty arg.dependency1}">
+								+ "\n" + <changelog:generateDependency release="#{arg.dependency1}" buildSystem="Buildr" />
+							</c:if>;
 						} else if(selected == "Ivy") {
-							this.form.output.value = <changelog:generateDependency release="#{arg.release}" buildSystem="Ivy" />;
+							this.form.output.value = <changelog:generateDependency release="#{arg.release}" buildSystem="Ivy" />
+							<c:if test="${!empty arg.dependency1}">
+								+ "\n" + <changelog:generateDependency release="#{arg.dependency1}" buildSystem="Ivy" />
+							</c:if>;
 						} else if(selected == "Grape") {
-							this.form.output.value = <changelog:generateDependency release="#{arg.release}" buildSystem="Grape" />;
+							this.form.output.value = <changelog:generateDependency release="#{arg.release}" buildSystem="Grape" />
+							<c:if test="${!empty arg.dependency1}">
+								+ "\n" + <changelog:generateDependency release="#{arg.dependency1}" buildSystem="Grape" />
+							</c:if>;
 						} else if(selected == "Grails") {
-							this.form.output.value = <changelog:generateDependency release="#{arg.release}" buildSystem="Grails" />;
+							this.form.output.value = <changelog:generateDependency release="#{arg.release}" buildSystem="Grails" />
+							<c:if test="${!empty arg.dependency1}">
+								+ "\n" + <changelog:generateDependency release="#{arg.dependency1}" buildSystem="Grails" />
+							</c:if>;
 						} else if(selected == "SBT") {
-							this.form.output.value = <changelog:generateDependency release="#{arg.release}" buildSystem="SBT" />;
+							this.form.output.value = <changelog:generateDependency release="#{arg.release}" buildSystem="SBT" />
+							<c:if test="${!empty arg.dependency1}">
+								+ "\n" + <changelog:generateDependency release="#{arg.dependency1}" buildSystem="SBT" />
+							</c:if>;
 						} else if(selected == "Leiningen") {
-							this.form.output.value = <changelog:generateDependency release="#{arg.release}" buildSystem="Leiningen" />;
+							this.form.output.value = <changelog:generateDependency release="#{arg.release}" buildSystem="Leiningen" />
+							<c:if test="${!empty arg.dependency1}">
+								+ "\n" + <changelog:generateDependency release="#{arg.dependency1}" buildSystem="Leiningen" />
+							</c:if>;
 						} else {
 							this.form.output.value = "Unexpected selected value: " + selected;
 						}
