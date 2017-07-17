@@ -49,7 +49,7 @@ Arguments:
 				>
 					<changelog:generateDependency release="#{arg.release}" buildSystem="Maven" />
 					<c:if test="${!empty arg.dependency1}">
-						<ao:out value="\n" /><changelog:generateDependency release="#{arg.dependency1}" buildSystem="Maven" />
+						<ao:out value="&#xA;" /><changelog:generateDependency release="#{arg.dependency1}" buildSystem="Maven" />
 					</c:if>
 				</ao:textarea>
 			</div>
