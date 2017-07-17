@@ -1,6 +1,6 @@
 /*
  * semanticcms-changelog-taglib - Taglib for managing changelogs in a JSP environment.
- * Copyright (C) 2016  AO Industries, Inc.
+ * Copyright (C) 2016, 2017  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -154,8 +154,19 @@ public class ReleaseTag extends SimpleTagSupport {
 							throw new NotImplementedException();
 						}
 					},
+					new Release(
+						projectName,
+						version,
+						datePublished,
+						groupId,
+						artifactId,
+						repository,
+						scmUrl,
+						isSnapshot,
+						tagName
+					),
 					tagName
-				).id("release-notes-" + version).invoke(() -> {
+				).id(Release.DEFAULT_ID_PREFIX + '-' + version).invoke(() -> {
 					if(datePublished != null && captureLevel == CaptureLevel.BODY) {
 						print("<footer><time itemprop=\"datePublished\" datetime=\"");
 						encodeTextInXhtmlAttribute(datePublished.toString());
@@ -170,7 +181,7 @@ public class ReleaseTag extends SimpleTagSupport {
 						if(captureLevel == CaptureLevel.BODY) {
 							print("<ul>\n"
 								+ "<li>");
-							new Link().element("release-notes-" + version).invoke(() -> {
+							new Link().element(Release.DEFAULT_ID_PREFIX + "-" + version).invoke(() -> {
 								print(isSnapshot ? "Snapshot Notes" : "Release Notes");
 							});
 							print("</li>\n");
@@ -232,7 +243,7 @@ public class ReleaseTag extends SimpleTagSupport {
 					});
 					JspFragment body = getJspBody();
 					if(body != null) {
-						new Section(isSnapshot ? "Snapshot Notes" : "Release Notes").id("release-notes-body-" + version).invoke(() -> {
+						new Section(isSnapshot ? "Snapshot Notes" : "Release Notes").id(Release.DEFAULT_ID_PREFIX + "-body-" + version).invoke(() -> {
 							try {
 								body.invoke(com.semanticcms.core.servlet.PageContext.getOut());
 							} catch(SkipPageException e) {
