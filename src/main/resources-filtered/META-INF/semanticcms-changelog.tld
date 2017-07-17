@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 semanticcms-changelog-taglib - Taglib for managing changelogs in a JSP environment.
-Copyright (C) 2016  AO Industries, Inc.
+Copyright (C) 2016, 2017  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -157,4 +157,73 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 			</deferred-value>
 		</attribute>
 	</tag>
+	<tag>
+		<description><![CDATA[
+			<p>
+				Generates a dependency declaration for a given release and build system.
+			</p>
+		]]></description>
+		<name>generateDependency</name>
+		<tag-class>com.semanticcms.changelog.taglib.GenerateDependencyTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<description><![CDATA[
+				<p>
+					The release to create the dependency for.
+				</p>
+			]]></description>
+			<name>release</name>
+			<required>true</required>
+			<deferred-value>
+				<type>com.semanticcms.changelog.taglib.Release</type>
+			</deferred-value>
+		</attribute>
+		<attribute>
+			<description><![CDATA[
+				<p class="semanticcms-tag-reference-summary">
+					The target build system for the generated dependency (case-insensitive).
+				</p>
+				<p>
+					Defaults to <code>"Maven"</code>, but may be any of:
+				</p>
+				<ul>
+					<li><code>"Maven"</code> - <a href="https://maven.apache.org/">Apache Maven</a> (the default)</li>
+					<li><code>"Buildr"</code> - <a href="https://buildr.apache.org/">Apache Buildr</a></li>
+					<li><code>"Ivy"</code> - <a href="http://ant.apache.org/ivy/">Apache Ivy</a></li>
+					<li><code>"Grape"</code> - <a href="http://docs.groovy-lang.org/latest/html/documentation/grape.html">Groovy Grape</a></li>
+					<li><code>"Gradle"</code> - <a href="https://gradle.org/">Gradle/Grails</a></li>
+					<li><code>"SBT"</code> - <a href="http://www.scala-sbt.org/">Scala SBT</a></li>
+					<li><code>"Leiningen"</code> - <a href="https://leiningen.org/">Leiningen</a></li>
+				</ul>
+				<p>
+					The supported systems match those at <a href="https://search.maven.org/">https://search.maven.org/</a>
+					as of 2017-07-15.
+				</p>
+			]]></description>
+			<name>buildSystem</name>
+			<required>false</required>
+			<deferred-value>
+				<type>java.lang.String</type>
+			</deferred-value>
+		</attribute>
+	</tag>
+	<function>
+		<description><![CDATA[
+			<p class="semanticcms-tag-reference-summary">
+				Finds a release in the provided page or element.
+			</p>
+			<p>
+				Uses the first non-snapshot release.
+				If only snapshots in the page or element, uses the first snapshot.
+				If can't find any release, returns <code>null</code>.
+			</p>
+			<p>
+				Searches all elements recursively with depth-first traversal.
+			</p>
+		]]></description>
+		<name>findRelease</name>
+		<function-class>com.semanticcms.changelog.taglib.Functions</function-class>
+		<function-signature>com.semanticcms.changelog.taglib.Release findRelease(com.semanticcms.core.model.Node)</function-signature>
+		<example><![CDATA[<code>${changelog:findRelease(node)}</code>]]></example>
+	</function>
 </taglib>
