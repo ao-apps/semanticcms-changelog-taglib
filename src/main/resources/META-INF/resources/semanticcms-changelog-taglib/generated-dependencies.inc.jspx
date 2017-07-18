@@ -26,13 +26,14 @@ Creates a "form" tag of class "semanticcms-changelog-taglib-generated-dependenci
 providing generated dependency settings for various build systems.
 
 Arguments:
-	arg.release      The release to generate dependencies for.  If null, no output is generated
-	arg.dependency1  Optional dependency for the release.  Not used when arg.release is null.
+	arg.release       The release to generate dependencies for.  If null, no output is generated
+	arg.dependencies  Optional single release, array, collection, or iterable of dependencies for the release.  Not used when arg.release is null.
 -->
 <jsp:root
 	xmlns:ao="https://aoindustries.com/ao-taglib/"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:changelog="https://semanticcms.com/changelog/taglib/"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
 	xmlns:jsp="http://java.sun.com/JSP/Page"
 	version="2.1"
 >
@@ -44,13 +45,10 @@ Arguments:
 					style="white-space:pre; overflow-wrap:normal; overflow-x: scroll;"
 					name="output"
 					cols="60"
-					rows="${empty arg.dependency1 ? 5 : 10}"
+					rows="${5 * (1 + changelog:countDependencies(arg.dependencies))}"
 					readonly="true"
 				>
-					<changelog:generateDependency release="#{arg.release}" buildSystem="Maven" />
-					<c:if test="${!empty arg.dependency1}">
-						<ao:out value="&#xA;" /><changelog:generateDependency release="#{arg.dependency1}" buildSystem="Maven" />
-					</c:if>
+					<changelog:generateDependency release="#{arg.release}" dependencies="#{arg.dependencies}" buildSystem="Maven" />
 				</ao:textarea>
 			</div>
 			<div>
@@ -66,40 +64,19 @@ Arguments:
 					<ao:onchange>
 						var selected = this.options[this.selectedIndex].value;
 						if(selected == "Maven") {
-							this.form.output.value = <changelog:generateDependency release="#{arg.release}" buildSystem="Maven" />
-							<c:if test="${!empty arg.dependency1}">
-								+ "\n" + <changelog:generateDependency release="#{arg.dependency1}" buildSystem="Maven" />
-							</c:if>;
+							this.form.output.value = <changelog:generateDependency release="#{arg.release}" dependencies="#{arg.dependencies}" buildSystem="Maven" />;
 						} else if(selected == "Buildr") {
-							this.form.output.value = <changelog:generateDependency release="#{arg.release}" buildSystem="Buildr" />
-							<c:if test="${!empty arg.dependency1}">
-								+ "\n" + <changelog:generateDependency release="#{arg.dependency1}" buildSystem="Buildr" />
-							</c:if>;
+							this.form.output.value = <changelog:generateDependency release="#{arg.release}" dependencies="#{arg.dependencies}" buildSystem="Buildr" />;
 						} else if(selected == "Ivy") {
-							this.form.output.value = <changelog:generateDependency release="#{arg.release}" buildSystem="Ivy" />
-							<c:if test="${!empty arg.dependency1}">
-								+ "\n" + <changelog:generateDependency release="#{arg.dependency1}" buildSystem="Ivy" />
-							</c:if>;
+							this.form.output.value = <changelog:generateDependency release="#{arg.release}" dependencies="#{arg.dependencies}" buildSystem="Ivy" />;
 						} else if(selected == "Grape") {
-							this.form.output.value = <changelog:generateDependency release="#{arg.release}" buildSystem="Grape" />
-							<c:if test="${!empty arg.dependency1}">
-								+ "\n" + <changelog:generateDependency release="#{arg.dependency1}" buildSystem="Grape" />
-							</c:if>;
+							this.form.output.value = <changelog:generateDependency release="#{arg.release}" dependencies="#{arg.dependencies}" buildSystem="Grape" />;
 						} else if(selected == "Grails") {
-							this.form.output.value = <changelog:generateDependency release="#{arg.release}" buildSystem="Grails" />
-							<c:if test="${!empty arg.dependency1}">
-								+ "\n" + <changelog:generateDependency release="#{arg.dependency1}" buildSystem="Grails" />
-							</c:if>;
+							this.form.output.value = <changelog:generateDependency release="#{arg.release}" dependencies="#{arg.dependencies}" buildSystem="Grails" />;
 						} else if(selected == "SBT") {
-							this.form.output.value = <changelog:generateDependency release="#{arg.release}" buildSystem="SBT" />
-							<c:if test="${!empty arg.dependency1}">
-								+ "\n" + <changelog:generateDependency release="#{arg.dependency1}" buildSystem="SBT" />
-							</c:if>;
+							this.form.output.value = <changelog:generateDependency release="#{arg.release}" dependencies="#{arg.dependencies}" buildSystem="SBT" />;
 						} else if(selected == "Leiningen") {
-							this.form.output.value = <changelog:generateDependency release="#{arg.release}" buildSystem="Leiningen" />
-							<c:if test="${!empty arg.dependency1}">
-								+ "\n" + <changelog:generateDependency release="#{arg.dependency1}" buildSystem="Leiningen" />
-							</c:if>;
+							this.form.output.value = <changelog:generateDependency release="#{arg.release}" dependencies="#{arg.dependencies}" buildSystem="Leiningen" />;
 						} else {
 							this.form.output.value = "Unexpected selected value: " + selected;
 						}

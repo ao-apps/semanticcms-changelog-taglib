@@ -24,6 +24,8 @@ package com.semanticcms.changelog.taglib;
 
 import com.semanticcms.core.model.Element;
 import com.semanticcms.core.model.Node;
+import java.util.Collection;
+import java.util.Iterator;
 
 public class Functions {
 
@@ -44,6 +46,28 @@ public class Functions {
 			if(release != null) return release;
 		}
 		return null;
+	}
+
+	public static int countDependencies(Object dependencies) {
+		if(dependencies == null) {
+			return 0;
+		} else if(dependencies instanceof Release) {
+			return 1;
+		} else if(dependencies instanceof Release[]) {
+			return ((Release[])dependencies).length;
+		} else if(dependencies instanceof Collection<?>) {
+			return ((Collection<? extends Release>)dependencies).size();
+		} else if(dependencies instanceof Iterable) {
+			int count = 0;
+			Iterator<? extends Release> iter = ((Iterable<? extends Release>)dependencies).iterator();
+			while(iter.hasNext()) {
+				Release release = iter.next();
+				count++;
+			}
+			return count;
+		} else {
+			throw new IllegalArgumentException("Unexpected type for dependencies: " + dependencies.getClass().getName());
+		}
 	}
 
 	private Functions() {}

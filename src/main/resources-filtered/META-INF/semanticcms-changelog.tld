@@ -181,6 +181,30 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		<attribute>
 			<description><![CDATA[
 				<p class="semanticcms-tag-reference-summary">
+					An optional set of dependencies.
+				</p>
+				<p>
+					The allowed types for dependencies is consistent with
+					<a href="@{project.url}semanticcms-changelog.tld/function-countDependencies">${changelog:countDependencies(dependencies)}</a>
+					and may be one of:
+				</p>
+				<ol>
+					<li><code>null</code></li>
+					<li>A single <code><a href="@{project.url}apidocs/com/semanticcms/changelog/taglib/Release.html">Release</a></code></li>
+					<li>A <code><a href="@{project.url}apidocs/com/semanticcms/changelog/taglib/Release.html">Release</a>[]</code></li>
+					<li>A <code><a href="@{javac.link.javaApi}java/lang/Collection.html">Collection</a>&lt;? extends <a href="@{project.url}apidocs/com/semanticcms/changelog/taglib/Release.html">Release&gt;</a></code></li>
+					<li>An <code><a href="@{javac.link.javaApi}java/lang/Iterable.html">Iterable</a>&lt;? extends <a href="@{project.url}apidocs/com/semanticcms/changelog/taglib/Release.html">Release&gt;</a></code></li>
+				</ol>
+			]]></description>
+			<name>dependencies</name>
+			<required>false</required>
+			<deferred-value>
+				<type>java.lang.Object</type>
+			</deferred-value>
+		</attribute>
+		<attribute>
+			<description><![CDATA[
+				<p class="semanticcms-tag-reference-summary">
 					The target build system for the generated dependency (case-insensitive).
 				</p>
 				<p>
@@ -225,5 +249,28 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		<function-class>com.semanticcms.changelog.taglib.Functions</function-class>
 		<function-signature>com.semanticcms.changelog.taglib.Release findRelease(com.semanticcms.core.model.Node)</function-signature>
 		<example><![CDATA[<code>${changelog:findRelease(node)}</code>]]></example>
+	</function>
+	<function>
+		<description><![CDATA[
+			<p class="semanticcms-tag-reference-summary">
+				Counts the number of dependencies.
+			</p>
+			<p>
+				The allowed types for dependencies is consistent with
+				<a href="@{project.url}semanticcms-changelog.tld/tag-generateDependency">&lt;changelog:generateDependency dependencies="…" &gt;</a>
+				and may be one of:
+			</p>
+			<ol>
+				<li><code>null</code></li>
+				<li>A single <code><a href="@{project.url}apidocs/com/semanticcms/changelog/taglib/Release.html">Release</a></code></li>
+				<li>A <code><a href="@{project.url}apidocs/com/semanticcms/changelog/taglib/Release.html">Release</a>[]</code></li>
+				<li>A <code><a href="@{javac.link.javaApi}java/lang/Collection.html">Collection</a>&lt;? extends <a href="@{project.url}apidocs/com/semanticcms/changelog/taglib/Release.html">Release&gt;</a></code></li>
+				<li>An <code><a href="@{javac.link.javaApi}java/lang/Iterable.html">Iterable</a>&lt;? extends <a href="@{project.url}apidocs/com/semanticcms/changelog/taglib/Release.html">Release&gt;</a></code></li>
+			</ol>
+		]]></description>
+		<name>countDependencies</name>
+		<function-class>com.semanticcms.changelog.taglib.Functions</function-class>
+		<function-signature>int countDependencies(java.lang.Object)</function-signature>
+		<example><![CDATA[<code>${changelog:countDependencies(dependencies)}</code>]]></example>
 	</function>
 </taglib>
