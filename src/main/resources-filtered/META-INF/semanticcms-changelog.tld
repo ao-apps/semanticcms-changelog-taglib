@@ -192,7 +192,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 					<li><code>null</code></li>
 					<li>A single <code><a href="@{project.url}apidocs/com/semanticcms/changelog/taglib/Release.html">Release</a></code></li>
 					<li>A <code><a href="@{project.url}apidocs/com/semanticcms/changelog/taglib/Release.html">Release</a>[]</code></li>
-					<li>A <code><a href="@{javac.link.javaApi}java/lang/Collection.html">Collection</a>&lt;? extends <a href="@{project.url}apidocs/com/semanticcms/changelog/taglib/Release.html">Release&gt;</a></code></li>
+					<li>A <code><a href="@{javac.link.javaApi}java/util/Collection.html">Collection</a>&lt;? extends <a href="@{project.url}apidocs/com/semanticcms/changelog/taglib/Release.html">Release&gt;</a></code></li>
 					<li>An <code><a href="@{javac.link.javaApi}java/lang/Iterable.html">Iterable</a>&lt;? extends <a href="@{project.url}apidocs/com/semanticcms/changelog/taglib/Release.html">Release&gt;</a></code></li>
 				</ol>
 			]]></description>
@@ -264,7 +264,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 				<li><code>null</code></li>
 				<li>A single <code><a href="@{project.url}apidocs/com/semanticcms/changelog/taglib/Release.html">Release</a></code></li>
 				<li>A <code><a href="@{project.url}apidocs/com/semanticcms/changelog/taglib/Release.html">Release</a>[]</code></li>
-				<li>A <code><a href="@{javac.link.javaApi}java/lang/Collection.html">Collection</a>&lt;? extends <a href="@{project.url}apidocs/com/semanticcms/changelog/taglib/Release.html">Release&gt;</a></code></li>
+				<li>A <code><a href="@{javac.link.javaApi}java/util/Collection.html">Collection</a>&lt;? extends <a href="@{project.url}apidocs/com/semanticcms/changelog/taglib/Release.html">Release&gt;</a></code></li>
 				<li>An <code><a href="@{javac.link.javaApi}java/lang/Iterable.html">Iterable</a>&lt;? extends <a href="@{project.url}apidocs/com/semanticcms/changelog/taglib/Release.html">Release&gt;</a></code></li>
 			</ol>
 		]]></description>
