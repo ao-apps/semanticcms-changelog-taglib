@@ -126,7 +126,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		<dependency>
 			<groupId>com.aoindustries</groupId>
 			<artifactId>aocode-public</artifactId>
-			<version>1.9.0-SNAPSHOT</version>
+			<version>1.9.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.semanticcms</groupId>
