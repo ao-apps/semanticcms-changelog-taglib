@@ -151,7 +151,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		<dependency>
 			<groupId>com.semanticcms</groupId>
 			<artifactId>semanticcms-section-model</artifactId>
-			<version>1.4.3-SNAPSHOT</version>
+			<version>1.4.3</version>
 		</dependency>
 		<dependency>
 			<groupId>com.semanticcms</groupId>
