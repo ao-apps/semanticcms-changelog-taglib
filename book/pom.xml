@@ -133,6 +133,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 							<configuration>
 								<links>
 									<link>${javac.link.javaeeApi.6}</link>
+									<link>https://aoindustries.com/ao-lang/apidocs/</link>
 									<link>https://aoindustries.com/ao-taglib/apidocs/</link>
 									<link>https://semanticcms.com/changelog/taglib/apidocs/</link>
 									<link>https://semanticcms.com/core/taglib/apidocs/</link>
@@ -188,6 +189,11 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		<dependency>
 			<groupId>com.aoindustries</groupId>
 			<artifactId>ao-badges</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.aoindustries</groupId>
+			<artifactId>ao-lang</artifactId>
 			<version>1.0.0</version>
 		</dependency>
 		<dependency>
