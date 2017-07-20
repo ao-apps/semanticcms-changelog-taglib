@@ -59,6 +59,7 @@ public class Functions {
 			return ((Collection<? extends Release>)dependencies).size();
 		} else if(dependencies instanceof Iterable) {
 			int count = 0;
+			@SuppressWarnings("unchecked")
 			Iterator<? extends Release> iter = ((Iterable<? extends Release>)dependencies).iterator();
 			while(iter.hasNext()) {
 				Release release = iter.next();
