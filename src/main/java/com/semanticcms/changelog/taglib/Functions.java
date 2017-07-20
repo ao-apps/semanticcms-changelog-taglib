@@ -56,7 +56,7 @@ public class Functions {
 		} else if(dependencies instanceof Release[]) {
 			return ((Release[])dependencies).length;
 		} else if(dependencies instanceof Collection<?>) {
-			return ((Collection<? extends Release>)dependencies).size();
+			return ((Collection<?>)dependencies).size();
 		} else if(dependencies instanceof Iterable) {
 			int count = 0;
 			@SuppressWarnings("unchecked")
