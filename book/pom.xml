@@ -213,7 +213,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		<dependency>
 			<groupId>com.semanticcms</groupId>
 			<artifactId>semanticcms-tag-reference</artifactId>
-			<version>1.0.1-SNAPSHOT</version>
+			<version>1.0.1</version>
 		</dependency>
 		<!-- Dependency for dependencyversion-maven-plugin only -->
 		<dependency>
