@@ -84,7 +84,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 								<artifactItem>
 									<groupId>com.semanticcms</groupId>
 									<artifactId>semanticcms-changelog-taglib</artifactId>
-									<version>1.0.1</version>
+									<version>1.0.2-SNAPSHOT</version>
 									<type>jar</type>
 									<includes>META-INF/semanticcms-changelog.tld</includes>
 								</artifactItem>
@@ -132,6 +132,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 							<artifactId>maven-javadoc-plugin</artifactId>
 							<configuration>
 								<links>
+									<link>${javac.link.javaApi}</link>
 									<link>${javac.link.javaeeApi.6}</link>
 									<link>https://aoindustries.com/ao-lang/apidocs/</link>
 									<link>https://aoindustries.com/ao-taglib/apidocs/</link>
@@ -225,7 +226,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		<dependency>
 			<groupId>com.semanticcms</groupId>
 			<artifactId>semanticcms-changelog-taglib</artifactId>
-			<version>1.0.1</version>
+			<version>1.0.2-SNAPSHOT</version>
 			<type>pom</type>
 			<scope>provided</scope>
 			<optional>true</optional>

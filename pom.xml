@@ -71,6 +71,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 							<artifactId>maven-javadoc-plugin</artifactId>
 							<configuration>
 								<links>
+									<link>${javac.link.javaApi}</link>
 									<link>${javac.link.javaeeApi.6}</link>
 									<link>${jodaTimeApidocs}</link>
 									<link>https://aoindustries.com/ao-encoding/apidocs/</link>
