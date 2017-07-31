@@ -23,7 +23,6 @@
 package com.semanticcms.changelog.taglib.book;
 
 import com.semanticcms.tagreference.TagReferenceInitializer;
-import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -44,6 +43,7 @@ public class SemanticCmsChangelogTldInitializer extends TagReferenceInitializer 
 		super(
 			"Changelog Taglib Reference",
 			"Taglib Reference",
+			"semanticcms.com",
 			"/changelog/taglib",
 			"/semanticcms-changelog.tld",
 			Maven.properties.getProperty("javac.link.javaApi.jdk18"),
