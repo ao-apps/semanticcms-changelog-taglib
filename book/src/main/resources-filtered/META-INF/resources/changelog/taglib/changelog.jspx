@@ -37,7 +37,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-10-30T16:08:35-0500"
-		dateModified="2017-08-01T16:59:52-0500"
+		dateModified="2017-08-03T11:05:22-0500"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-changelog-taglib:pom.version}" />
@@ -71,7 +71,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 					to expose more release properties as JavaBeans getters.
 				</li>
 				<li>
-					New <ao:a href="https://docs.oracle.com/cd/E19226-01/820-7627/gjddd/">Expression Language</ao:a>
+					New <ao:a rel="nofollow" href="https://docs.oracle.com/cd/E19226-01/820-7627/gjddd/">Expression Language</ao:a>
 					function <code><core:link page="semanticcms-changelog.tld/function-findRelease" /></code>
 					that finds a release in the provided page or element.
 				</li>
@@ -84,7 +84,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 					generates dependency settings for various build systems.
 				</li>
 				<li>
-					New <ao:a href="https://docs.oracle.com/cd/E19226-01/820-7627/gjddd/">Expression Language</ao:a>
+					New <ao:a rel="nofollow" href="https://docs.oracle.com/cd/E19226-01/820-7627/gjddd/">Expression Language</ao:a>
 					function <code><core:link page="semanticcms-changelog.tld/function-countDependencies" /></code>
 					that counts the number of dependencies.
 				</li>
