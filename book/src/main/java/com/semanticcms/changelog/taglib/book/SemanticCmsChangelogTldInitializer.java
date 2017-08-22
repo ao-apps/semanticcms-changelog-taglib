@@ -22,6 +22,10 @@
  */
 package com.semanticcms.changelog.taglib.book;
 
+import com.aoindustries.net.Path;
+import com.aoindustries.validation.ValidationException;
+import com.semanticcms.core.model.BookRef;
+import com.semanticcms.core.model.ResourceRef;
 import com.semanticcms.tagreference.TagReferenceInitializer;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -39,13 +43,17 @@ public class SemanticCmsChangelogTldInitializer extends TagReferenceInitializer 
 		additionalApiLinks.put("com.semanticcms.core.model.", "https://semanticcms.com/core/model/apidocs/");
 	}
 
-	public SemanticCmsChangelogTldInitializer() {
+	public SemanticCmsChangelogTldInitializer() throws ValidationException {
 		super(
 			"Changelog Taglib Reference",
 			"Taglib Reference",
-			"semanticcms.com",
-			"/changelog/taglib",
-			"/semanticcms-changelog.tld",
+			new ResourceRef(
+				new BookRef(
+					"semanticcms.com",
+					Path.valueOf("/changelog/taglib")
+				),
+				Path.valueOf("/semanticcms-changelog.tld")
+			),
 			Maven.properties.getProperty("javac.link.javaApi.jdk18"),
 			Maven.properties.getProperty("javac.link.javaeeApi.6"),
 			additionalApiLinks
