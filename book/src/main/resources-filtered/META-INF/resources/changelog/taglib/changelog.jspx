@@ -54,7 +54,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 				scmUrl="@{documented.scm.url}"
 			>
 				<ul>
-					<li>Updated for <core:link book="/" page="/index.jspx" /> 2.</li>
+					<li>Updated for <core:link book="/" page="/" /> 2.</li>
 				</ul>
 			</changlog:release>
 		</c:if>
