@@ -26,7 +26,7 @@ import com.aoindustries.lang.NotImplementedException;
 import com.aoindustries.sql.SQLUtility;
 import static com.aoindustries.taglib.AttributeUtils.resolveValue;
 import com.semanticcms.core.pages.CaptureLevel;
-import com.semanticcms.core.servlet.CurrentCaptureLevel;
+import com.semanticcms.core.pages.local.CurrentCaptureLevel;
 import com.semanticcms.core.servlet.Link;
 import static com.semanticcms.core.servlet.PageContext.getResponse;
 import static com.semanticcms.core.servlet.PageContextEncoder.encodeTextInXhtml;

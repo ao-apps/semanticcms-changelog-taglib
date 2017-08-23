@@ -29,7 +29,7 @@ import static com.aoindustries.encoding.TextInXhtmlEncoder.encodeTextInXhtml;
 import static com.aoindustries.taglib.AttributeUtils.resolveValue;
 import com.aoindustries.taglib.AutoEncodingNullTag;
 import com.semanticcms.core.pages.CaptureLevel;
-import com.semanticcms.core.servlet.CurrentCaptureLevel;
+import com.semanticcms.core.pages.local.CurrentCaptureLevel;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
