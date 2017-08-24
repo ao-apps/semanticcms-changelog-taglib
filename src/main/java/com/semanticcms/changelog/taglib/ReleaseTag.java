@@ -27,11 +27,11 @@ import com.aoindustries.sql.SQLUtility;
 import static com.aoindustries.taglib.AttributeUtils.resolveValue;
 import com.semanticcms.core.pages.CaptureLevel;
 import com.semanticcms.core.pages.local.CurrentCaptureLevel;
+import static com.semanticcms.core.pages.local.PageContext.getResponse;
+import static com.semanticcms.core.pages.local.PageContextEncoder.encodeTextInXhtml;
+import static com.semanticcms.core.pages.local.PageContextEncoder.encodeTextInXhtmlAttribute;
+import static com.semanticcms.core.pages.local.PageContextWriter.print;
 import com.semanticcms.core.servlet.Link;
-import static com.semanticcms.core.servlet.PageContext.getResponse;
-import static com.semanticcms.core.servlet.PageContextEncoder.encodeTextInXhtml;
-import static com.semanticcms.core.servlet.PageContextEncoder.encodeTextInXhtmlAttribute;
-import static com.semanticcms.core.servlet.PageContextWriter.print;
 import com.semanticcms.core.servlet.PageUtils;
 import com.semanticcms.news.servlet.News;
 import com.semanticcms.section.servlet.Section;
@@ -246,7 +246,7 @@ public class ReleaseTag extends SimpleTagSupport {
 					if(body != null) {
 						new Section(isSnapshot ? "Snapshot Notes" : "Release Notes").id(Release.DEFAULT_ID_PREFIX + "-body-" + version).invoke(() -> {
 							try {
-								body.invoke(com.semanticcms.core.servlet.PageContext.getOut());
+								body.invoke(com.semanticcms.core.pages.local.PageContext.getOut());
 							} catch(SkipPageException e) {
 								throw e;
 							} catch(JspException e) {
