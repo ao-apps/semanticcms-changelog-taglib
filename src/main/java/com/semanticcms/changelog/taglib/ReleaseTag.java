@@ -25,6 +25,7 @@ package com.semanticcms.changelog.taglib;
 import com.aoindustries.lang.NotImplementedException;
 import com.aoindustries.sql.SQLUtility;
 import static com.aoindustries.taglib.AttributeUtils.resolveValue;
+import com.semanticcms.core.controller.PageUtils;
 import com.semanticcms.core.pages.CaptureLevel;
 import com.semanticcms.core.pages.local.CurrentCaptureLevel;
 import static com.semanticcms.core.pages.local.PageContext.getResponse;
@@ -32,7 +33,6 @@ import static com.semanticcms.core.pages.local.PageContextEncoder.encodeTextInXh
 import static com.semanticcms.core.pages.local.PageContextEncoder.encodeTextInXhtmlAttribute;
 import static com.semanticcms.core.pages.local.PageContextWriter.print;
 import com.semanticcms.core.servlet.Link;
-import com.semanticcms.core.servlet.PageUtils;
 import com.semanticcms.news.servlet.News;
 import com.semanticcms.section.servlet.Section;
 import java.io.IOException;
