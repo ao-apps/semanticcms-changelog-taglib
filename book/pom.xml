@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 semanticcms-changelog-taglib - Taglib for managing changelogs in a JSP environment.
-Copyright (C) 2016, 2017  AO Industries, Inc.
+Copyright (C) 2016, 2017, 2019  AO Industries, Inc.
     support@aoindustries.com
     7262 Bull Pen Cir
     Mobile, AL 36695
@@ -42,7 +42,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		<documented.artifactId>semanticcms-changelog-taglib</documented.artifactId>
 		<documented.javaVersion>1.8</documented.javaVersion>
 		<documented.javac.link.javaApi>${javac.link.javaApi.jdk18}</documented.javac.link.javaApi>
-		<documented.name>SemanticCMS Changelog Taglib</documented.name>
+		<documented.name>SemanticCMS 1 Changelog Taglib</documented.name>
 		<documented.shortTitle>Changelog Taglib</documented.shortTitle>
 		<documented.url>https://semanticcms.com/changelog/taglib/</documented.url>
 		<documented.description>Taglib for managing changelogs in a JSP environment.</documented.description>
