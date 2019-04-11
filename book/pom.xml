@@ -34,8 +34,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 
 	<properties>
 		<!-- These values are copied from the project being documented -->
-		<documented.groupId>com.semanticcms</documented.groupId>
-		<documented.artifactId>semanticcms-changelog-taglib</documented.artifactId>
+		<documented.groupId>com.semanticcms</documented.groupId><documented.artifactId>semanticcms-changelog-taglib</documented.artifactId>
 		<documented.javaVersion>1.8</documented.javaVersion>
 		<documented.javac.link.javaApi>${javac.link.javaApi.jdk18}</documented.javac.link.javaApi>
 		<documented.name>SemanticCMS 1 Changelog Taglib</documented.name>
