@@ -30,7 +30,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 	</parent>
 
 	<groupId>com.semanticcms</groupId><artifactId>semanticcms-changelog-taglib</artifactId><version>1.0.2-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>bundle</packaging>
 
 	<properties>
 		<shortTitle>Changelog Taglib</shortTitle>
