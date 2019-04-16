@@ -42,7 +42,7 @@ public class SemanticCmsChangelogTldInitializer extends TagReferenceInitializer 
 			"Taglib Reference",
 			"/changelog/taglib",
 			"/semanticcms-changelog.tld",
-			Maven.properties.getProperty("javac.link.javaApi.jdk8"),
+			Maven.properties.getProperty("documented.javac.link.javaApi"),
 			Maven.properties.getProperty("javac.link.javaeeApi.6"),
 			additionalApiLinks
 		);
