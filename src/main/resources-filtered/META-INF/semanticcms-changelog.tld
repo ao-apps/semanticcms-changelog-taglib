@@ -192,8 +192,8 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 					<li><code>null</code></li>
 					<li>A single <code><a href="@{project.url}apidocs/com/semanticcms/changelog/taglib/Release.html">Release</a></code></li>
 					<li>A <code><a href="@{project.url}apidocs/com/semanticcms/changelog/taglib/Release.html">Release</a>[]</code></li>
-					<li>A <code><a rel="nofollow" href="@{javac.link.javaApi}/java/util/Collection.html">Collection</a>&lt;? extends <a href="@{project.url}apidocs/com/semanticcms/changelog/taglib/Release.html">Release</a>&gt;</code></li>
-					<li>An <code><a rel="nofollow" href="@{javac.link.javaApi}/java/lang/Iterable.html">Iterable</a>&lt;? extends <a href="@{project.url}apidocs/com/semanticcms/changelog/taglib/Release.html">Release</a>&gt;</code></li>
+					<li>A <code><a rel="nofollow" href="@{javac.link.javaApi}java/util/Collection.html">Collection</a>&lt;? extends <a href="@{project.url}apidocs/com/semanticcms/changelog/taglib/Release.html">Release</a>&gt;</code></li>
+					<li>An <code><a rel="nofollow" href="@{javac.link.javaApi}java/lang/Iterable.html">Iterable</a>&lt;? extends <a href="@{project.url}apidocs/com/semanticcms/changelog/taglib/Release.html">Release</a>&gt;</code></li>
 				</ol>
 			]]></description>
 			<name>dependencies</name>
@@ -264,8 +264,8 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 				<li><code>null</code></li>
 				<li>A single <code><a href="@{project.url}apidocs/com/semanticcms/changelog/taglib/Release.html">Release</a></code></li>
 				<li>A <code><a href="@{project.url}apidocs/com/semanticcms/changelog/taglib/Release.html">Release</a>[]</code></li>
-				<li>A <code><a rel="nofollow" href="@{javac.link.javaApi}/java/util/Collection.html">Collection</a>&lt;? extends <a href="@{project.url}apidocs/com/semanticcms/changelog/taglib/Release.html">Release</a>&gt;</code></li>
-				<li>An <code><a rel="nofollow" href="@{javac.link.javaApi}/java/lang/Iterable.html">Iterable</a>&lt;? extends <a href="@{project.url}apidocs/com/semanticcms/changelog/taglib/Release.html">Release</a>&gt;</code></li>
+				<li>A <code><a rel="nofollow" href="@{javac.link.javaApi}java/util/Collection.html">Collection</a>&lt;? extends <a href="@{project.url}apidocs/com/semanticcms/changelog/taglib/Release.html">Release</a>&gt;</code></li>
+				<li>An <code><a rel="nofollow" href="@{javac.link.javaApi}java/lang/Iterable.html">Iterable</a>&lt;? extends <a href="@{project.url}apidocs/com/semanticcms/changelog/taglib/Release.html">Release</a>&gt;</code></li>
 			</ol>
 		]]></description>
 		<name>countDependencies</name>
