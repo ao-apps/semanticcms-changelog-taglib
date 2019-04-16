@@ -37,7 +37,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		<documented.groupId>com.semanticcms</documented.groupId><documented.artifactId>semanticcms-changelog-taglib</documented.artifactId>
 		<documented.javaVersion>1.8</documented.javaVersion>
 		<documented.javac.link.javaApi>${javac.link.javaApi.jdk8}</documented.javac.link.javaApi>
-		<documented.name>SemanticCMS 1 Changelog Taglib</documented.name>
+		<documented.name>SemanticCMS Changelog Taglib</documented.name>
 		<documented.shortTitle>Changelog Taglib</documented.shortTitle>
 		<documented.url>https://semanticcms.com/changelog/taglib/</documented.url>
 		<documented.description>Taglib for managing changelogs in a JSP environment.</documented.description>

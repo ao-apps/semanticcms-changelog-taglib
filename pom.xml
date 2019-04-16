@@ -43,7 +43,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		<javac.link.javaApi>${javac.link.javaApi.jdk8}</javac.link.javaApi>
 	</properties>
 
-	<name>SemanticCMS 1 Changelog Taglib</name>
+	<name>SemanticCMS Changelog Taglib</name>
 	<url>https://semanticcms.com/changelog/taglib/</url>
 	<description>Taglib for managing changelogs in a JSP environment.</description>
 	<inceptionYear>2016</inceptionYear>
