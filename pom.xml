@@ -35,7 +35,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 	<properties>
 		<shortTitle>Changelog Taglib</shortTitle>
 		<javadoc.taglibReference><![CDATA[<li><a target="_top" href="${project.url}semanticcms-changelog.tld/">Taglib Reference</a></li>]]></javadoc.taglibReference>
-		<jodaTimeApidocs>http://www.joda.org/joda-time/apidocs</jodaTimeApidocs>
+		<jodaTimeApidocs>https://www.joda.org/joda-time/apidocs</jodaTimeApidocs>
 		<!-- Java 1.8+ required for Lambdas -->
 		<javaVersion>1.8</javaVersion>
 		<compiler.bootclasspath>${bootclasspath.jdk8}</compiler.bootclasspath>
