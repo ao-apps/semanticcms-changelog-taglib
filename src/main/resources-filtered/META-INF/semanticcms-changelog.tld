@@ -71,7 +71,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		<attribute>
 			<description><![CDATA[
 				<p class="semanticcms-tag-reference-summary">
-					The date of the release in <a href="http://www.iso.org/iso/home/standards/iso8601.htm">ISO 8601</a> format.
+					The date of the release in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format.
 				</p>
 				<p>
 					At least <code>YYYY-MM-DD</code> is required,
