@@ -1,6 +1,6 @@
 /*
  * semanticcms-changelog-taglib - Taglib for managing changelogs in a JSP environment.
- * Copyright (C) 2016, 2017  AO Industries, Inc.
+ * Copyright (C) 2016, 2017, 2019  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -22,7 +22,6 @@
  */
 package com.semanticcms.changelog.taglib;
 
-import com.aoindustries.lang.NotImplementedException;
 import com.aoindustries.sql.SQLUtility;
 import static com.aoindustries.taglib.AttributeUtils.resolveValue;
 import com.semanticcms.core.controller.PageUtils;
@@ -34,6 +33,7 @@ import static com.semanticcms.core.pages.local.PageContextEncoder.encodeTextInXh
 import static com.semanticcms.core.pages.local.PageContextWriter.print;
 import com.semanticcms.core.servlet.Link;
 import com.semanticcms.news.servlet.News;
+import com.semanticcms.section.servlet.Nav;
 import com.semanticcms.section.servlet.Section;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -151,8 +151,9 @@ public class ReleaseTag extends SimpleTagSupport {
 							return pw;
 						}
 						@Override
+						@SuppressWarnings("deprecation")
 						public ServletOutputStream getOutputStream() {
-							throw new NotImplementedException();
+							throw new com.aoindustries.lang.NotImplementedException();
 						}
 					},
 					new Release(
@@ -176,9 +177,7 @@ public class ReleaseTag extends SimpleTagSupport {
 						print("</time></footer>\n");
 					}
 					if(!isSnapshot) new News(datePublished, projectName + " " + version + " released.").invoke();
-					// TODO: Here and other places, make and use a new "Nav" tag as section, instead of just section everywhere.
-					//       This might help search engines distinguish content from nav blocks.
-					new Section(isSnapshot ? "Snapshot Links" : "Release Links").id("release-links-" + version).invoke(() -> {
+					new Nav(isSnapshot ? "Snapshot Links" : "Release Links").id("release-links-" + version).invoke(() -> {
 						if(captureLevel == CaptureLevel.BODY) {
 							print("<ul>\n"
 								+ "<li>");
