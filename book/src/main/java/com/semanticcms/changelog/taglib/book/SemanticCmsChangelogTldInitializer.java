@@ -28,7 +28,7 @@ import java.util.Map;
 
 public class SemanticCmsChangelogTldInitializer extends TagReferenceInitializer {
 
-	private static final Map<String,String> additionalApiLinks = new LinkedHashMap<String,String>();
+	private static final Map<String,String> additionalApiLinks = new LinkedHashMap<>();
 	static {
 		// Self
 		additionalApiLinks.put("com.semanticcms.changelog.taglib.", Maven.properties.getProperty("documented.url") + "apidocs/");
