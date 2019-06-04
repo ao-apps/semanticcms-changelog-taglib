@@ -37,7 +37,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-10-30T16:08:35-0500"
-		dateModified="2019-06-01T22:59:51-0500"
+		dateModified="2019-06-04T15:36:46-0500"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-changelog-taglib:pom.version}" />
@@ -59,6 +59,12 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 						Changed generated "Snapshot Links" / "Release Links" from
 						<ao:a href="https://www.w3.org/TR/html5/sections.html#the-section-element"><![CDATA[&lt;section&gt;]]></ao:a>
 						to <ao:a href="https://www.w3.org/TR/html5/sections.html#the-nav-element"><![CDATA[&lt;nav&gt;]]></ao:a>.
+					</li>
+					<li>Using managed dependencies:
+						<ol>
+							<li>This project uses transitive managed dependencies.</li>
+							<li>This project's managed dependencies may also be imported by other projects.</li>
+						</ol>
 					</li>
 				</ul>
 			</changelog:release>
