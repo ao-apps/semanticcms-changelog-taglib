@@ -37,7 +37,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		<documented.groupId>com.semanticcms</documented.groupId><documented.artifactId>semanticcms-changelog-taglib</documented.artifactId>
 		<documented.javaVersion>1.8</documented.javaVersion>
 		<documented.javac.link.javaApi>${javac.link.javaApi.jdk8}</documented.javac.link.javaApi>
-		<documented.name>SemanticCMS 2 Changelog Taglib</documented.name>
+		<documented.name>SemanticCMS Changelog Taglib²</documented.name>
 		<documented.shortTitle>Changelog Taglib</documented.shortTitle>
 		<documented.url>https://semanticcms.com/changelog/taglib/</documented.url>
 		<documented.description>Taglib for managing changelogs in a JSP environment.</documented.description>
@@ -192,7 +192,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 			<groupId>com.aoindustries</groupId><artifactId>ao-lang</artifactId><version>2.1.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId><version>3.0.0-validation-SNAPSHOT</version>
+			<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId><version>3.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.semanticcms</groupId><artifactId>semanticcms-changelog-taglib</artifactId><version>2.0.0-SNAPSHOT</version>
