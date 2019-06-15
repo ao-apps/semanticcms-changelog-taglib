@@ -25,6 +25,8 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
 	version="2.1">
+	<!-- datePublished="2016-10-29T01:26:26-0500" -->
+	<!-- dateModified="2016-11-11T13:03:37-0600" -->
 	<description><![CDATA[
 		<p>@{description.html}</p>
 	]]></description>
@@ -36,6 +38,8 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 	<short-name>changelog</short-name>
 	<uri>@{project.url}</uri>
 	<tag>
+		<!-- datePublished="2016-10-29T01:26:26-0500" -->
+		<!-- dateModified="2019-04-20T21:06:09-0500" -->
 		<description><![CDATA[
 			<p>
 				Adds a changelog entry to the current page.
@@ -158,6 +162,8 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		</attribute>
 	</tag>
 	<tag>
+		<!-- datePublished="2017-07-17T09:53:04-0500" -->
+		<!-- dateModified="2019-04-15T19:33:35-0500" -->
 		<description><![CDATA[
 			<p>
 				Generates a dependency declaration for a given release and build system.
@@ -232,6 +238,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		</attribute>
 	</tag>
 	<function>
+		<!-- datePublished="2017-07-17T09:53:04-0500" -->
 		<description><![CDATA[
 			<p class="semanticcms-tag-reference-summary">
 				Finds a release in the provided page or element.
@@ -251,6 +258,8 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		<example><![CDATA[<code>${changelog:findRelease(node)}</code>]]></example>
 	</function>
 	<function>
+		<!-- datePublished="2017-07-17T20:14:08-0500" -->
+		<!-- dateModified="2019-04-15T19:33:35-0500" -->
 		<description><![CDATA[
 			<p class="semanticcms-tag-reference-summary">
 				Counts the number of dependencies.
