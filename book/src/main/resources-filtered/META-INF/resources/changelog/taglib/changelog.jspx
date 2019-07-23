@@ -36,7 +36,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-10-30T16:08:35-0500"
-		dateModified="2019-07-23T06:39:02-0500"
+		dateModified="2019-07-23T07:03:04-0500"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-changelog-taglib:pom.version}" />
@@ -58,7 +58,6 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 						Not including <code>-validation-SNAPSHOT</code> or <code>-SNAPSHOT</code> from version used in ID generation.
 						This allows links to be created to a version while it is still a snapshot.
 					</li>
-					<li>Updated for compatibility with <ao:a href="https://aoindustries.com/aocode-public/changelog#release-notes-3.0.0">aocode-public-3.0.0</ao:a>.</li>
 					<li>Changed date formatting to be the same as other places instead of a fixed YYYY-MM-DD format.</li>
 				</ul>
 			</changelog:release>

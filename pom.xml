@@ -72,7 +72,6 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 								<link>https://aoindustries.com/ao-encoding/apidocs/</link>
 								<link>https://aoindustries.com/ao-lang/apidocs/</link>
 								<link>https://aoindustries.com/ao-taglib/apidocs/</link>
-								<link>https://aoindustries.com/aocode-public/apidocs/</link>
 								<link>${jodaTimeApidocs}</link>
 								<link>https://semanticcms.com/core/model/apidocs/</link>
 								<link>https://semanticcms.com/core/servlet/apidocs/</link>
@@ -104,9 +103,6 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 			</dependency>
 			<dependency>
 				<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId><version>3.0.1-POST-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoindustries</groupId><artifactId>aocode-public</artifactId><version>3.0.0-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>joda-time</groupId><artifactId>joda-time</artifactId><version>2.10.2</version>
@@ -152,9 +148,6 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		</dependency>
 		<dependency>
 			<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.aoindustries</groupId><artifactId>aocode-public</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>joda-time</groupId><artifactId>joda-time</artifactId>
