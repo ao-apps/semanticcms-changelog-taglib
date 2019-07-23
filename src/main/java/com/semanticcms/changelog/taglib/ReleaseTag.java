@@ -56,6 +56,8 @@ public class ReleaseTag extends SimpleTagSupport {
 
 	private static final String SNAPSHOT_END = "-SNAPSHOT";
 
+	private static final String VALIDATION_SNAPSHOT_END = "-validation" + SNAPSHOT_END;
+
 	private static final String GITHUB_START = "https://github.com/";
 
 	private ValueExpression projectNameExpr;
@@ -142,10 +144,10 @@ public class ReleaseTag extends SimpleTagSupport {
 			};
 			try {
 				String idVersion;
-				if(version.endsWith("-validation-SNAPSHOT")) {
-					idVersion = version.substring(0, version.length() - "-validation-SNAPSHOT".length());
-				} else if(version.endsWith("-SNAPSHOT")) {
-					idVersion = version.substring(0, version.length() - "-SNAPSHOT".length());
+				if(version.endsWith(VALIDATION_SNAPSHOT_END)) {
+					idVersion = version.substring(0, version.length() - VALIDATION_SNAPSHOT_END.length());
+				} else if(version.endsWith(SNAPSHOT_END)) {
+					idVersion = version.substring(0, version.length() - SNAPSHOT_END.length());
 				} else {
 					idVersion = version;
 				}
@@ -181,7 +183,8 @@ public class ReleaseTag extends SimpleTagSupport {
 						print("<footer><time itemprop=\"datePublished\" datetime=\"");
 						encodeTextInXhtmlAttribute(datePublished.toString());
 						print("\">");
-						encodeTextInXhtml(SQLUtility.getDate(datePublished.getMillis()));
+						// TODO: Format same as other places
+						encodeTextInXhtml(SQLUtility.formatDate(datePublished.getMillis()));
 						print("</time></footer>\n");
 					}
 					if(!isSnapshot) new News(datePublished, projectName + " " + version + " released.").invoke();
