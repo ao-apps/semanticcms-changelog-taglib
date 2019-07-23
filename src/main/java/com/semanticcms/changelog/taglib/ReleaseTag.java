@@ -22,7 +22,6 @@
  */
 package com.semanticcms.changelog.taglib;
 
-import com.aoindustries.sql.SQLUtility;
 import static com.aoindustries.taglib.AttributeUtils.resolveValue;
 import com.semanticcms.core.servlet.CaptureLevel;
 import com.semanticcms.core.servlet.Link;
@@ -51,6 +50,7 @@ import javax.servlet.jsp.SkipPageException;
 import javax.servlet.jsp.tagext.JspFragment;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 import org.joda.time.ReadableDateTime;
+import org.joda.time.format.DateTimeFormat;
 
 public class ReleaseTag extends SimpleTagSupport {
 
@@ -106,6 +106,7 @@ public class ReleaseTag extends SimpleTagSupport {
 		HttpServletRequest request = (HttpServletRequest)pageContext.getRequest();
 		final CaptureLevel captureLevel = CaptureLevel.getCaptureLevel(request);
 		if(captureLevel.compareTo(CaptureLevel.META) >= 0) {
+			HttpServletResponse response = (HttpServletResponse)pageContext.getResponse();
 			// Resolve attributes
 			ELContext elContext = pageContext.getELContext();
 			final String projectName = resolveValue(this.projectNameExpr, String.class, elContext);
@@ -155,7 +156,7 @@ public class ReleaseTag extends SimpleTagSupport {
 				new Section(
 					pageContext.getServletContext(),
 					request,
-					new HttpServletResponseWrapper((HttpServletResponse)pageContext.getResponse()) {
+					new HttpServletResponseWrapper(response) {
 						@Override
 						public PrintWriter getWriter() {
 							return pw;
@@ -183,8 +184,7 @@ public class ReleaseTag extends SimpleTagSupport {
 						print("<footer><time itemprop=\"datePublished\" datetime=\"");
 						encodeTextInXhtmlAttribute(datePublished.toString());
 						print("\">");
-						// TODO: Format same as other places
-						encodeTextInXhtml(SQLUtility.formatDate(datePublished.getMillis()));
+						encodeTextInXhtml(DateTimeFormat.forStyle("L-").withLocale(response.getLocale()).print(datePublished));
 						print("</time></footer>\n");
 					}
 					if(!isSnapshot) new News(datePublished, projectName + " " + version + " released.").invoke();
