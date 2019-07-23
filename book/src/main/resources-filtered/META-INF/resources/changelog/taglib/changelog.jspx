@@ -36,7 +36,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-10-30T16:08:35-0500"
-		dateModified="2019-07-23T06:39:02-0500"
+		dateModified="2019-07-23T07:03:04-0500"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-changelog-taglib:pom.version}" />
@@ -58,11 +58,34 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 						Not including <code>-validation-SNAPSHOT</code> or <code>-SNAPSHOT</code> from version used in ID generation.
 						This allows links to be created to a version while it is still a snapshot.
 					</li>
-					<li>Updated for compatibility with <ao:a href="https://aoindustries.com/aocode-public/changelog#release-notes-3.0.0">aocode-public-3.0.0</ao:a>.</li>
 					<li>Changed date formatting to be the same as other places instead of a fixed YYYY-MM-DD format.</li>
 				</ul>
 			</changelog:release>
 		</c:if>
+
+		<changelog:release
+			projectName="@{documented.name}"
+			version="1.1.0"
+			datePublished="2019-06-19T10:43:22-0500"
+			groupId="@{documented.groupId}"
+			artifactId="@{documented.artifactId}"
+			scmUrl="@{documented.scm.url}"
+		>
+			<ul>
+				<li>Minimum Java version changed from 1.6 to 1.7.</li>
+				<li>
+					Changed generated "Snapshot Links" / "Release Links" from
+					<ao:a href="https://www.w3.org/TR/html5/sections.html#the-section-element"><![CDATA[&lt;section&gt;]]></ao:a>
+					to <ao:a href="https://www.w3.org/TR/html5/sections.html#the-nav-element"><![CDATA[&lt;nav&gt;]]></ao:a>.
+				</li>
+				<li>Using managed dependencies:
+					<ol>
+						<li>This project uses managed dependencies.</li>
+						<li>This project's managed dependencies may also be imported by other projects.</li>
+					</ol>
+				</li>
+			</ul>
+		</changelog:release>
 
 		<changelog:release
 			projectName="@{documented.name}"
