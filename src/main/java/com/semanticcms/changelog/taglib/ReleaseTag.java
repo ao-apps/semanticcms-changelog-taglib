@@ -142,6 +142,15 @@ public class ReleaseTag extends SimpleTagSupport {
 				}
 			};
 			try {
+				String idVersion;
+				if(version.endsWith("-validation-SNAPSHOT")) {
+					idVersion = version.substring(0, version.length() - "-validation-SNAPSHOT".length());
+				} else if(version.endsWith("-SNAPSHOT")) {
+					idVersion = version.substring(0, version.length() - "-SNAPSHOT".length());
+				} else {
+					idVersion = version;
+				}
+				String id = Release.DEFAULT_ID_PREFIX + '-' + idVersion;
 				new Section(
 					pageContext.getServletContext(),
 					request,
@@ -168,7 +177,7 @@ public class ReleaseTag extends SimpleTagSupport {
 						tagName
 					),
 					tagName
-				).id(Release.DEFAULT_ID_PREFIX + '-' + version).invoke(() -> {
+				).id(id).invoke(() -> {
 					if(datePublished != null && captureLevel == CaptureLevel.BODY) {
 						print("<footer><time itemprop=\"datePublished\" datetime=\"");
 						encodeTextInXhtmlAttribute(datePublished.toString());
@@ -181,7 +190,7 @@ public class ReleaseTag extends SimpleTagSupport {
 						if(captureLevel == CaptureLevel.BODY) {
 							print("<ul>\n"
 								+ "<li>");
-							new Link().element(Release.DEFAULT_ID_PREFIX + "-" + version).invoke(() -> {
+							new Link().element(id).invoke(() -> {
 								print(isSnapshot ? "Snapshot Notes" : "Release Notes");
 							});
 							print("</li>\n");
@@ -243,7 +252,7 @@ public class ReleaseTag extends SimpleTagSupport {
 					});
 					JspFragment body = getJspBody();
 					if(body != null) {
-						new Section(isSnapshot ? "Snapshot Notes" : "Release Notes").id(Release.DEFAULT_ID_PREFIX + "-body-" + version).invoke(() -> {
+						new Section(isSnapshot ? "Snapshot Notes" : "Release Notes").id(Release.DEFAULT_ID_PREFIX + "-body-" + idVersion).invoke(() -> {
 							try {
 								body.invoke(com.semanticcms.core.pages.local.PageContext.getOut());
 							} catch(SkipPageException e) {
