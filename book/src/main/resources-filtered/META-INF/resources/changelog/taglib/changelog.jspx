@@ -53,7 +53,6 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 				scmUrl="@{documented.scm.url}"
 			>
 				<ul>
-					<li>Updated for <core:link book="/" page="/" /> 2.</li>
 					<li>
 						Not including <code>-validation-SNAPSHOT</code> or <code>-SNAPSHOT</code> from version used in ID generation.
 						This allows links to be created to a version while it is still a snapshot.
