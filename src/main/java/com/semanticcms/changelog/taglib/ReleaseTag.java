@@ -239,7 +239,7 @@ public class ReleaseTag extends SimpleTagSupport {
 								if(!isSnapshot) {
 									if(!scmUrl.endsWith("/")) print('/');
 									print("releases/tag/");
-									encodeTextInXhtmlAttribute(tagName);
+									encodeTextInXhtmlAttribute(URIComponent.BASE.encode(tagName, response));
 								}
 								print("\">");
 								if(scmUrl.startsWith(GITHUB_START)) {
