@@ -22,11 +22,11 @@
  */
 package com.semanticcms.changelog.taglib;
 
+import com.aoindustries.servlet.URIComponent;
 import static com.aoindustries.taglib.AttributeUtils.resolveValue;
 import com.semanticcms.core.controller.PageUtils;
 import com.semanticcms.core.pages.CaptureLevel;
 import com.semanticcms.core.pages.local.CurrentCaptureLevel;
-import static com.semanticcms.core.pages.local.PageContext.getResponse;
 import static com.semanticcms.core.pages.local.PageContextEncoder.encodeTextInXhtml;
 import static com.semanticcms.core.pages.local.PageContextEncoder.encodeTextInXhtmlAttribute;
 import static com.semanticcms.core.pages.local.PageContextWriter.print;
@@ -36,7 +36,6 @@ import com.semanticcms.section.servlet.Nav;
 import com.semanticcms.section.servlet.Section;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.URLEncoder;
 import javax.el.ELContext;
 import javax.el.ValueExpression;
 import javax.servlet.ServletException;
@@ -222,13 +221,13 @@ public class ReleaseTag extends SimpleTagSupport {
 									// Maven Central Repository
 									print("<li><a href=\"https://search.maven.org/#");
 									encodeTextInXhtmlAttribute(
-										URLEncoder.encode(
+										URIComponent.FRAGMENT.encode(
 											"artifactdetails|"
 											+ groupId
 											+ '|' + artifactId
 											+ '|' + version
 											+ '|',
-											getResponse().getCharacterEncoding()
+											response
 										)
 									);
 									print("\">Maven Central Repository</a></li>\n");
