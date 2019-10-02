@@ -22,7 +22,7 @@
  */
 package com.semanticcms.changelog.taglib;
 
-import com.aoindustries.servlet.URIComponent;
+import com.aoindustries.net.URIEncoder;
 import static com.aoindustries.taglib.AttributeUtils.resolveValue;
 import com.semanticcms.core.servlet.CaptureLevel;
 import com.semanticcms.core.servlet.Link;
@@ -220,13 +220,12 @@ public class ReleaseTag extends SimpleTagSupport {
 									// Maven Central Repository
 									print("<li><a href=\"https://search.maven.org/#");
 									encodeTextInXhtmlAttribute(
-										URIComponent.FRAGMENT.encode(
+										URIEncoder.encodeURIComponent(
 											"artifactdetails|"
 											+ groupId
 											+ '|' + artifactId
 											+ '|' + version
-											+ '|',
-											response
+											+ '|'
 										)
 									);
 									print("\">Maven Central Repository</a></li>\n");
@@ -238,7 +237,7 @@ public class ReleaseTag extends SimpleTagSupport {
 								if(!isSnapshot) {
 									if(!scmUrl.endsWith("/")) print('/');
 									print("releases/tag/");
-									encodeTextInXhtmlAttribute(URIComponent.BASE.encode(tagName, response));
+									encodeTextInXhtmlAttribute(URIEncoder.encodeURIComponent(tagName));
 								}
 								print("\">");
 								if(scmUrl.startsWith(GITHUB_START)) {
