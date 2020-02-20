@@ -29,7 +29,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		<relativePath>../../parent/pom.xml</relativePath>
 	</parent>
 
-	<groupId>com.semanticcms</groupId><artifactId>semanticcms-changelog-taglib-book</artifactId><version>1.2.0-POST-SNAPSHOT</version>
+	<groupId>com.semanticcms</groupId><artifactId>semanticcms-changelog-taglib-book</artifactId><version>1.2.1-SNAPSHOT</version>
 	<packaging>bundle</packaging>
 
 	<properties>
@@ -76,7 +76,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 						<configuration>
 							<artifactItems>
 								<artifactItem>
-									<groupId>com.semanticcms</groupId><artifactId>semanticcms-changelog-taglib</artifactId><version>1.2.0${POST-SNAPSHOT}</version>
+									<groupId>com.semanticcms</groupId><artifactId>semanticcms-changelog-taglib</artifactId><version>1.2.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 									<type>jar</type>
 									<includes>META-INF/semanticcms-changelog.tld</includes>
 								</artifactItem>
@@ -170,7 +170,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 			<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId><version>5.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 		</dependency>
 		<dependency>
-			<groupId>com.semanticcms</groupId><artifactId>semanticcms-changelog-taglib</artifactId><version>1.2.0${POST-SNAPSHOT}</version>
+			<groupId>com.semanticcms</groupId><artifactId>semanticcms-changelog-taglib</artifactId><version>1.2.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 		</dependency>
 		<dependency>
 			<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId><version>1.12.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
@@ -183,7 +183,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		</dependency>
 		<!-- Dependency for dependencyversion-maven-plugin only -->
 		<dependency>
-			<groupId>com.semanticcms</groupId><artifactId>semanticcms-changelog-taglib</artifactId><version>1.2.0-POST-SNAPSHOT</version>
+			<groupId>com.semanticcms</groupId><artifactId>semanticcms-changelog-taglib</artifactId><version>1.2.1-SNAPSHOT</version>
 			<type>pom</type>
 			<scope>provided</scope>
 			<optional>true</optional>
