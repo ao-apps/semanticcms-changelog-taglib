@@ -49,9 +49,9 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 			<changelog:release
 				projectName="@{documented.name}"
 				version="#{version}"
-				groupId="@{documented.groupId}"
+				groupId="@{project.groupId}"
 				artifactId="@{documented.artifactId}"
-				scmUrl="@{documented.scm.url}"
+				scmUrl="@{project.scm.url}"
 			>
 				<ul>
 					<li>Updated for <core:link book="/" page="/" /> 2.</li>
@@ -63,9 +63,9 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 			projectName="@{documented.name}"
 			version="1.2.0"
 			datePublished="2019-10-11T18:15:36-0500"
-			groupId="@{documented.groupId}"
+			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
-			scmUrl="@{documented.scm.url}"
+			scmUrl="@{project.scm.url}"
 		>
 			<ul>
 				<li>
@@ -80,9 +80,9 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 			projectName="@{documented.name}"
 			version="1.1.0"
 			datePublished="2019-06-19T10:43:22-0500"
-			groupId="@{documented.groupId}"
+			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
-			scmUrl="@{documented.scm.url}"
+			scmUrl="@{project.scm.url}"
 		>
 			<ul>
 				<li>Minimum Java version changed from 1.6 to 1.7.</li>
@@ -104,9 +104,9 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 			projectName="@{documented.name}"
 			version="1.0.1"
 			datePublished="2017-07-19T20:54:01-0500"
-			groupId="@{documented.groupId}"
+			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
-			scmUrl="@{documented.scm.url}"
+			scmUrl="@{project.scm.url}"
 		>
 			<ul>
 				<li>New release for bug fixes in underlying <ao:a href="https://aoindustries.com/ao-encoding/">AO Encoding</ao:a> library.</li>
@@ -140,9 +140,9 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 			projectName="@{documented.name}"
 			version="1.0.0"
 			datePublished="2016-11-15T19:25:50-0600"
-			groupId="@{documented.groupId}"
+			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
-			scmUrl="@{documented.scm.url}"
+			scmUrl="@{project.scm.url}"
 		>
 			<ul>
 				<li>New project to assist in formatting changelogs.</li>

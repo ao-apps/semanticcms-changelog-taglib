@@ -36,7 +36,7 @@ public class SemanticCmsChangelogTldInitializer extends TagReferenceInitializer 
 	private static final Map<String,String> additionalApiLinks = new LinkedHashMap<String,String>();
 	static {
 		// Self
-		additionalApiLinks.put("com.semanticcms.changelog.taglib.", Maven.properties.getProperty("documented.url") + "apidocs/");
+		additionalApiLinks.put("com.semanticcms.changelog.taglib.", Maven.properties.getProperty("project.url") + "apidocs/");
 		// Dependencies
 		additionalApiLinks.put("com.semanticcms.core.model.", "https://semanticcms.com/core/model/apidocs/");
 	}
