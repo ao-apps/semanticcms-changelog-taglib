@@ -48,6 +48,7 @@ import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.SkipPageException;
 import javax.servlet.jsp.tagext.JspFragment;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
+import org.apache.commons.lang3.NotImplementedException;
 import org.joda.time.ReadableDateTime;
 import org.joda.time.format.DateTimeFormat;
 
@@ -161,9 +162,8 @@ public class ReleaseTag extends SimpleTagSupport {
 							return pw;
 						}
 						@Override
-						@SuppressWarnings("deprecation")
 						public ServletOutputStream getOutputStream() {
-							throw new com.aoindustries.exception.NotImplementedException();
+							throw new NotImplementedException("getOutputStream not expected");
 						}
 					},
 					new Release(
