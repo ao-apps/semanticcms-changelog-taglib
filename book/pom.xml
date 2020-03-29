@@ -39,7 +39,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		<documented.shortTitle>Changelog Taglib</documented.shortTitle>
 		<documented.description>Taglib for managing changelogs in a JSP environment.</documented.description>
 
-		<shortTitle>Changelog Taglib Book</shortTitle>
+		<shortTitle>${documented.shortTitle} Book</shortTitle>
 		<description.html><![CDATA[Documentation for <a target="_top" href="${project.url}">${documented.name}</a> in <a target="_top" href="https://semanticcms.com/">SemanticCMS</a> format.]]></description.html>
 	</properties>
 
