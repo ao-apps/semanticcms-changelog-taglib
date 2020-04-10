@@ -53,7 +53,7 @@ public class SemanticCmsChangelogTldInitializer extends TagReferenceInitializer 
 				Path.valueOf("/semanticcms-changelog.tld")
 			),
 			Maven.properties.getProperty("documented.javadoc.link.javase"),
-			Maven.properties.getProperty("javadoc.link.javaee.6"),
+			Maven.properties.getProperty("documented.javadoc.link.javaee"),
 			additionalApiLinks
 		);
 	}
