@@ -32,9 +32,10 @@ import java.util.Collections;
 
 public class SemanticCmsChangelogTldInitializer extends TagReferenceInitializer {
 
+	@SuppressWarnings("unchecked")
 	public SemanticCmsChangelogTldInitializer() throws ValidationException {
 		super(
-			"Changelog Taglib Reference",
+			Maven.properties.getProperty("project.name") + " Reference",
 			"Taglib Reference",
 			new ResourceRef(
 				new BookRef(
