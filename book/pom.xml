@@ -67,7 +67,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 				<groupId>org.apache.maven.plugins</groupId><artifactId>maven-dependency-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>unpack-semanticcms-changelog.tld</id>
+						<id>unpack.tld</id>
 						<phase>prepare-package</phase>
 						<goals>
 							<goal>unpack</goal>
@@ -88,7 +88,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 				<groupId>org.apache.maven.plugins</groupId><artifactId>maven-resources-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>copy-semanticcms-changelog.tld</id>
+						<id>copy.tld</id>
 						<phase>prepare-package</phase>
 						<goals>
 							<goal>copy-resources</goal>
@@ -108,7 +108,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 					</execution>
 					<!-- Create a second copy in the resource directory used by maven-bundle-plugin -->
 					<execution>
-						<id>copy-semanticcms-changelog.tld-bundle</id>
+						<id>copy.tld-bundle</id>
 						<phase>prepare-package</phase>
 						<goals>
 							<goal>copy-resources</goal>
