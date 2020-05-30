@@ -27,9 +27,10 @@ import java.util.Collections;
 
 public class SemanticCmsChangelogTldInitializer extends TagReferenceInitializer {
 
+	@SuppressWarnings("unchecked")
 	public SemanticCmsChangelogTldInitializer() {
 		super(
-			"Changelog Taglib Reference",
+			Maven.properties.getProperty("project.name") + " Reference",
 			"Taglib Reference",
 			"/changelog/taglib",
 			"/semanticcms-changelog.tld",
