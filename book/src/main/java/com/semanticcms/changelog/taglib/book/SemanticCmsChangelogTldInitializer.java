@@ -1,6 +1,6 @@
 /*
  * semanticcms-changelog-taglib - Taglib for managing changelogs in a JSP environment.
- * Copyright (C) 2016, 2017, 2019  AO Industries, Inc.
+ * Copyright (C) 2016, 2017, 2019, 2020  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -28,18 +28,9 @@ import com.aoindustries.validation.ValidationException;
 import com.semanticcms.core.model.BookRef;
 import com.semanticcms.core.model.ResourceRef;
 import com.semanticcms.tagreference.TagReferenceInitializer;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.Collections;
 
 public class SemanticCmsChangelogTldInitializer extends TagReferenceInitializer {
-
-	private static final Map<String,String> additionalApiLinks = new LinkedHashMap<String,String>();
-	static {
-		// Self
-		additionalApiLinks.put("com.semanticcms.changelog.taglib.", Maven.properties.getProperty("project.url") + "apidocs/");
-		// Dependencies
-		additionalApiLinks.put("com.semanticcms.core.model.", "https://semanticcms.com/core/model/apidocs/");
-	}
 
 	public SemanticCmsChangelogTldInitializer() throws ValidationException {
 		super(
@@ -54,7 +45,10 @@ public class SemanticCmsChangelogTldInitializer extends TagReferenceInitializer 
 			),
 			Maven.properties.getProperty("documented.javadoc.link.javase"),
 			Maven.properties.getProperty("documented.javadoc.link.javaee"),
-			additionalApiLinks
+			// Self
+			Collections.singletonMap("com.semanticcms.changelog.taglib", Maven.properties.getProperty("project.url") + "apidocs/"),
+			// Dependencies
+			Collections.singletonMap("com.semanticcms.core.model", "https://semanticcms.com/core/model/apidocs/")
 		);
 	}
 }
