@@ -23,11 +23,9 @@
 package com.semanticcms.changelog.taglib.book;
 
 import com.semanticcms.tagreference.TagReferenceInitializer;
-import java.util.Collections;
 
 public class SemanticCmsChangelogTldInitializer extends TagReferenceInitializer {
 
-	@SuppressWarnings("unchecked")
 	public SemanticCmsChangelogTldInitializer() {
 		super(
 			Maven.properties.getProperty("project.name") + " Reference",
@@ -38,9 +36,9 @@ public class SemanticCmsChangelogTldInitializer extends TagReferenceInitializer 
 			Maven.properties.getProperty("documented.javadoc.link.javase"),
 			Maven.properties.getProperty("documented.javadoc.link.javaee"),
 			// Self
-			Collections.singletonMap("com.semanticcms.changelog.taglib", Maven.properties.getProperty("project.url") + "apidocs/"),
+			"com.semanticcms.changelog.taglib", Maven.properties.getProperty("project.url") + "apidocs/",
 			// Dependencies
-			Collections.singletonMap("com.semanticcms.core.model", "https://semanticcms.com/core/model/apidocs/")
+			"com.semanticcms.core.model", "https://semanticcms.com/core/model/apidocs/"
 		);
 	}
 }
