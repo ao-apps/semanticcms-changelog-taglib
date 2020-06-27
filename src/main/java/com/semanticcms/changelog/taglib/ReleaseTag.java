@@ -233,19 +233,16 @@ public class ReleaseTag extends SimpleTagSupport {
 								}
 							}
 							if(scmUrl != null) {
+								boolean isGithub = scmUrl.startsWith(GITHUB_START);
 								print("<li><a href=\"");
 								encodeTextInXhtmlAttribute(scmUrl);
 								if(!isSnapshot) {
 									if(!scmUrl.endsWith("/")) print('/');
-									print("releases/tag/");
+									print(isGithub ? "releases/tag/" : "refs/tags/");
 									encodeTextInXhtmlAttribute(URIEncoder.encodeURIComponent(tagName));
 								}
 								print("\">");
-								if(scmUrl.startsWith(GITHUB_START)) {
-									print("GitHub");
-								} else {
-									print("Git");
-								}
+								print(isGithub ? "GitHub" : "Git");
 								print("</a></li>\n");
 							}
 							print("</ul>\n");
