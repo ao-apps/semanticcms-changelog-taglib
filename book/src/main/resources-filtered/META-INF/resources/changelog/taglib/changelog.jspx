@@ -37,7 +37,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-10-30T16:08:35-0500"
-		dateModified="2020-03-27T15:44:59-05:00"
+		dateModified="2020-06-27T16:29:30-05:00"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-changelog-taglib:pom.version}" />
@@ -52,7 +52,14 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 				groupId="@{project.groupId}"
 				artifactId="@{documented.artifactId}"
 				scmUrl="@{project.scm.url}"
-			/>
+			>
+				<ul>
+					<li>
+						Now linking to <code><var>scmUrl</var>/refs/tags/<var>tagName</var></code> for
+						non-<ao:a href="https://github.com/">GitHub</ao:a> release tags.
+					</li>
+				</ul>
+			</changelog:release>
 		</c:if>
 
 		<changelog:release
