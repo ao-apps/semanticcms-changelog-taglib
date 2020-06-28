@@ -101,6 +101,77 @@ public class ReleaseTag extends SimpleTagSupport {
 		this.scmUrlExpr = scmUrl;
 	}
 
+	protected void printLinks(
+		CaptureLevel captureLevel,
+		String version,
+		String groupId,
+		String artifactId,
+		String repository,
+		String scmUrl,
+		boolean isSnapshot,
+		String tagName,
+		String id
+	) throws IOException, ServletException, SkipPageException {
+		if(captureLevel == CaptureLevel.BODY) {
+			print("<ul>\n"
+				+ "<li>");
+			new Link().element(id).invoke(() -> {
+				print(isSnapshot ? "Snapshot Notes" : "Release Notes");
+			});
+			print("</li>\n");
+			if(repository != null) {
+				// Custom Maven Repository
+				print("<li><a href=\"");
+				encodeTextInXhtmlAttribute(repository);
+				if(!repository.endsWith("/")) print('/');
+				encodeTextInXhtmlAttribute(URIEncoder.encodeURIComponent(groupId).replace('.', '/'));
+				print('/');
+				encodeTextInXhtmlAttribute(URIEncoder.encodeURIComponent(artifactId));
+				print('/');
+				encodeTextInXhtmlAttribute(URIEncoder.encodeURIComponent(version));
+				print("/\">Maven Repository</a></li>\n");
+			} else if(groupId != null) {
+				if(isSnapshot) {
+					// Sonatype snapshots
+					print("<li><a href=\"https://oss.sonatype.org/content/repositories/snapshots/");
+					encodeTextInXhtmlAttribute(URIEncoder.encodeURIComponent(groupId).replace('.', '/'));
+					print('/');
+					encodeTextInXhtmlAttribute(URIEncoder.encodeURIComponent(artifactId));
+					print('/');
+					encodeTextInXhtmlAttribute(URIEncoder.encodeURIComponent(version));
+					print("/\">Sonatype OSS Snapshot Repository</a></li>\n");
+				} else {
+					// Maven Central Repository
+					print("<li><a href=\"https://search.maven.org/#");
+					encodeTextInXhtmlAttribute(
+						URIEncoder.encodeURIComponent(
+							"artifactdetails|"
+							+ groupId
+							+ '|' + artifactId
+							+ '|' + version
+							+ '|'
+						)
+					);
+					print("\">Maven Central Repository</a></li>\n");
+				}
+			}
+			if(scmUrl != null) {
+				boolean isGithub = scmUrl.startsWith(GITHUB_START);
+				print("<li><a href=\"");
+				encodeTextInXhtmlAttribute(scmUrl);
+				if(!isSnapshot) {
+					if(!scmUrl.endsWith("/")) print('/');
+					print(isGithub ? "releases/tag/" : "refs/tags/");
+					encodeTextInXhtmlAttribute(URIEncoder.encodeURIComponent(tagName));
+				}
+				print("\">");
+				print(isGithub ? "GitHub" : "Git");
+				print("</a></li>\n");
+			}
+			print("</ul>\n");
+		}
+	}
+
 	@Override
 	public void doTag() throws JspException, IOException {
 		PageContext pageContext = (PageContext)getJspContext();
@@ -187,66 +258,37 @@ public class ReleaseTag extends SimpleTagSupport {
 						encodeTextInXhtml(DateTimeFormat.forStyle("L-").withLocale(response.getLocale()).print(datePublished));
 						print("</time></footer>\n");
 					}
-					if(!isSnapshot) new News(datePublished, projectName + " " + version + " released.").invoke();
+					if(!isSnapshot) new News(datePublished, projectName + " " + version + " released.").invoke(() -> {
+						// TODO: We want the links directly in the RSS feed, too.
+						// TODO: Should the links be written into "description", with the current description becoming the "title"?
+						// TODO: This would then cause the links to be directly inside the RSS feed?
+						// TODO: If doing so, absolute links.
+						// TODO: Alternatively, the RSS description could default to the body of the news, with automatic absolute link conversion.
+						// TODO: Then the description here would instead be the title.
+						printLinks(
+							captureLevel,
+							version,
+							groupId,
+							artifactId,
+							repository,
+							scmUrl,
+							isSnapshot,
+							tagName,
+							id
+						);
+					});
 					new Nav(isSnapshot ? "Snapshot Links" : "Release Links").id("release-links-" + version).invoke(() -> {
-						if(captureLevel == CaptureLevel.BODY) {
-							print("<ul>\n"
-								+ "<li>");
-							new Link().element(id).invoke(() -> {
-								print(isSnapshot ? "Snapshot Notes" : "Release Notes");
-							});
-							print("</li>\n");
-							if(repository != null) {
-								// Custom Maven Repository
-								print("<li><a href=\"");
-								encodeTextInXhtmlAttribute(repository);
-								if(!repository.endsWith("/")) print('/');
-								encodeTextInXhtmlAttribute(groupId.replace('.', '/'));
-								print('/');
-								print(artifactId);
-								print('/');
-								print(version);
-								print("/\">Maven Repository</a></li>\n");
-							} else if(groupId != null) {
-								if(isSnapshot) {
-									// Sonatype snapshots
-									print("<li><a href=\"https://oss.sonatype.org/content/repositories/snapshots/");
-									encodeTextInXhtmlAttribute(groupId.replace('.', '/'));
-									print('/');
-									print(artifactId);
-									print('/');
-									print(version);
-									print("/\">Sonatype OSS Snapshot Repository</a></li>\n");
-								} else {
-									// Maven Central Repository
-									print("<li><a href=\"https://search.maven.org/#");
-									encodeTextInXhtmlAttribute(
-										URIEncoder.encodeURIComponent(
-											"artifactdetails|"
-											+ groupId
-											+ '|' + artifactId
-											+ '|' + version
-											+ '|'
-										)
-									);
-									print("\">Maven Central Repository</a></li>\n");
-								}
-							}
-							if(scmUrl != null) {
-								boolean isGithub = scmUrl.startsWith(GITHUB_START);
-								print("<li><a href=\"");
-								encodeTextInXhtmlAttribute(scmUrl);
-								if(!isSnapshot) {
-									if(!scmUrl.endsWith("/")) print('/');
-									print(isGithub ? "releases/tag/" : "refs/tags/");
-									encodeTextInXhtmlAttribute(URIEncoder.encodeURIComponent(tagName));
-								}
-								print("\">");
-								print(isGithub ? "GitHub" : "Git");
-								print("</a></li>\n");
-							}
-							print("</ul>\n");
-						}
+						printLinks(
+							captureLevel,
+							version,
+							groupId,
+							artifactId,
+							repository,
+							scmUrl,
+							isSnapshot,
+							tagName,
+							id
+						);
 					});
 					JspFragment body = getJspBody();
 					if(body != null) {
