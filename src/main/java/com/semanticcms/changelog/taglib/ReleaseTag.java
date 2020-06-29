@@ -110,12 +110,14 @@ public class ReleaseTag extends SimpleTagSupport {
 		String scmUrl,
 		boolean isSnapshot,
 		String tagName,
-		String id
+		String id,
+		boolean absolute
 	) throws IOException, ServletException, SkipPageException {
 		if(captureLevel == CaptureLevel.BODY) {
 			print("<ul>\n"
 				+ "<li>");
-			new Link().element(id).invoke(() -> {
+			// TODO: Remove absolute here, and have absolute automatically added in RssServlet?
+			new Link().element(id).absolute(absolute).invoke(() -> {
 				print(isSnapshot ? "Snapshot Notes" : "Release Notes");
 			});
 			print("</li>\n");
@@ -274,7 +276,8 @@ public class ReleaseTag extends SimpleTagSupport {
 							scmUrl,
 							isSnapshot,
 							tagName,
-							id
+							id,
+							true
 						);
 					});
 					new Nav(isSnapshot ? "Snapshot Links" : "Release Links").id("release-links-" + version).invoke(() -> {
@@ -287,7 +290,8 @@ public class ReleaseTag extends SimpleTagSupport {
 							scmUrl,
 							isSnapshot,
 							tagName,
-							id
+							id,
+							false
 						);
 					});
 					JspFragment body = getJspBody();
