@@ -29,7 +29,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		<relativePath>../../parent/pom.xml</relativePath>
 	</parent>
 
-	<groupId>com.semanticcms</groupId><artifactId>semanticcms-changelog-taglib-book</artifactId><version>1.3.0</version>
+	<groupId>com.semanticcms</groupId><artifactId>semanticcms-changelog-taglib-book</artifactId><version>1.3.0-POST-SNAPSHOT</version>
 	<packaging>bundle</packaging>
 
 	<properties>
@@ -52,7 +52,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		<connection>scm:git:git://github.com/aoindustries/semanticcms-changelog-taglib.git</connection>
 		<developerConnection>scm:git:git@github.com:aoindustries/semanticcms-changelog-taglib.git</developerConnection>
 		<url>https://github.com/aoindustries/semanticcms-changelog-taglib</url>
-		<tag>semanticcms-changelog-taglib-book-1.3.0</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<issueManagement>
