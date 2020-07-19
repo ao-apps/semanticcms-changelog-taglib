@@ -37,7 +37,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		<javadoc.taglibReference><![CDATA[<li><a target="${javadoc.target}" href="${project.url}semanticcms-changelog.tld/">Taglib Reference</a></li>]]></javadoc.taglibReference>
 		<jodaTimeApidocs>https://www.joda.org/joda-time/apidocs/</jodaTimeApidocs>
 		<!-- Dependencies -->
-		<commons-lang3.version>3.10</commons-lang3.version>
+		<commons-lang3.version>3.11</commons-lang3.version>
 	</properties>
 
 	<name>SemanticCMS Changelog Taglib</name>
