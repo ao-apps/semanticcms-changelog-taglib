@@ -28,7 +28,7 @@ public class SemanticCmsChangelogTldInitializer extends TagReferenceInitializer 
 
 	public SemanticCmsChangelogTldInitializer() {
 		super(
-			Maven.properties.getProperty("project.name") + " Reference",
+			Maven.properties.getProperty("documented.name") + " Reference",
 			"Taglib Reference",
 			"/changelog/taglib",
 			"/semanticcms-changelog.tld",
