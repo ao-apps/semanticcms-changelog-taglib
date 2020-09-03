@@ -1,6 +1,6 @@
 /*
  * semanticcms-changelog-taglib - Taglib for managing changelogs in a JSP environment.
- * Copyright (C) 2017  AO Industries, Inc.
+ * Copyright (C) 2017, 2020  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -35,6 +35,7 @@ public class Functions {
 		return release != null ? release : firstSnapshot[0];
 	}
 
+	@SuppressWarnings("null")
 	private static Release findReleaseRecurse(Node node, Release[] firstSnapshot) {
 		if(node instanceof Release) {
 			Release release = (Release)node;
