@@ -26,7 +26,7 @@ import com.aoindustries.encoding.MediaType;
 import static com.aoindustries.encoding.TextInJavaScriptEncoder.encodeTextInJavaScript;
 import static com.aoindustries.encoding.TextInXhtmlAttributeEncoder.encodeTextInXhtmlAttribute;
 import static com.aoindustries.encoding.TextInXhtmlEncoder.encodeTextInXhtml;
-import com.aoindustries.encoding.taglib.EncodingNullSimpleTag;
+import com.aoindustries.encoding.taglib.EncodingNullTag;
 import static com.aoindustries.taglib.AttributeUtils.resolveValue;
 import com.semanticcms.core.pages.CaptureLevel;
 import com.semanticcms.core.pages.local.CurrentCaptureLevel;
@@ -45,7 +45,7 @@ import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.PageContext;
 
 // TODO: BodyTag
-public class GenerateDependencyTag extends EncodingNullSimpleTag {
+public class GenerateDependencyTag extends EncodingNullTag {
 
 	private ValueExpression releaseExpr;
 	public void setRelease(ValueExpression release) {
