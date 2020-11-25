@@ -261,7 +261,6 @@ public class ReleaseTag extends SimpleTagSupport {
 						print("</time></footer>\n");
 					}
 					if(!isSnapshot) {
-						// TODO: Why is element required?  I expect it to automatically find it's parent element.
 						new News(datePublished, projectName + " " + version + " released.").element(id).invoke(() -> {
 							// TODO: We want the links directly in the RSS feed, too.
 							// TODO: Should the links be written into "description", with the current description becoming the "title"?
