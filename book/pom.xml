@@ -81,8 +81,8 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 						<dependency>com.semanticcms:semanticcms-core-pages-jspx</dependency>
 					</usedDependencies>
 					<ignoredUnusedDeclaredDependencies>
+						<dependency>com.semanticcms:semanticcms-changelog-taglib:jar</dependency><!-- Required because is both :jar and :pom? -->
 						<!-- Dependency for dependencyversion-maven-plugin only -->
-						<dependency>com.semanticcms:semanticcms-changelog-taglib:jar</dependency>
 						<dependency>com.semanticcms:semanticcms-changelog-taglib:pom</dependency>
 					</ignoredUnusedDeclaredDependencies>
 				</configuration>
