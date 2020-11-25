@@ -40,6 +40,7 @@ import java.util.List;
 import javax.el.ELContext;
 import javax.el.ValueExpression;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.PageContext;
 
@@ -67,7 +68,7 @@ public class GenerateDependencyTag extends EncodingNullTag {
 	}
 
 	@Override
-	protected void doTag(Writer out) throws JspTagException, IOException {
+	protected void doTag(Writer out) throws JspException, IOException {
 		PageContext pageContext = (PageContext)getJspContext();
 		HttpServletRequest request = (HttpServletRequest)pageContext.getRequest();
 		final CaptureLevel captureLevel = CaptureLevel.getCaptureLevel(request);
