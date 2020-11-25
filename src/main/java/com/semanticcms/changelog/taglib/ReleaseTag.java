@@ -197,16 +197,16 @@ public class ReleaseTag extends SimpleTagSupport {
 				throw new JspTagException("datePublished required for non-snapshot releases");
 			}
 			if(groupId != null && artifactId == null) {
-				throw new JspException("artifactId required when groupId provided");
+				throw new JspTagException("artifactId required when groupId provided");
 			}
 			if(artifactId != null && groupId == null) {
-				throw new JspException("groupId required when artifactId provided");
+				throw new JspTagException("groupId required when artifactId provided");
 			}
 			if(repository != null && (groupId == null || artifactId == null)) {
-				throw new JspException("Both groupId and artifactId required when repository provided");
+				throw new JspTagException("Both groupId and artifactId required when repository provided");
 			}
 			if(artifactId == null && tag == null) {
-				throw new JspException("tag required when artifactId is not provided");
+				throw new JspTagException("tag required when artifactId is not provided");
 			}
 			// Create tag if not provided
 			final String tagName = tag!=null ? tag : (artifactId + '-' + version);

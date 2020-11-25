@@ -37,7 +37,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-10-30T16:08:35-0500"
-		dateModified="2020-11-18T20:46:07-06:00"
+		dateModified="2020-11-24T12:46:17-06:00"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-changelog-taglib:pom.version}" />
@@ -54,8 +54,14 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 				scmUrl="@{project.scm.url}"
 			>
 				<ul>
-					<li>Updated dependencies.</li>
 					<li>Updated for <core:link book="/" page="/" /> 2.</li>
+					<li>Updated dependencies.</li>
+					<li>
+						Cleaned-up use of <code>JspTagException</code> versus <code>JspException</code>.  Generally,
+						methods declare <code>throws JspException</code> while actually throwing instances of
+						<code>JspTagException</code>.  The exceptions to this are attribute setters and private
+						implemententation methods that both declare and throw <code>JspTagException</code>.
+					</li>
 				</ul>
 			</changelog:release>
 		</c:if>
