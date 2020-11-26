@@ -226,6 +226,42 @@ public class ReleaseTag extends SimpleTagSupport {
 					idVersion = version;
 				}
 				String id = Release.DEFAULT_ID_PREFIX + '-' + idVersion;
+				if(!isSnapshot) {
+					new News(
+						pageContext.getServletContext(),
+						request,
+						new HttpServletResponseWrapper(response) {
+							@Override
+							public PrintWriter getWriter() {
+								return pw;
+							}
+							@Override
+							public ServletOutputStream getOutputStream() {
+								throw new NotImplementedException("getOutputStream not expected");
+							}
+						},
+						datePublished, projectName + " " + version + " released."
+					).element(id).title(tagName).invoke(() -> {
+						// TODO: We want the links directly in the RSS feed, too.
+						// TODO: Should the links be written into "description", with the current description becoming the "title"?
+						// TODO: This would then cause the links to be directly inside the RSS feed?
+						// TODO: If doing so, absolute links.
+						// TODO: Alternatively, the RSS description could default to the body of the news, with automatic absolute link conversion.
+						// TODO: Then the description here would instead be the title.
+						printLinks(
+							captureLevel,
+							version,
+							groupId,
+							artifactId,
+							repository,
+							scmUrl,
+							isSnapshot,
+							tagName,
+							id,
+							true
+						);
+					});
+				}
 				new Section(
 					pageContext.getServletContext(),
 					request,
@@ -258,28 +294,6 @@ public class ReleaseTag extends SimpleTagSupport {
 						print("\">");
 						encodeTextInXhtml(DateTimeFormat.forStyle("L-").withLocale(response.getLocale()).print(datePublished));
 						print("</time></footer>\n");
-					}
-					if(!isSnapshot) {
-						new News(datePublished, projectName + " " + version + " released.").element(id).invoke(() -> {
-							// TODO: We want the links directly in the RSS feed, too.
-							// TODO: Should the links be written into "description", with the current description becoming the "title"?
-							// TODO: This would then cause the links to be directly inside the RSS feed?
-							// TODO: If doing so, absolute links.
-							// TODO: Alternatively, the RSS description could default to the body of the news, with automatic absolute link conversion.
-							// TODO: Then the description here would instead be the title.
-							printLinks(
-								captureLevel,
-								version,
-								groupId,
-								artifactId,
-								repository,
-								scmUrl,
-								isSnapshot,
-								tagName,
-								id,
-								true
-							);
-						});
 					}
 					new Nav(isSnapshot ? "Snapshot Links" : "Release Links").id("release-links-" + version).invoke(() -> {
 						printLinks(
