@@ -37,7 +37,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-10-30T16:08:35-0500"
-		dateModified="2020-11-25T21:20:17-06:00"
+		dateModified="2020-11-27T16:17:42-06:00"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-changelog-taglib:pom.version}" />
@@ -52,17 +52,26 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 				groupId="@{project.groupId}"
 				artifactId="@{documented.artifactId}"
 				scmUrl="@{project.scm.url}"
-			>
-				<ul>
-					<li>
-						<ao:a href="https://www.thunderbird.net/">Mozilla Thunderbird</ao:a>, which is our preferred RSS
-						client, assumes the GUID of the RSS item is the web page to display.  We have moved the news
-						element to just before the related section so that readers may display the entire section, thus
-						giving the user correct context.
-					</li>
-				</ul>
-			</changelog:release>
+			/>
 		</c:if>
+
+		<changelog:release
+			projectName="@{documented.name}"
+			version="1.4.2"
+			datePublished="2020-11-27T16:17:42-06:00"
+			groupId="@{project.groupId}"
+			artifactId="@{documented.artifactId}"
+			scmUrl="@{project.scm.url}"
+		>
+			<ul>
+				<li>
+					<ao:a href="https://www.thunderbird.net/">Mozilla Thunderbird</ao:a>, which is our preferred RSS
+					client, assumes the GUID of the RSS item is the web page to display.  We have moved the news
+					element to just before the related section so that readers may display the entire section, thus
+					giving the user correct context.
+				</li>
+			</ul>
+		</changelog:release>
 
 		<changelog:release
 			projectName="@{documented.name}"
