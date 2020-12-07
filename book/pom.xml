@@ -103,11 +103,6 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 						<dependency>org.glassfish.web:jstl-impl</dependency>
 						<dependency>com.semanticcms:semanticcms-core-pages-jspx</dependency>
 					</usedDependencies>
-					<ignoredUnusedDeclaredDependencies>
-						<dependency>com.semanticcms:semanticcms-changelog-taglib:jar</dependency><!-- Required because is both :jar and :pom? -->
-						<!-- Dependency for dependencyversion-maven-plugin only -->
-						<dependency>com.semanticcms:semanticcms-changelog-taglib:pom</dependency>
-					</ignoredUnusedDeclaredDependencies>
 				</configuration>
 				<executions>
 					<!-- Add a copy of the taglib files from dependencies -->
@@ -155,7 +150,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 				<groupId>com.aoindustries</groupId><artifactId>ao-badges</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoindustries</groupId><artifactId>ao-lang</artifactId><version>4.8.0${POST-SNAPSHOT}</version>
+				<groupId>com.aoindustries</groupId><artifactId>ao-lang</artifactId><version>4.9.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoindustries</groupId><artifactId>ao-net-types</artifactId><version>1.2.1${POST-SNAPSHOT}</version>
@@ -358,14 +353,6 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		<dependency>
 			<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-pages-jspx</artifactId>
 			<scope>runtime</scope>
-		</dependency>
-		<!-- Dependency for dependencyversion-maven-plugin only -->
-		<dependency>
-			<groupId>com.semanticcms</groupId><artifactId>semanticcms-changelog-taglib</artifactId><version>2.0.0-SNAPSHOT</version>
-			<type>pom</type>
-			<scope>provided</scope>
-			<optional>true</optional>
-			<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 		</dependency>
 	</dependencies>
 </project>
