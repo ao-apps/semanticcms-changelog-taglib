@@ -118,6 +118,12 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 						</configuration>
 					</execution>
 				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>com.semanticcms</groupId><artifactId>semanticcms-changelog-taglib</artifactId><version>1.4.2${POST-SNAPSHOT}</version>
+						<type>jar</type>
+					</dependency>
+				</dependencies>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId><artifactId>maven-resources-plugin</artifactId>
