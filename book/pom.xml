@@ -29,7 +29,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		<relativePath>../../parent/pom.xml</relativePath>
 	</parent>
 
-	<groupId>com.semanticcms</groupId><artifactId>semanticcms-changelog-taglib-book</artifactId><version>1.4.2-POST-SNAPSHOT</version>
+	<groupId>com.semanticcms</groupId><artifactId>semanticcms-changelog-taglib-book</artifactId><version>1.4.3-SNAPSHOT</version>
 	<packaging>bundle</packaging>
 
 	<properties>
@@ -110,7 +110,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 						<configuration>
 							<artifactItems>
 								<artifactItem>
-									<groupId>com.semanticcms</groupId><artifactId>semanticcms-changelog-taglib</artifactId><version>1.4.2${POST-SNAPSHOT}</version>
+									<groupId>com.semanticcms</groupId><artifactId>semanticcms-changelog-taglib</artifactId><version>1.4.3-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 									<type>jar</type>
 									<includes>META-INF/semanticcms-changelog.tld</includes>
 								</artifactItem>
@@ -120,7 +120,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 				</executions>
 				<dependencies>
 					<dependency>
-						<groupId>com.semanticcms</groupId><artifactId>semanticcms-changelog-taglib</artifactId><version>1.4.2${POST-SNAPSHOT}</version>
+						<groupId>com.semanticcms</groupId><artifactId>semanticcms-changelog-taglib</artifactId><version>1.4.3-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 						<type>jar</type>
 					</dependency>
 				</dependencies>
@@ -163,7 +163,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 			<!-- javaee-web-api-bom: <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId> -->
 			<!-- javaee-web-api-bom: <groupId>javax.servlet</groupId><artifactId>jstl</artifactId> -->
 			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-changelog-taglib</artifactId><version>1.4.2${POST-SNAPSHOT}</version>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-changelog-taglib</artifactId><version>1.4.3-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
 				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId><version>1.14.2${POST-SNAPSHOT}</version>
