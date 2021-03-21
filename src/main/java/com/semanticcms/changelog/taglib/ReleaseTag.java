@@ -1,6 +1,6 @@
 /*
  * semanticcms-changelog-taglib - Taglib for managing changelogs in a JSP environment.
- * Copyright (C) 2016, 2017, 2019, 2020  AO Industries, Inc.
+ * Copyright (C) 2016, 2017, 2019, 2020, 2021  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -58,6 +58,8 @@ public class ReleaseTag extends SimpleTagSupport {
 	private static final String SNAPSHOT_END = "-SNAPSHOT";
 
 	private static final String VALIDATION_SNAPSHOT_END = "-validation" + SNAPSHOT_END;
+
+	private static final String POST_SNAPSHOT_END = "-POST" + SNAPSHOT_END;
 
 	private static final String GITHUB_START = "https://github.com/";
 
@@ -219,7 +221,9 @@ public class ReleaseTag extends SimpleTagSupport {
 			};
 			try {
 				String idVersion;
-				if(version.endsWith(VALIDATION_SNAPSHOT_END)) {
+				if(version.endsWith(POST_SNAPSHOT_END)) {
+					idVersion = version.substring(0, version.length() - POST_SNAPSHOT_END.length());
+				} else if(version.endsWith(VALIDATION_SNAPSHOT_END)) {
 					idVersion = version.substring(0, version.length() - VALIDATION_SNAPSHOT_END.length());
 				} else if(version.endsWith(SNAPSHOT_END)) {
 					idVersion = version.substring(0, version.length() - SNAPSHOT_END.length());
