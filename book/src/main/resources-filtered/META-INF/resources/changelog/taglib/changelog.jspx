@@ -36,8 +36,8 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		title="@{documented.name} Changelog"
 		shortTitle="Changelog"
 		tocLevels="1"
-		datePublished="2016-10-30T16:08:35-0500"
-		dateModified="2021-03-21T02:51:18-05:00"
+		datePublished="2016-10-30T16:08:35-05:00"
+		dateModified="2021-05-22T13:07:02-05:00"
 	>
 		<c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
 			<changelog:release
@@ -49,6 +49,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 			>
 				<ul>
 					<li>Updated for <core:link book="/" page="/" /> 2.</li>
+					<li>Updated to <ao:a rel="nofollow" href="https://www.oracle.com/java/technologies/javaee/javaeetechnologies.html#javaee7">Java™ EE 7 Web Profile</ao:a> (Servlet 3.1, JSP 2.3, EL 3.0, and JSTL 1.2).</li>
 				</ul>
 			</changelog:release>
 		</c:if>
@@ -163,7 +164,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		<changelog:release
 			projectName="@{documented.name}"
 			version="1.2.0"
-			datePublished="2019-10-11T18:15:36-0500"
+			datePublished="2019-10-11T18:15:36-05:00"
 			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
 			scmUrl="@{project.scm.url}"
@@ -180,7 +181,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		<changelog:release
 			projectName="@{documented.name}"
 			version="1.1.0"
-			datePublished="2019-06-19T10:43:22-0500"
+			datePublished="2019-06-19T10:43:22-05:00"
 			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
 			scmUrl="@{project.scm.url}"
@@ -204,7 +205,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		<changelog:release
 			projectName="@{documented.name}"
 			version="1.0.1"
-			datePublished="2017-07-19T20:54:01-0500"
+			datePublished="2017-07-19T20:54:01-05:00"
 			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
 			scmUrl="@{project.scm.url}"
@@ -240,7 +241,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		<changelog:release
 			projectName="@{documented.name}"
 			version="1.0.0"
-			datePublished="2016-11-15T19:25:50-0600"
+			datePublished="2016-11-15T19:25:50-06:00"
 			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
 			scmUrl="@{project.scm.url}"
