@@ -22,7 +22,7 @@ You should have received a copy of the GNU Lesser General Public License
 along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licenses />.
 -->
 <jsp:root
-	xmlns:ao="https://aoindustries.com/ao-taglib/"
+	xmlns:ao="https://oss.aoapps.com/taglib/"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:changelog="https://semanticcms.com/changelog/taglib/"
 	xmlns:core="https://semanticcms.com/core/taglib/"
@@ -37,7 +37,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-10-30T16:08:35-05:00"
-		dateModified="2021-05-26T06:36:49-05:00"
+		dateModified="2021-06-03T12:12:38-05:00"
 	>
 		<c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
 			<changelog:release
@@ -45,12 +45,14 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 				version="@{project.version}"
 				groupId="@{project.groupId}"
 				artifactId="@{documented.artifactId}"
+				repository="https://oss.sonatype.org/content/repositories/snapshots/"
 				scmUrl="@{project.scm.url}"
 			>
 				<ul>
 					<li>Updated for <core:link book="/" page="/" /> 2.</li>
 					<li>Updated to <ao:a rel="nofollow" href="https://www.oracle.com/java/technologies/javaee/javaeetechnologies.html#javaee7">Java™ EE 7 Web Profile</ao:a> (Servlet 3.1, JSP 2.3, EL 3.0, and JSTL 1.2).</li>
 					<li>Minimum Java version changed from 1.8 to 11.</li>
+					<li>Added support for the new <code>s01.oss.sonatype.org</code> Sonatype OSS Snapshot Repository</li>
 				</ul>
 			</changelog:release>
 		</c:if>
@@ -212,7 +214,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 			scmUrl="@{project.scm.url}"
 		>
 			<ul>
-				<li>New release for bug fixes in underlying <ao:a href="https://aoindustries.com/ao-encoding/">AO Encoding</ao:a> library.</li>
+				<li>New release for bug fixes in underlying <ao:a href="https://oss.aoapps.com/encoding/">AO Encoding</ao:a> library.</li>
 				<li>Updated dependencies.</li>
 				<li>
 					Now using custom model object <code><ao:a href="apidocs/com/semanticcms/changelog/taglib/Release.html">Release</ao:a></code>
