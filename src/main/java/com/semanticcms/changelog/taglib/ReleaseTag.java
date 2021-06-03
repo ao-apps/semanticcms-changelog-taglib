@@ -132,7 +132,16 @@ public class ReleaseTag extends SimpleTagSupport {
 				encodeTextInXhtmlAttribute(URIEncoder.encodeURIComponent(artifactId));
 				print('/');
 				encodeTextInXhtmlAttribute(URIEncoder.encodeURIComponent(version));
-				print("/\">Maven Repository</a></li>\n");
+				print("/\">");
+				if(
+					repository.startsWith("https://oss.sonatype.org/content/repositories/snapshots")
+					|| repository.startsWith("https://s01.oss.sonatype.org/content/repositories/snapshots")
+				) {
+					print("Sonatype OSS Snapshot Repository");
+				} else {
+					print("Maven Repository");
+				}
+				print("</a></li>\n");
 			} else if(groupId != null) {
 				if(isSnapshot) {
 					// Sonatype snapshots
