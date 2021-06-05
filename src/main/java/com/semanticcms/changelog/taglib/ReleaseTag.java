@@ -22,8 +22,8 @@
  */
 package com.semanticcms.changelog.taglib;
 
-import com.aoindustries.net.URIEncoder;
-import static com.aoindustries.taglib.AttributeUtils.resolveValue;
+import com.aoapps.net.URIEncoder;
+import static com.aoapps.taglib.AttributeUtils.resolveValue;
 import com.semanticcms.core.servlet.CaptureLevel;
 import com.semanticcms.core.servlet.Link;
 import static com.semanticcms.core.servlet.PageContextEncoder.encodeTextInXhtml;
