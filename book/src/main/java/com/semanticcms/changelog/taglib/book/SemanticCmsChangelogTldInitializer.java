@@ -46,9 +46,9 @@ public class SemanticCmsChangelogTldInitializer extends TagReferenceInitializer 
 			Maven.properties.getProperty("documented.javadoc.link.javase"),
 			Maven.properties.getProperty("documented.javadoc.link.javaee"),
 			// Self
-			"com.semanticcms.changelog.taglib", Maven.properties.getProperty("project.url") + "apidocs/",
+			"com.semanticcms.changelog.taglib", Maven.properties.getProperty("project.url") + "apidocs/com.semanticcms.changelog.taglib/",
 			// Dependencies
-			"com.semanticcms.core.model", "https://semanticcms.com/core/model/apidocs/"
+			"com.semanticcms.core.model", "https://semanticcms.com/core/model/apidocs/com.semanticcms.core.model/"
 		);
 	}
 }
