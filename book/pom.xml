@@ -140,6 +140,7 @@ along with semanticcms-changelog-taglib.  If not, see <http://www.gnu.org/licens
 					<dependency>
 						<groupId>com.semanticcms</groupId><artifactId>semanticcms-changelog-taglib</artifactId><version>1.5.0${POST-SNAPSHOT}</version>
 						<type>jar</type>
+						<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 					</dependency>
 				</dependencies>
 			</plugin>
