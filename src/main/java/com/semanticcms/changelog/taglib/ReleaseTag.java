@@ -118,9 +118,7 @@ public class ReleaseTag extends SimpleTagSupport {
 			print("<ul>\n"
 				+ "<li>");
 			// TODO: Remove absolute here, and have absolute automatically added in RssServlet?
-			new Link().element(id).absolute(absolute).invoke(() -> {
-				print(isSnapshot ? "Snapshot Notes" : "Release Notes");
-			});
+			new Link().element(id).absolute(absolute).invoke(() -> print(isSnapshot ? "Snapshot Notes" : "Release Notes"));
 			print("</li>\n");
 			if(repository != null) {
 				// Custom Maven Repository
@@ -254,7 +252,7 @@ public class ReleaseTag extends SimpleTagSupport {
 							}
 						},
 						datePublished, projectName + " " + version + " released."
-					).element(id).title(tagName).invoke(() -> {
+					).element(id).title(tagName).invoke(() ->
 						// TODO: We want the links directly in the RSS feed, too.
 						// TODO: Should the links be written into "description", with the current description becoming the "title"?
 						// TODO: This would then cause the links to be directly inside the RSS feed?
@@ -272,8 +270,8 @@ public class ReleaseTag extends SimpleTagSupport {
 							tagName,
 							id,
 							true
-						);
-					});
+						)
+					);
 				}
 				new Section(
 					pageContext.getServletContext(),
@@ -308,7 +306,7 @@ public class ReleaseTag extends SimpleTagSupport {
 						encodeTextInXhtml(DateTimeFormat.forStyle("L-").withLocale(response.getLocale()).print(datePublished));
 						print("</time></footer>\n");
 					}
-					new Nav(isSnapshot ? "Snapshot Links" : "Release Links").id("release-links-" + version).invoke(() -> {
+					new Nav(isSnapshot ? "Snapshot Links" : "Release Links").id("release-links-" + version).invoke(() ->
 						printLinks(
 							captureLevel,
 							version,
@@ -320,8 +318,8 @@ public class ReleaseTag extends SimpleTagSupport {
 							tagName,
 							id,
 							false
-						);
-					});
+						)
+					);
 					JspFragment body = getJspBody();
 					if(body != null) {
 						new Section(isSnapshot ? "Snapshot Notes" : "Release Notes").id(Release.DEFAULT_ID_PREFIX + "-body-" + idVersion).invoke(() -> {
