@@ -1,6 +1,6 @@
 /*
  * semanticcms-changelog-taglib - Taglib for managing changelogs in a JSP environment.
- * Copyright (C) 2017, 2020  AO Industries, Inc.
+ * Copyright (C) 2017, 2020, 2021  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -27,7 +27,10 @@ import com.semanticcms.core.model.Node;
 import java.util.Collection;
 import java.util.Iterator;
 
-public class Functions {
+public abstract class Functions {
+
+	/** Make no instances. */
+	private Functions() {throw new AssertionError();}
 
 	public static Release findRelease(Node node) {
 		Release[] firstSnapshot = new Release[1];
@@ -71,6 +74,4 @@ public class Functions {
 			throw new IllegalArgumentException("Unexpected type for dependencies: " + dependencies.getClass().getName());
 		}
 	}
-
-	private Functions() {}
 }
