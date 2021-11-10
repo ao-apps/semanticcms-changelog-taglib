@@ -102,6 +102,9 @@ along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licen
 			<releases>
 				<enabled>false</enabled>
 			</releases>
+			<snapshots>
+				<checksumPolicy>fail</checksumPolicy>
+			</snapshots>
 		</repository>
 	</repositories>
 
