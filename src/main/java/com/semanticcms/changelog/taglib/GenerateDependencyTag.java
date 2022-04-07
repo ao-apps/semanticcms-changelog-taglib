@@ -1,6 +1,6 @@
 /*
  * semanticcms-changelog-taglib - Taglib for managing changelogs in a JSP environment.
- * Copyright (C) 2017, 2020, 2021  AO Industries, Inc.
+ * Copyright (C) 2017, 2020, 2021, 2022  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -23,7 +23,7 @@
 package com.semanticcms.changelog.taglib;
 
 import com.aoapps.encoding.MediaType;
-import static com.aoapps.encoding.TextInJavaScriptEncoder.encodeTextInJavaScript;
+import static com.aoapps.encoding.TextInJavaScriptEncoder.encodeTextInJavascript;
 import static com.aoapps.encoding.TextInXhtmlAttributeEncoder.encodeTextInXhtmlAttribute;
 import static com.aoapps.encoding.TextInXhtmlEncoder.encodeTextInXhtml;
 import com.aoapps.encoding.taglib.EncodingNullTag;
@@ -144,19 +144,19 @@ public class GenerateDependencyTag extends EncodingNullTag {
 				}
 			} else if(buildSystem.equalsIgnoreCase("Buildr")) {
 				out.write('\'');
-				encodeTextInJavaScript(release.getGroupId(), out);
+				encodeTextInJavascript(release.getGroupId(), out);
 				out.write(':');
-				encodeTextInJavaScript(release.getArtifactId(), out);
+				encodeTextInJavascript(release.getArtifactId(), out);
 				out.write(":jar:");
-				encodeTextInJavaScript(release.getVersion(), out);
+				encodeTextInJavascript(release.getVersion(), out);
 				out.write('\'');
 				for(Release dependency : dependenciesList) {
 					out.write(",\n'");
-					encodeTextInJavaScript(dependency.getGroupId(), out);
+					encodeTextInJavascript(dependency.getGroupId(), out);
 					out.write(':');
-					encodeTextInJavaScript(dependency.getArtifactId(), out);
+					encodeTextInJavascript(dependency.getArtifactId(), out);
 					out.write(":jar:");
-					encodeTextInJavaScript(dependency.getVersion(), out);
+					encodeTextInJavascript(dependency.getVersion(), out);
 					out.write('\'');
 				}
 			} else if(buildSystem.equalsIgnoreCase("Ivy")) {
@@ -180,56 +180,56 @@ public class GenerateDependencyTag extends EncodingNullTag {
 				out.write(
 					"@Grapes(\n"
 					+ "    @Grab(group='");
-				encodeTextInJavaScript(release.getGroupId(), out);
+				encodeTextInJavascript(release.getGroupId(), out);
 				out.write("', module='");
-				encodeTextInJavaScript(release.getArtifactId(), out);
+				encodeTextInJavascript(release.getArtifactId(), out);
 				out.write("', version='");
-				encodeTextInJavaScript(release.getVersion(), out);
+				encodeTextInJavascript(release.getVersion(), out);
 				out.write(
 					"')\n");
 				for(Release dependency : dependenciesList) {
 					out.write("    @Grab(group='");
-					encodeTextInJavaScript(dependency.getGroupId(), out);
+					encodeTextInJavascript(dependency.getGroupId(), out);
 					out.write("', module='");
-					encodeTextInJavaScript(dependency.getArtifactId(), out);
+					encodeTextInJavascript(dependency.getArtifactId(), out);
 					out.write("', version='");
-					encodeTextInJavaScript(dependency.getVersion(), out);
+					encodeTextInJavascript(dependency.getVersion(), out);
 					out.write(
 						"')\n");
 				}
 				out.write(')');
 			} else if(buildSystem.equalsIgnoreCase("Grails")) {
 				out.write("compile '");
-				encodeTextInJavaScript(release.getGroupId(), out);
+				encodeTextInJavascript(release.getGroupId(), out);
 				out.write(':');
-				encodeTextInJavaScript(release.getArtifactId(), out);
+				encodeTextInJavascript(release.getArtifactId(), out);
 				out.write(':');
-				encodeTextInJavaScript(release.getVersion(), out);
+				encodeTextInJavascript(release.getVersion(), out);
 				out.write('\'');
 				for(Release dependency : dependenciesList) {
 					out.write("\ncompile '");
-					encodeTextInJavaScript(dependency.getGroupId(), out);
+					encodeTextInJavascript(dependency.getGroupId(), out);
 					out.write(':');
-					encodeTextInJavaScript(dependency.getArtifactId(), out);
+					encodeTextInJavascript(dependency.getArtifactId(), out);
 					out.write(':');
-					encodeTextInJavaScript(dependency.getVersion(), out);
+					encodeTextInJavascript(dependency.getVersion(), out);
 					out.write('\'');
 				}
 			} else if(buildSystem.equalsIgnoreCase("SBT")) {
 				out.write("libraryDependencies += \"");
-				encodeTextInJavaScript(release.getGroupId(), out);
+				encodeTextInJavascript(release.getGroupId(), out);
 				out.write("\" % \"");
-				encodeTextInJavaScript(release.getArtifactId(), out);
+				encodeTextInJavascript(release.getArtifactId(), out);
 				out.write("\" % \"");
-				encodeTextInJavaScript(release.getVersion(), out);
+				encodeTextInJavascript(release.getVersion(), out);
 				out.write('"');
 				for(Release dependency : dependenciesList) {
 					out.write("\nlibraryDependencies += \"");
-					encodeTextInJavaScript(dependency.getGroupId(), out);
+					encodeTextInJavascript(dependency.getGroupId(), out);
 					out.write("\" % \"");
-					encodeTextInJavaScript(dependency.getArtifactId(), out);
+					encodeTextInJavascript(dependency.getArtifactId(), out);
 					out.write("\" % \"");
-					encodeTextInJavaScript(dependency.getVersion(), out);
+					encodeTextInJavascript(dependency.getVersion(), out);
 					out.write('"');
 				}
 			} else if(buildSystem.equalsIgnoreCase("Leiningen")) {
@@ -238,7 +238,7 @@ public class GenerateDependencyTag extends EncodingNullTag {
 				out.write('/');
 				out.write(release.getArtifactId());
 				out.write(" \"");
-				encodeTextInJavaScript(release.getVersion(), out);
+				encodeTextInJavascript(release.getVersion(), out);
 				out.write("\"]");
 				for(Release dependency : dependenciesList) {
 					out.write("\n[");
@@ -246,7 +246,7 @@ public class GenerateDependencyTag extends EncodingNullTag {
 					out.write('/');
 					out.write(dependency.getArtifactId());
 					out.write(" \"");
-					encodeTextInJavaScript(dependency.getVersion(), out);
+					encodeTextInJavascript(dependency.getVersion(), out);
 					out.write("\"]");
 				}
 			} else {

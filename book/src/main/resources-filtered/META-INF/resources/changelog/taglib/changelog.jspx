@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 semanticcms-changelog-taglib - Taglib for managing changelogs in a JSP environment.
-Copyright (C) 2016, 2017, 2019, 2020, 2021  AO Industries, Inc.
+Copyright (C) 2016, 2017, 2019, 2020, 2021, 2022  AO Industries, Inc.
     support@aoindustries.com
     7262 Bull Pen Cir
     Mobile, AL 36695
@@ -37,7 +37,7 @@ along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licen
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-10-30T16:08:35-05:00"
-		dateModified="2021-07-06T08:11:42-05:00"
+		dateModified="2022-04-07T07:39:03-05:00"
 	>
 		<c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
 			<changelog:release
@@ -50,6 +50,7 @@ along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licen
 			>
 				<ul>
 					<li>Updated for <core:link book="/" page="/" /> 2.</li>
+					<li>Updated dependencies.</li>
 				</ul>
 			</changelog:release>
 		</c:if>
