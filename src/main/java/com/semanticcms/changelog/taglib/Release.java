@@ -1,6 +1,6 @@
 /*
  * semanticcms-changelog-taglib - Taglib for managing changelogs in a JSP environment.
- * Copyright (C) 2017  AO Industries, Inc.
+ * Copyright (C) 2017, 2022  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -20,6 +20,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 package com.semanticcms.changelog.taglib;
 
 import com.semanticcms.section.model.Section;
