@@ -32,24 +32,24 @@ import com.semanticcms.tagreference.TagReferenceInitializer;
 
 public class SemanticCmsChangelogTldInitializer extends TagReferenceInitializer {
 
-	public SemanticCmsChangelogTldInitializer() throws ValidationException {
-		super(
-			Maven.properties.getProperty("documented.name") + " Reference",
-			"Taglib Reference",
-			new ResourceRef(
-				new BookRef(
-					DomainName.valueOf("semanticcms.com"),
-					Path.valueOf("/changelog/taglib")
-				),
-				Path.valueOf("/semanticcms-changelog.tld")
-			),
-			true,
-			Maven.properties.getProperty("documented.javadoc.link.javase"),
-			Maven.properties.getProperty("documented.javadoc.link.javaee"),
-			// Self
-			"com.semanticcms.changelog.taglib", Maven.properties.getProperty("project.url") + "apidocs/com.semanticcms.changelog.taglib/",
-			// Dependencies
-			"com.semanticcms.core.model", "https://semanticcms.com/core/model/apidocs/com.semanticcms.core.model/"
-		);
-	}
+  public SemanticCmsChangelogTldInitializer() throws ValidationException {
+    super(
+      Maven.properties.getProperty("documented.name") + " Reference",
+      "Taglib Reference",
+      new ResourceRef(
+        new BookRef(
+          DomainName.valueOf("semanticcms.com"),
+          Path.valueOf("/changelog/taglib")
+        ),
+        Path.valueOf("/semanticcms-changelog.tld")
+      ),
+      true,
+      Maven.properties.getProperty("documented.javadoc.link.javase"),
+      Maven.properties.getProperty("documented.javadoc.link.javaee"),
+      // Self
+      "com.semanticcms.changelog.taglib", Maven.properties.getProperty("project.url") + "apidocs/com.semanticcms.changelog.taglib/",
+      // Dependencies
+      "com.semanticcms.core.model", "https://semanticcms.com/core/model/apidocs/com.semanticcms.core.model/"
+    );
+  }
 }

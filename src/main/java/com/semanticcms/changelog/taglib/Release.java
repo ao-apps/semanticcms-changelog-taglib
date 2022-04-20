@@ -28,77 +28,77 @@ import org.joda.time.ReadableDateTime;
 
 public class Release extends Section {
 
-	static final String DEFAULT_ID_PREFIX = "release-notes";
+  static final String DEFAULT_ID_PREFIX = "release-notes";
 
-	private final String projectName;
-	public String getProjectName() {
-		return projectName;
-	}
+  private final String projectName;
+  public String getProjectName() {
+    return projectName;
+  }
 
-	private final String version;
-	public String getVersion() {
-		return version;
-	}
+  private final String version;
+  public String getVersion() {
+    return version;
+  }
 
-	private final ReadableDateTime datePublished;
-	public ReadableDateTime getDatePublished() {
-		return datePublished;
-	}
+  private final ReadableDateTime datePublished;
+  public ReadableDateTime getDatePublished() {
+    return datePublished;
+  }
 
-	private final String groupId;
-	public String getGroupId() {
-		return groupId;
-	}
+  private final String groupId;
+  public String getGroupId() {
+    return groupId;
+  }
 
-	private final String artifactId;
-	public String getArtifactId() {
-		return artifactId;
-	}
+  private final String artifactId;
+  public String getArtifactId() {
+    return artifactId;
+  }
 
-	private final String repository;
-	public String getRepository() {
-		return repository;
-	}
+  private final String repository;
+  public String getRepository() {
+    return repository;
+  }
 
-	private final String scmUrl;
-	public String getScmUrl() {
-		return scmUrl;
-	}
+  private final String scmUrl;
+  public String getScmUrl() {
+    return scmUrl;
+  }
 
-	private final boolean isSnapshot;
-	public boolean getIsSnapshot() {
-		return isSnapshot;
-	}
+  private final boolean isSnapshot;
+  public boolean getIsSnapshot() {
+    return isSnapshot;
+  }
 
-	private final String tagName;
-	public String getTagName() {
-		return tagName;
-	}
+  private final String tagName;
+  public String getTagName() {
+    return tagName;
+  }
 
-	public Release(
-		String projectName,
-		String version,
-		ReadableDateTime datePublished,
-		String groupId,
-		String artifactId,
-		String repository,
-		String scmUrl,
-		boolean isSnapshot,
-		String tagName
-	) {
-		this.projectName = projectName;
-		this.version = version;
-		this.datePublished = datePublished;
-		this.groupId = groupId;
-		this.artifactId = artifactId;
-		this.repository = repository;
-		this.scmUrl = scmUrl;
-		this.isSnapshot = isSnapshot;
-		this.tagName = tagName;
-	}
+  public Release(
+    String projectName,
+    String version,
+    ReadableDateTime datePublished,
+    String groupId,
+    String artifactId,
+    String repository,
+    String scmUrl,
+    boolean isSnapshot,
+    String tagName
+  ) {
+    this.projectName = projectName;
+    this.version = version;
+    this.datePublished = datePublished;
+    this.groupId = groupId;
+    this.artifactId = artifactId;
+    this.repository = repository;
+    this.scmUrl = scmUrl;
+    this.isSnapshot = isSnapshot;
+    this.tagName = tagName;
+  }
 
-	@Override
-	protected String getDefaultIdPrefix() {
-		return DEFAULT_ID_PREFIX;
-	}
+  @Override
+  protected String getDefaultIdPrefix() {
+    return DEFAULT_ID_PREFIX;
+  }
 }
