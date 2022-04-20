@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 semanticcms-changelog-taglib - Taglib for managing changelogs in a JSP environment.
-Copyright (C) 2017, 2020, 2021  AO Industries, Inc.
-	support@aoindustries.com
-	7262 Bull Pen Cir
-	Mobile, AL 36695
+Copyright (C) 2017, 2020, 2021, 2022  AO Industries, Inc.
+    support@aoindustries.com
+    7262 Bull Pen Cir
+    Mobile, AL 36695
 
 This file is part of semanticcms-changelog-taglib.
 
@@ -27,64 +27,64 @@ Creates a "form" tag of class "semanticcms-changelog-taglib-generated-dependenci
 providing generated dependency settings for various build systems.
 
 Arguments:
-	arg.release       The release to generate dependencies for.  If null, no output is generated
-	arg.dependencies  Optional single release, array, collection, or iterable of dependencies for the release.  Not used when arg.release is null.
+  arg.release       The release to generate dependencies for.  If null, no output is generated
+  arg.dependencies  Optional single release, array, collection, or iterable of dependencies for the release.  Not used when arg.release is null.
 -->
 <jsp:root
-	xmlns:ao="https://oss.aoapps.com/taglib/"
-	xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:changelog="https://semanticcms.com/changelog/taglib/"
-	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
-	xmlns:jsp="http://java.sun.com/JSP/Page"
-	version="2.1"
+  xmlns:ao="https://oss.aoapps.com/taglib/"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:changelog="https://semanticcms.com/changelog/taglib/"
+  xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+  xmlns:jsp="http://java.sun.com/JSP/Page"
+  version="2.1"
 >
-	<jsp:directive.page language="java" pageEncoding="UTF-8" />
-	<jsp:directive.page session="false" />
-	<c:if test="${!empty arg.release}">
-		<ao:form class="semanticcms-changelog-taglib-generated-dependencies">
-			<div>
-				<ao:textarea
-					style="white-space:pre; overflow-wrap:normal; overflow-x: scroll;"
-					name="output"
-					cols="60"
-					rows="${5 * (1 + changelog:countDependencies(arg.dependencies))}"
-					readonly="true"
-				>
-					<changelog:generateDependency release="#{arg.release}" dependencies="#{arg.dependencies}" buildSystem="Maven" />
-				</ao:textarea>
-			</div>
-			<div>
-				<!-- TODO: Use cookie to remember user's selected build system? -->
-				<ao:select>
-					<ao:option value="Maven" selected="true">Apache Maven</ao:option>
-					<ao:option value="Buildr">Apache Buildr</ao:option>
-					<ao:option value="Ivy">Apache Ivy</ao:option>
-					<ao:option value="Grape">Groovy Grape</ao:option>
-					<ao:option value="Grails">Gradle/Grails</ao:option>
-					<ao:option value="SBT">Scala SBT</ao:option>
-					<ao:option value="Leiningen">Leiningen</ao:option>
-					<ao:onchange>
-						var selected = this.options[this.selectedIndex].value;
-						if(selected == "Maven") {
-							this.form.output.value = <changelog:generateDependency release="#{arg.release}" dependencies="#{arg.dependencies}" buildSystem="Maven" />;
-						} else if(selected == "Buildr") {
-							this.form.output.value = <changelog:generateDependency release="#{arg.release}" dependencies="#{arg.dependencies}" buildSystem="Buildr" />;
-						} else if(selected == "Ivy") {
-							this.form.output.value = <changelog:generateDependency release="#{arg.release}" dependencies="#{arg.dependencies}" buildSystem="Ivy" />;
-						} else if(selected == "Grape") {
-							this.form.output.value = <changelog:generateDependency release="#{arg.release}" dependencies="#{arg.dependencies}" buildSystem="Grape" />;
-						} else if(selected == "Grails") {
-							this.form.output.value = <changelog:generateDependency release="#{arg.release}" dependencies="#{arg.dependencies}" buildSystem="Grails" />;
-						} else if(selected == "SBT") {
-							this.form.output.value = <changelog:generateDependency release="#{arg.release}" dependencies="#{arg.dependencies}" buildSystem="SBT" />;
-						} else if(selected == "Leiningen") {
-							this.form.output.value = <changelog:generateDependency release="#{arg.release}" dependencies="#{arg.dependencies}" buildSystem="Leiningen" />;
-						} else {
-							this.form.output.value = "Unexpected selected value: " + selected;
-						}
-					</ao:onchange>
-				</ao:select>
-			</div>
-		</ao:form>
-	</c:if>
+  <jsp:directive.page language="java" pageEncoding="UTF-8" />
+  <jsp:directive.page session="false" />
+  <c:if test="${!empty arg.release}">
+    <ao:form class="semanticcms-changelog-taglib-generated-dependencies">
+      <div>
+        <ao:textarea
+          style="white-space:pre; overflow-wrap:normal; overflow-x: scroll;"
+          name="output"
+          cols="60"
+          rows="${5 * (1 + changelog:countDependencies(arg.dependencies))}"
+          readonly="true"
+        >
+          <changelog:generateDependency release="#{arg.release}" dependencies="#{arg.dependencies}" buildSystem="Maven" />
+        </ao:textarea>
+      </div>
+      <div>
+        <!-- TODO: Use cookie to remember user's selected build system? -->
+        <ao:select>
+          <ao:option value="Maven" selected="true">Apache Maven</ao:option>
+          <ao:option value="Buildr">Apache Buildr</ao:option>
+          <ao:option value="Ivy">Apache Ivy</ao:option>
+          <ao:option value="Grape">Groovy Grape</ao:option>
+          <ao:option value="Grails">Gradle/Grails</ao:option>
+          <ao:option value="SBT">Scala SBT</ao:option>
+          <ao:option value="Leiningen">Leiningen</ao:option>
+          <ao:onchange>
+            var selected = this.options[this.selectedIndex].value;
+            if(selected == "Maven") {
+              this.form.output.value = <changelog:generateDependency release="#{arg.release}" dependencies="#{arg.dependencies}" buildSystem="Maven" />;
+            } else if(selected == "Buildr") {
+              this.form.output.value = <changelog:generateDependency release="#{arg.release}" dependencies="#{arg.dependencies}" buildSystem="Buildr" />;
+            } else if(selected == "Ivy") {
+              this.form.output.value = <changelog:generateDependency release="#{arg.release}" dependencies="#{arg.dependencies}" buildSystem="Ivy" />;
+            } else if(selected == "Grape") {
+              this.form.output.value = <changelog:generateDependency release="#{arg.release}" dependencies="#{arg.dependencies}" buildSystem="Grape" />;
+            } else if(selected == "Grails") {
+              this.form.output.value = <changelog:generateDependency release="#{arg.release}" dependencies="#{arg.dependencies}" buildSystem="Grails" />;
+            } else if(selected == "SBT") {
+              this.form.output.value = <changelog:generateDependency release="#{arg.release}" dependencies="#{arg.dependencies}" buildSystem="SBT" />;
+            } else if(selected == "Leiningen") {
+              this.form.output.value = <changelog:generateDependency release="#{arg.release}" dependencies="#{arg.dependencies}" buildSystem="Leiningen" />;
+            } else {
+              this.form.output.value = "Unexpected selected value: " + selected;
+            }
+          </ao:onchange>
+        </ao:select>
+      </div>
+    </ao:form>
+  </c:if>
 </jsp:root>

@@ -30,49 +30,57 @@ import java.util.Iterator;
 
 public final class Functions {
 
-	/** Make no instances. */
-	private Functions() {throw new AssertionError();}
+  /** Make no instances. */
+  private Functions() {
+    throw new AssertionError();
+  }
 
-	public static Release findRelease(Node node) {
-		Release[] firstSnapshot = new Release[1];
-		Release release = findReleaseRecurse(node, firstSnapshot);
-		return release != null ? release : firstSnapshot[0];
-	}
+  public static Release findRelease(Node node) {
+    Release[] firstSnapshot = new Release[1];
+    Release release = findReleaseRecurse(node, firstSnapshot);
+    return release != null ? release : firstSnapshot[0];
+  }
 
-	@SuppressWarnings("null")
-	private static Release findReleaseRecurse(Node node, Release[] firstSnapshot) {
-		if(node instanceof Release) {
-			Release release = (Release)node;
-			if(!release.getIsSnapshot()) return release;
-			if(firstSnapshot[0] == null) firstSnapshot[0] = release;
-		}
-		for(Element child : node.getChildElements()) {
-			Release release = findReleaseRecurse(child, firstSnapshot);
-			if(release != null) return release;
-		}
-		return null;
-	}
+  @SuppressWarnings("null")
+  private static Release findReleaseRecurse(Node node, Release[] firstSnapshot) {
+    if (node instanceof Release) {
+      Release release = (Release)node;
+      if (!release.getIsSnapshot()) {
+        return release;
+      }
+      if (firstSnapshot[0] == null) {
+        firstSnapshot[0] = release;
+      }
+    }
+    for (Element child : node.getChildElements()) {
+      Release release = findReleaseRecurse(child, firstSnapshot);
+      if (release != null) {
+        return release;
+      }
+    }
+    return null;
+  }
 
-	public static int countDependencies(Object dependencies) {
-		if(dependencies == null) {
-			return 0;
-		} else if(dependencies instanceof Release) {
-			return 1;
-		} else if(dependencies instanceof Release[]) {
-			return ((Release[])dependencies).length;
-		} else if(dependencies instanceof Collection<?>) {
-			return ((Collection<?>)dependencies).size();
-		} else if(dependencies instanceof Iterable) {
-			int count = 0;
-			@SuppressWarnings("unchecked")
-			Iterator<? extends Release> iter = ((Iterable<? extends Release>)dependencies).iterator();
-			while(iter.hasNext()) {
-				Release release = iter.next();
-				count++;
-			}
-			return count;
-		} else {
-			throw new IllegalArgumentException("Unexpected type for dependencies: " + dependencies.getClass().getName());
-		}
-	}
+  public static int countDependencies(Object dependencies) {
+    if (dependencies == null) {
+      return 0;
+    } else if (dependencies instanceof Release) {
+      return 1;
+    } else if (dependencies instanceof Release[]) {
+      return ((Release[])dependencies).length;
+    } else if (dependencies instanceof Collection<?>) {
+      return ((Collection<?>)dependencies).size();
+    } else if (dependencies instanceof Iterable) {
+      int count = 0;
+      @SuppressWarnings("unchecked")
+      Iterator<? extends Release> iter = ((Iterable<? extends Release>)dependencies).iterator();
+      while (iter.hasNext()) {
+        Release release = iter.next();
+        count++;
+      }
+      return count;
+    } else {
+      throw new IllegalArgumentException("Unexpected type for dependencies: " + dependencies.getClass().getName());
+    }
+  }
 }

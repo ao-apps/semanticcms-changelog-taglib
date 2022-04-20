@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 semanticcms-changelog-taglib - Taglib for managing changelogs in a JSP environment.
-Copyright (C) 2016, 2017, 2019, 2021  AO Industries, Inc.
-	support@aoindustries.com
-	7262 Bull Pen Cir
-	Mobile, AL 36695
+Copyright (C) 2016, 2017, 2019, 2021, 2022  AO Industries, Inc.
+    support@aoindustries.com
+    7262 Bull Pen Cir
+    Mobile, AL 36695
 
 This file is part of semanticcms-changelog-taglib.
 
@@ -22,264 +22,264 @@ You should have received a copy of the GNU Lesser General Public License
 along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licenses/>.
 -->
 <taglib xmlns="http://java.sun.com/xml/ns/javaee"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
-	version="2.1">
-	<!-- datePublished="2016-10-29T01:26:26-05:00" -->
-	<!-- dateModified="2016-11-11T13:03:37-06:00" -->
-	<description><![CDATA[
-		<p>@{description.html}</p>
-	]]></description>
-	<display-name>@{project.name}</display-name>
-	<tlib-version>
-		<!-- Release: @{project.version} -->
-		@{parsedVersion.majorVersion}.@{parsedVersion.minorVersion}.@{parsedVersion.incrementalVersion}
-	</tlib-version>
-	<short-name>changelog</short-name>
-	<uri>@{project.url}</uri>
-	<tag>
-		<!-- datePublished="2016-10-29T01:26:26-05:00" -->
-		<!-- dateModified="2019-04-20T21:06:09-05:00" -->
-		<description><![CDATA[
-			<p>
-				Adds a changelog entry to the current page.
-			</p>
-		]]></description>
-		<name>release</name>
-		<tag-class>com.semanticcms.changelog.taglib.ReleaseTag</tag-class>
-		<body-content>scriptless</body-content>
-		<attribute>
-			<description><![CDATA[
-				<p>
-					The name of the project that has been released.
-				</p>
-			]]></description>
-			<name>projectName</name>
-			<required>true</required>
-			<deferred-value>
-				<type>java.lang.String</type>
-			</deferred-value>
-		</attribute>
-		<attribute>
-			<description><![CDATA[
-				<p>
-					The version of the release in <a href="http://semver.org/">Semantic Versioning</a> format.
-				</p>
-			]]></description>
-			<name>version</name>
-			<required>true</required>
-			<deferred-value>
-				<type>java.lang.String</type>
-			</deferred-value>
-		</attribute>
-		<attribute>
-			<description><![CDATA[
-				<p class="semanticcms-tag-reference-summary">
-					The date of the release in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format.
-				</p>
-				<p>
-					At least <code>YYYY-MM-DD</code> is required,
-					and when time not specified will default to midnight in the current system time zone.
-					A long value of <code>-1</code> or <code>0</code> is converted to <code>null</code>.
-					Any value accepted by Joda Time <a href="@{jodaTimeApidocs}org/joda/time/DateTime.html#DateTime-java.lang.Object-">DateTime</a>
-					is accepted.
-				</p>
-				<p>
-					Required unless is a <code>*-SNAPSHOT</code> version.
-				</p>
-			]]></description>
-			<name>datePublished</name>
-			<required>false</required>
-			<deferred-value>
-				<type>java.lang.Object</type>
-			</deferred-value>
-		</attribute>
-		<attribute>
-			<description><![CDATA[
-				<p>
-					The optional groupId as used in the Maven repository.
-					artifactId attribute required when this is provided.
-				</p>
-			]]></description>
-			<name>groupId</name>
-			<required>false</required>
-			<deferred-value>
-				<type>java.lang.String</type>
-			</deferred-value>
-		</attribute>
-		<attribute>
-			<description><![CDATA[
-				<p>
-					The optional artifactId as used in the Maven repository.
-					groupId attribute required when this is provided.
-				</p>
-			]]></description>
-			<name>artifactId</name>
-			<required>false</required>
-			<deferred-value>
-				<type>java.lang.String</type>
-			</deferred-value>
-		</attribute>
-		<attribute>
-			<description><![CDATA[
-				<p>
-					The optional Maven repository.  When not provided, an appropriate
-					link will be created to <a href="https://search.maven.org/">https://search.maven.org/</a>.
-					Both artifactId and groupId attributes required when this is provided.
-				</p>
-			]]></description>
-			<name>repository</name>
-			<required>false</required>
-			<deferred-value>
-				<type>java.lang.String</type>
-			</deferred-value>
-		</attribute>
-		<attribute>
-			<description><![CDATA[
-				<p>
-					The tag used in source control, defaults to <code>${artifactId}-${version}</code>.
-					Required when artifactId attribute is not provided.
-				</p>
-			]]></description>
-			<name>tag</name>
-			<required>false</required>
-			<deferred-value>
-				<type>java.lang.String</type>
-			</deferred-value>
-		</attribute>
-		<attribute>
-			<description><![CDATA[
-				<p>
-					The base source control management URL.  The path to the release
-					is automatically added to this base.
-				</p>
-			]]></description>
-			<name>scmUrl</name>
-			<required>false</required>
-			<deferred-value>
-				<type>java.lang.String</type>
-			</deferred-value>
-		</attribute>
-	</tag>
-	<tag>
-		<!-- datePublished="2017-07-17T09:53:04-05:00" -->
-		<!-- dateModified="2021-06-16T14:18:10-05:00" -->
-		<description><![CDATA[
-			<p>
-				Generates a dependency declaration for a given release and build system.
-			</p>
-		]]></description>
-		<name>generateDependency</name>
-		<tag-class>com.semanticcms.changelog.taglib.GenerateDependencyTag</tag-class>
-		<body-content>empty</body-content>
-		<attribute>
-			<description><![CDATA[
-				<p>
-					The release to create the dependency for.
-				</p>
-			]]></description>
-			<name>release</name>
-			<required>true</required>
-			<deferred-value>
-				<type>com.semanticcms.changelog.taglib.Release</type>
-			</deferred-value>
-		</attribute>
-		<attribute>
-			<description><![CDATA[
-				<p class="semanticcms-tag-reference-summary">
-					An optional set of dependencies.
-				</p>
-				<p>
-					The allowed types for dependencies is consistent with
-					<a href="@{project.url}semanticcms-changelog.tld/function-countDependencies">${changelog:countDependencies(dependencies)}</a>
-					and may be one of:
-				</p>
-				<ol>
-					<li><code>null</code></li>
-					<li>A single <code><a href="@{project.url}apidocs/com.semanticcms.changelog.taglib/com/semanticcms/changelog/taglib/Release.html">Release</a></code></li>
-					<li>A <code><a href="@{project.url}apidocs/com.semanticcms.changelog.taglib/com/semanticcms/changelog/taglib/Release.html">Release</a>[]</code></li>
-					<li>A <code><a rel="nofollow" href="@{javadoc.link.javase}java.base/java/util/Collection.html">Collection</a>&lt;? extends <a href="@{project.url}apidocs/com.semanticcms.changelog.taglib/com/semanticcms/changelog/taglib/Release.html">Release</a>&gt;</code></li>
-					<li>An <code><a rel="nofollow" href="@{javadoc.link.javase}java.base/java/lang/Iterable.html">Iterable</a>&lt;? extends <a href="@{project.url}apidocs/com.semanticcms.changelog.taglib/com/semanticcms/changelog/taglib/Release.html">Release</a>&gt;</code></li>
-				</ol>
-			]]></description>
-			<name>dependencies</name>
-			<required>false</required>
-			<deferred-value>
-				<type>java.lang.Object</type>
-			</deferred-value>
-		</attribute>
-		<attribute>
-			<description><![CDATA[
-				<p class="semanticcms-tag-reference-summary">
-					The target build system for the generated dependency (case-insensitive).
-				</p>
-				<p>
-					Defaults to <code>"Maven"</code>, but may be any of:
-				</p>
-				<ul>
-					<li><code>"Maven"</code> - <a href="https://maven.apache.org/">Apache Maven</a> (the default)</li>
-					<li><code>"Buildr"</code> - <a href="https://buildr.apache.org/">Apache Buildr</a></li>
-					<li><code>"Ivy"</code> - <a href="http://ant.apache.org/ivy/">Apache Ivy</a></li>
-					<li><code>"Grape"</code> - <a href="http://docs.groovy-lang.org/latest/html/documentation/grape.html">Groovy Grape</a></li>
-					<li><code>"Gradle"</code> - <a href="https://gradle.org/">Gradle/Grails</a></li>
-					<li><code>"SBT"</code> - <a href="http://www.scala-sbt.org/">Scala SBT</a></li>
-					<li><code>"Leiningen"</code> - <a href="https://leiningen.org/">Leiningen</a></li>
-				</ul>
-				<p>
-					The supported systems match those at <a href="https://search.maven.org/">https://search.maven.org/</a>
-					as of 2017-07-15.
-				</p>
-			]]></description>
-			<name>buildSystem</name>
-			<required>false</required>
-			<deferred-value>
-				<type>java.lang.String</type>
-			</deferred-value>
-		</attribute>
-	</tag>
-	<function>
-		<!-- datePublished="2017-07-17T09:53:04-05:00" -->
-		<description><![CDATA[
-			<p class="semanticcms-tag-reference-summary">
-				Finds a release in the provided page or element.
-			</p>
-			<p>
-				Uses the first non-snapshot release.
-				If only snapshots in the page or element, uses the first snapshot.
-				If can't find any release, returns <code>null</code>.
-			</p>
-			<p>
-				Searches all elements recursively with depth-first traversal.
-			</p>
-		]]></description>
-		<name>findRelease</name>
-		<function-class>com.semanticcms.changelog.taglib.Functions</function-class>
-		<function-signature>com.semanticcms.changelog.taglib.Release findRelease(com.semanticcms.core.model.Node)</function-signature>
-		<example><![CDATA[<code>${changelog:findRelease(node)}</code>]]></example>
-	</function>
-	<function>
-		<!-- datePublished="2017-07-17T20:14:08-05:00" -->
-		<!-- dateModified="2021-06-16T14:18:10-05:00" -->
-		<description><![CDATA[
-			<p class="semanticcms-tag-reference-summary">
-				Counts the number of dependencies.
-			</p>
-			<p>
-				The allowed types for dependencies is consistent with
-				<a href="@{project.url}semanticcms-changelog.tld/tag-generateDependency">&lt;changelog:generateDependency dependencies="…" &gt;</a>
-				and may be one of:
-			</p>
-			<ol>
-				<li><code>null</code></li>
-				<li>A single <code><a href="@{project.url}apidocs/com.semanticcms.changelog.taglib/com/semanticcms/changelog/taglib/Release.html">Release</a></code></li>
-				<li>A <code><a href="@{project.url}apidocs/com.semanticcms.changelog.taglib/com/semanticcms/changelog/taglib/Release.html">Release</a>[]</code></li>
-				<li>A <code><a rel="nofollow" href="@{javadoc.link.javase}java.base/java/util/Collection.html">Collection</a>&lt;? extends <a href="@{project.url}apidocs/com.semanticcms.changelog.taglib/com/semanticcms/changelog/taglib/Release.html">Release</a>&gt;</code></li>
-				<li>An <code><a rel="nofollow" href="@{javadoc.link.javase}java.base/java/lang/Iterable.html">Iterable</a>&lt;? extends <a href="@{project.url}apidocs/com.semanticcms.changelog.taglib/com/semanticcms/changelog/taglib/Release.html">Release</a>&gt;</code></li>
-			</ol>
-		]]></description>
-		<name>countDependencies</name>
-		<function-class>com.semanticcms.changelog.taglib.Functions</function-class>
-		<function-signature>int countDependencies(java.lang.Object)</function-signature>
-		<example><![CDATA[<code>${changelog:countDependencies(dependencies)}</code>]]></example>
-	</function>
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+  version="2.1">
+  <!-- datePublished="2016-10-29T01:26:26-05:00" -->
+  <!-- dateModified="2016-11-11T13:03:37-06:00" -->
+  <description><![CDATA[
+    <p>@{description.html}</p>
+  ]]></description>
+  <display-name>@{project.name}</display-name>
+  <tlib-version>
+    <!-- Release: @{project.version} -->
+    @{parsedVersion.majorVersion}.@{parsedVersion.minorVersion}.@{parsedVersion.incrementalVersion}
+  </tlib-version>
+  <short-name>changelog</short-name>
+  <uri>@{project.url}</uri>
+  <tag>
+    <!-- datePublished="2016-10-29T01:26:26-05:00" -->
+    <!-- dateModified="2019-04-20T21:06:09-05:00" -->
+    <description><![CDATA[
+      <p>
+        Adds a changelog entry to the current page.
+      </p>
+    ]]></description>
+    <name>release</name>
+    <tag-class>com.semanticcms.changelog.taglib.ReleaseTag</tag-class>
+    <body-content>scriptless</body-content>
+    <attribute>
+      <description><![CDATA[
+        <p>
+          The name of the project that has been released.
+        </p>
+      ]]></description>
+      <name>projectName</name>
+      <required>true</required>
+      <deferred-value>
+        <type>java.lang.String</type>
+      </deferred-value>
+    </attribute>
+    <attribute>
+      <description><![CDATA[
+        <p>
+          The version of the release in <a href="http://semver.org/">Semantic Versioning</a> format.
+        </p>
+      ]]></description>
+      <name>version</name>
+      <required>true</required>
+      <deferred-value>
+        <type>java.lang.String</type>
+      </deferred-value>
+    </attribute>
+    <attribute>
+      <description><![CDATA[
+        <p class="semanticcms-tag-reference-summary">
+          The date of the release in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format.
+        </p>
+        <p>
+          At least <code>YYYY-MM-DD</code> is required,
+          and when time not specified will default to midnight in the current system time zone.
+          A long value of <code>-1</code> or <code>0</code> is converted to <code>null</code>.
+          Any value accepted by Joda Time <a href="@{jodaTimeApidocs}org/joda/time/DateTime.html#DateTime-java.lang.Object-">DateTime</a>
+          is accepted.
+        </p>
+        <p>
+          Required unless is a <code>*-SNAPSHOT</code> version.
+        </p>
+      ]]></description>
+      <name>datePublished</name>
+      <required>false</required>
+      <deferred-value>
+        <type>java.lang.Object</type>
+      </deferred-value>
+    </attribute>
+    <attribute>
+      <description><![CDATA[
+        <p>
+          The optional groupId as used in the Maven repository.
+          artifactId attribute required when this is provided.
+        </p>
+      ]]></description>
+      <name>groupId</name>
+      <required>false</required>
+      <deferred-value>
+        <type>java.lang.String</type>
+      </deferred-value>
+    </attribute>
+    <attribute>
+      <description><![CDATA[
+        <p>
+          The optional artifactId as used in the Maven repository.
+          groupId attribute required when this is provided.
+        </p>
+      ]]></description>
+      <name>artifactId</name>
+      <required>false</required>
+      <deferred-value>
+        <type>java.lang.String</type>
+      </deferred-value>
+    </attribute>
+    <attribute>
+      <description><![CDATA[
+        <p>
+          The optional Maven repository.  When not provided, an appropriate
+          link will be created to <a href="https://search.maven.org/">https://search.maven.org/</a>.
+          Both artifactId and groupId attributes required when this is provided.
+        </p>
+      ]]></description>
+      <name>repository</name>
+      <required>false</required>
+      <deferred-value>
+        <type>java.lang.String</type>
+      </deferred-value>
+    </attribute>
+    <attribute>
+      <description><![CDATA[
+        <p>
+          The tag used in source control, defaults to <code>${artifactId}-${version}</code>.
+          Required when artifactId attribute is not provided.
+        </p>
+      ]]></description>
+      <name>tag</name>
+      <required>false</required>
+      <deferred-value>
+        <type>java.lang.String</type>
+      </deferred-value>
+    </attribute>
+    <attribute>
+      <description><![CDATA[
+        <p>
+          The base source control management URL.  The path to the release
+          is automatically added to this base.
+        </p>
+      ]]></description>
+      <name>scmUrl</name>
+      <required>false</required>
+      <deferred-value>
+        <type>java.lang.String</type>
+      </deferred-value>
+    </attribute>
+  </tag>
+  <tag>
+    <!-- datePublished="2017-07-17T09:53:04-05:00" -->
+    <!-- dateModified="2021-06-16T14:18:10-05:00" -->
+    <description><![CDATA[
+      <p>
+        Generates a dependency declaration for a given release and build system.
+      </p>
+    ]]></description>
+    <name>generateDependency</name>
+    <tag-class>com.semanticcms.changelog.taglib.GenerateDependencyTag</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <description><![CDATA[
+        <p>
+          The release to create the dependency for.
+        </p>
+      ]]></description>
+      <name>release</name>
+      <required>true</required>
+      <deferred-value>
+        <type>com.semanticcms.changelog.taglib.Release</type>
+      </deferred-value>
+    </attribute>
+    <attribute>
+      <description><![CDATA[
+        <p class="semanticcms-tag-reference-summary">
+          An optional set of dependencies.
+        </p>
+        <p>
+          The allowed types for dependencies is consistent with
+          <a href="@{project.url}semanticcms-changelog.tld/function-countDependencies">${changelog:countDependencies(dependencies)}</a>
+          and may be one of:
+        </p>
+        <ol>
+          <li><code>null</code></li>
+          <li>A single <code><a href="@{project.url}apidocs/com.semanticcms.changelog.taglib/com/semanticcms/changelog/taglib/Release.html">Release</a></code></li>
+          <li>A <code><a href="@{project.url}apidocs/com.semanticcms.changelog.taglib/com/semanticcms/changelog/taglib/Release.html">Release</a>[]</code></li>
+          <li>A <code><a rel="nofollow" href="@{javadoc.link.javase}java.base/java/util/Collection.html">Collection</a>&lt;? extends <a href="@{project.url}apidocs/com.semanticcms.changelog.taglib/com/semanticcms/changelog/taglib/Release.html">Release</a>&gt;</code></li>
+          <li>An <code><a rel="nofollow" href="@{javadoc.link.javase}java.base/java/lang/Iterable.html">Iterable</a>&lt;? extends <a href="@{project.url}apidocs/com.semanticcms.changelog.taglib/com/semanticcms/changelog/taglib/Release.html">Release</a>&gt;</code></li>
+        </ol>
+      ]]></description>
+      <name>dependencies</name>
+      <required>false</required>
+      <deferred-value>
+        <type>java.lang.Object</type>
+      </deferred-value>
+    </attribute>
+    <attribute>
+      <description><![CDATA[
+        <p class="semanticcms-tag-reference-summary">
+          The target build system for the generated dependency (case-insensitive).
+        </p>
+        <p>
+          Defaults to <code>"Maven"</code>, but may be any of:
+        </p>
+        <ul>
+          <li><code>"Maven"</code> - <a href="https://maven.apache.org/">Apache Maven</a> (the default)</li>
+          <li><code>"Buildr"</code> - <a href="https://buildr.apache.org/">Apache Buildr</a></li>
+          <li><code>"Ivy"</code> - <a href="http://ant.apache.org/ivy/">Apache Ivy</a></li>
+          <li><code>"Grape"</code> - <a href="http://docs.groovy-lang.org/latest/html/documentation/grape.html">Groovy Grape</a></li>
+          <li><code>"Gradle"</code> - <a href="https://gradle.org/">Gradle/Grails</a></li>
+          <li><code>"SBT"</code> - <a href="http://www.scala-sbt.org/">Scala SBT</a></li>
+          <li><code>"Leiningen"</code> - <a href="https://leiningen.org/">Leiningen</a></li>
+        </ul>
+        <p>
+          The supported systems match those at <a href="https://search.maven.org/">https://search.maven.org/</a>
+          as of 2017-07-15.
+        </p>
+      ]]></description>
+      <name>buildSystem</name>
+      <required>false</required>
+      <deferred-value>
+        <type>java.lang.String</type>
+      </deferred-value>
+    </attribute>
+  </tag>
+  <function>
+    <!-- datePublished="2017-07-17T09:53:04-05:00" -->
+    <description><![CDATA[
+      <p class="semanticcms-tag-reference-summary">
+        Finds a release in the provided page or element.
+      </p>
+      <p>
+        Uses the first non-snapshot release.
+        If only snapshots in the page or element, uses the first snapshot.
+        If can't find any release, returns <code>null</code>.
+      </p>
+      <p>
+        Searches all elements recursively with depth-first traversal.
+      </p>
+    ]]></description>
+    <name>findRelease</name>
+    <function-class>com.semanticcms.changelog.taglib.Functions</function-class>
+    <function-signature>com.semanticcms.changelog.taglib.Release findRelease(com.semanticcms.core.model.Node)</function-signature>
+    <example><![CDATA[<code>${changelog:findRelease(node)}</code>]]></example>
+  </function>
+  <function>
+    <!-- datePublished="2017-07-17T20:14:08-05:00" -->
+    <!-- dateModified="2021-06-16T14:18:10-05:00" -->
+    <description><![CDATA[
+      <p class="semanticcms-tag-reference-summary">
+        Counts the number of dependencies.
+      </p>
+      <p>
+        The allowed types for dependencies is consistent with
+        <a href="@{project.url}semanticcms-changelog.tld/tag-generateDependency">&lt;changelog:generateDependency dependencies="…" &gt;</a>
+        and may be one of:
+      </p>
+      <ol>
+        <li><code>null</code></li>
+        <li>A single <code><a href="@{project.url}apidocs/com.semanticcms.changelog.taglib/com/semanticcms/changelog/taglib/Release.html">Release</a></code></li>
+        <li>A <code><a href="@{project.url}apidocs/com.semanticcms.changelog.taglib/com/semanticcms/changelog/taglib/Release.html">Release</a>[]</code></li>
+        <li>A <code><a rel="nofollow" href="@{javadoc.link.javase}java.base/java/util/Collection.html">Collection</a>&lt;? extends <a href="@{project.url}apidocs/com.semanticcms.changelog.taglib/com/semanticcms/changelog/taglib/Release.html">Release</a>&gt;</code></li>
+        <li>An <code><a rel="nofollow" href="@{javadoc.link.javase}java.base/java/lang/Iterable.html">Iterable</a>&lt;? extends <a href="@{project.url}apidocs/com.semanticcms.changelog.taglib/com/semanticcms/changelog/taglib/Release.html">Release</a>&gt;</code></li>
+      </ol>
+    ]]></description>
+    <name>countDependencies</name>
+    <function-class>com.semanticcms.changelog.taglib.Functions</function-class>
+    <function-signature>int countDependencies(java.lang.Object)</function-signature>
+    <example><![CDATA[<code>${changelog:countDependencies(dependencies)}</code>]]></example>
+  </function>
 </taglib>
