@@ -65,60 +65,68 @@ public class ReleaseTag extends SimpleTagSupport {
   private static final String GITHUB_START = "https://github.com/";
 
   private ValueExpression projectNameExpr;
+
   public void setProjectName(ValueExpression projectName) {
     this.projectNameExpr = projectName;
   }
 
   private ValueExpression versionExpr;
+
   public void setVersion(ValueExpression version) {
     this.versionExpr = version;
   }
 
   private ValueExpression datePublishedExpr;
+
   public void setDatePublished(ValueExpression datePublished) {
     this.datePublishedExpr = datePublished;
   }
 
   private ValueExpression groupIdExpr;
+
   public void setGroupId(ValueExpression groupId) {
     this.groupIdExpr = groupId;
   }
 
   private ValueExpression artifactIdExpr;
+
   public void setArtifactId(ValueExpression artifactId) {
     this.artifactIdExpr = artifactId;
   }
 
   private ValueExpression repositoryExpr;
+
   public void setRepository(ValueExpression repository) {
     this.repositoryExpr = repository;
   }
 
   private ValueExpression tagExpr;
+
   public void setTag(ValueExpression tag) {
     this.tagExpr = tag;
   }
 
   private ValueExpression scmUrlExpr;
+
   public void setScmUrl(ValueExpression scmUrl) {
     this.scmUrlExpr = scmUrl;
   }
 
   protected void printLinks(
-    CaptureLevel captureLevel,
-    String version,
-    String groupId,
-    String artifactId,
-    String repository,
-    String scmUrl,
-    boolean isSnapshot,
-    String tagName,
-    String id,
-    boolean absolute
+      CaptureLevel captureLevel,
+      String version,
+      String groupId,
+      String artifactId,
+      String repository,
+      String scmUrl,
+      boolean isSnapshot,
+      String tagName,
+      String id,
+      boolean absolute
   ) throws IOException, ServletException, SkipPageException {
     if (captureLevel == CaptureLevel.BODY) {
       print("<ul>\n"
-        + "<li>");
+          + "<li>");
       // TODO: Remove absolute here, and have absolute automatically added in RssServlet?
       new Link().element(id).absolute(absolute).invoke(() -> print(isSnapshot ? "Snapshot Notes" : "Release Notes"));
       print("</li>\n");
@@ -136,8 +144,8 @@ public class ReleaseTag extends SimpleTagSupport {
         encodeTextInXhtmlAttribute(URIEncoder.encodeURIComponent(version));
         print("/\">");
         if (
-          repository.startsWith("https://oss.sonatype.org/content/repositories/snapshots")
-          || repository.startsWith("https://s01.oss.sonatype.org/content/repositories/snapshots")
+            repository.startsWith("https://oss.sonatype.org/content/repositories/snapshots")
+                || repository.startsWith("https://s01.oss.sonatype.org/content/repositories/snapshots")
         ) {
           print("Sonatype OSS Snapshot Repository");
         } else {
@@ -158,13 +166,13 @@ public class ReleaseTag extends SimpleTagSupport {
           // Maven Central Repository
           print("<li><a href=\"https://search.maven.org/#");
           encodeTextInXhtmlAttribute(
-            URIEncoder.encodeURIComponent(
-              "artifactdetails|"
-              + groupId
-              + '|' + artifactId
-              + '|' + version
-              + '|'
-            )
+              URIEncoder.encodeURIComponent(
+                  "artifactdetails|"
+                      + groupId
+                      + '|' + artifactId
+                      + '|' + version
+                      + '|'
+              )
           );
           print("\">Maven Central Repository</a></li>\n");
         }
@@ -190,11 +198,11 @@ public class ReleaseTag extends SimpleTagSupport {
 
   @Override
   public void doTag() throws JspException, IOException {
-    PageContext pageContext = (PageContext)getJspContext();
-    HttpServletRequest request = (HttpServletRequest)pageContext.getRequest();
+    PageContext pageContext = (PageContext) getJspContext();
+    HttpServletRequest request = (HttpServletRequest) pageContext.getRequest();
     final CaptureLevel captureLevel = CurrentCaptureLevel.getCaptureLevel(request);
     if (captureLevel.compareTo(CaptureLevel.META) >= 0) {
-      HttpServletResponse response = (HttpServletResponse)pageContext.getResponse();
+      HttpServletResponse response = (HttpServletResponse) pageContext.getResponse();
       // Resolve attributes
       ELContext elContext = pageContext.getELContext();
       final String projectName = resolveValue(this.projectNameExpr, String.class, elContext);
@@ -245,6 +253,41 @@ public class ReleaseTag extends SimpleTagSupport {
         String id = Release.DEFAULT_ID_PREFIX + '-' + idVersion;
         if (!isSnapshot) {
           new News(
+              pageContext.getServletContext(),
+              request,
+              new HttpServletResponseWrapper(response) {
+                @Override
+                public PrintWriter getWriter() {
+                  return pw;
+                }
+                @Override
+                public ServletOutputStream getOutputStream() {
+                  throw new NotImplementedException("getOutputStream not expected");
+                }
+              },
+              datePublished, projectName + " " + version + " released."
+          ).element(id).title(tagName).invoke(() ->
+              // TODO: We want the links directly in the RSS feed, too.
+              // TODO: Should the links be written into "description", with the current description becoming the "title"?
+              // TODO: This would then cause the links to be directly inside the RSS feed?
+              // TODO: If doing so, absolute links.
+              // TODO: Alternatively, the RSS description could default to the body of the news, with automatic absolute link conversion.
+              // TODO: Then the description here would instead be the title.
+              printLinks(
+                  captureLevel,
+                  version,
+                  groupId,
+                  artifactId,
+                  repository,
+                  scmUrl,
+                  isSnapshot,
+                  tagName,
+                  id,
+                  true
+              )
+          );
+        }
+        new Section(
             pageContext.getServletContext(),
             request,
             new HttpServletResponseWrapper(response) {
@@ -257,53 +300,18 @@ public class ReleaseTag extends SimpleTagSupport {
                 throw new NotImplementedException("getOutputStream not expected");
               }
             },
-            datePublished, projectName + " " + version + " released."
-          ).element(id).title(tagName).invoke(() ->
-            // TODO: We want the links directly in the RSS feed, too.
-            // TODO: Should the links be written into "description", with the current description becoming the "title"?
-            // TODO: This would then cause the links to be directly inside the RSS feed?
-            // TODO: If doing so, absolute links.
-            // TODO: Alternatively, the RSS description could default to the body of the news, with automatic absolute link conversion.
-            // TODO: Then the description here would instead be the title.
-            printLinks(
-              captureLevel,
-              version,
-              groupId,
-              artifactId,
-              repository,
-              scmUrl,
-              isSnapshot,
-              tagName,
-              id,
-              true
-            )
-          );
-        }
-        new Section(
-          pageContext.getServletContext(),
-          request,
-          new HttpServletResponseWrapper(response) {
-            @Override
-            public PrintWriter getWriter() {
-              return pw;
-            }
-            @Override
-            public ServletOutputStream getOutputStream() {
-              throw new NotImplementedException("getOutputStream not expected");
-            }
-          },
-          new Release(
-            projectName,
-            version,
-            datePublished,
-            groupId,
-            artifactId,
-            repository,
-            scmUrl,
-            isSnapshot,
+            new Release(
+                projectName,
+                version,
+                datePublished,
+                groupId,
+                artifactId,
+                repository,
+                scmUrl,
+                isSnapshot,
+                tagName
+            ),
             tagName
-          ),
-          tagName
         ).id(id).invoke(() -> {
           if (datePublished != null && captureLevel == CaptureLevel.BODY) {
             print("<footer><time itemprop=\"datePublished\" datetime=\"");
@@ -313,18 +321,18 @@ public class ReleaseTag extends SimpleTagSupport {
             print("</time></footer>\n");
           }
           new Nav(isSnapshot ? "Snapshot Links" : "Release Links").id("release-links-" + version).invoke(() ->
-            printLinks(
-              captureLevel,
-              version,
-              groupId,
-              artifactId,
-              repository,
-              scmUrl,
-              isSnapshot,
-              tagName,
-              id,
-              false
-            )
+              printLinks(
+                  captureLevel,
+                  version,
+                  groupId,
+                  artifactId,
+                  repository,
+                  scmUrl,
+                  isSnapshot,
+                  tagName,
+                  id,
+                  false
+              )
           );
           JspFragment body = getJspBody();
           if (body != null) {
