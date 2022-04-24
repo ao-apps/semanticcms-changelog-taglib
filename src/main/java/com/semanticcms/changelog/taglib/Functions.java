@@ -44,7 +44,7 @@ public final class Functions {
   @SuppressWarnings("null")
   private static Release findReleaseRecurse(Node node, Release[] firstSnapshot) {
     if (node instanceof Release) {
-      Release release = (Release)node;
+      Release release = (Release) node;
       if (!release.getIsSnapshot()) {
         return release;
       }
@@ -67,13 +67,13 @@ public final class Functions {
     } else if (dependencies instanceof Release) {
       return 1;
     } else if (dependencies instanceof Release[]) {
-      return ((Release[])dependencies).length;
+      return ((Release[]) dependencies).length;
     } else if (dependencies instanceof Collection<?>) {
-      return ((Collection<?>)dependencies).size();
+      return ((Collection<?>) dependencies).size();
     } else if (dependencies instanceof Iterable) {
       int count = 0;
       @SuppressWarnings("unchecked")
-      Iterator<? extends Release> iter = ((Iterable<? extends Release>)dependencies).iterator();
+      Iterator<? extends Release> iter = ((Iterable<? extends Release>) dependencies).iterator();
       while (iter.hasNext()) {
         Release release = iter.next();
         count++;

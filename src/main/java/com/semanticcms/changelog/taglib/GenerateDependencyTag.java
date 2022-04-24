@@ -49,16 +49,19 @@ import javax.servlet.jsp.PageContext;
 public class GenerateDependencyTag extends EncodingNullTag {
 
   private ValueExpression releaseExpr;
+
   public void setRelease(ValueExpression release) {
     this.releaseExpr = release;
   }
 
   private ValueExpression dependenciesExpr;
+
   public void setDependencies(ValueExpression dependencies) {
     this.dependenciesExpr = dependencies;
   }
 
   private ValueExpression buildSystemExpr;
+
   public void setBuildSystem(ValueExpression buildSystem) {
     this.buildSystemExpr = buildSystem;
   }
@@ -70,8 +73,8 @@ public class GenerateDependencyTag extends EncodingNullTag {
 
   @Override
   protected void doTag(Writer out) throws JspException, IOException {
-    PageContext pageContext = (PageContext)getJspContext();
-    HttpServletRequest request = (HttpServletRequest)pageContext.getRequest();
+    PageContext pageContext = (PageContext) getJspContext();
+    HttpServletRequest request = (HttpServletRequest) pageContext.getRequest();
     final CaptureLevel captureLevel = CaptureLevel.getCaptureLevel(request);
     if (captureLevel == CaptureLevel.BODY) {
       // Resolve attributes
@@ -85,20 +88,20 @@ public class GenerateDependencyTag extends EncodingNullTag {
         if (dependencies == null) {
           dependenciesList = Collections.emptyList();
         } else if (dependencies instanceof Release) {
-          dependenciesList = Collections.singletonList((Release)dependencies);
+          dependenciesList = Collections.singletonList((Release) dependencies);
         } else if (dependencies instanceof Release[]) {
-          dependenciesList = Arrays.asList((Release[])dependencies);
+          dependenciesList = Arrays.asList((Release[]) dependencies);
         } else if (dependencies instanceof List<?>) {
           @SuppressWarnings("unchecked")
-          List<? extends Release> asList = (List<? extends Release>)dependencies;
+          List<? extends Release> asList = (List<? extends Release>) dependencies;
           dependenciesList = asList;
         } else if (dependencies instanceof Collection<?>) {
           @SuppressWarnings("unchecked")
-          Collection<? extends Release> asCollection = (Collection<? extends Release>)dependencies;
+          Collection<? extends Release> asCollection = (Collection<? extends Release>) dependencies;
           dependenciesList = new ArrayList<>(asCollection);
         } else if (dependencies instanceof Iterable<?>) {
           @SuppressWarnings("unchecked")
-          Iterable<? extends Release> asIterable = (Iterable<? extends Release>)dependencies;
+          Iterable<? extends Release> asIterable = (Iterable<? extends Release>) dependencies;
           Iterator<? extends Release> iter = asIterable.iterator();
           List<Release> asList = new ArrayList<>();
           while (iter.hasNext()) {
@@ -114,35 +117,35 @@ public class GenerateDependencyTag extends EncodingNullTag {
         buildSystem = buildSystem.trim();
       }
       if (
-        buildSystem == null
-        || buildSystem.isEmpty()
-        || buildSystem.equalsIgnoreCase("Maven")
+          buildSystem == null
+              || buildSystem.isEmpty()
+              || buildSystem.equalsIgnoreCase("Maven")
       ) {
         out.write(
-          "<dependency>\n"
-          + "    <groupId>");
+            "<dependency>\n"
+                + "    <groupId>");
         encodeTextInXhtml(release.getGroupId(), out);
         out.write("</groupId>\n"
-          + "    <artifactId>");
+            + "    <artifactId>");
         encodeTextInXhtml(release.getArtifactId(), out);
         out.write("</artifactId>\n"
-          + "    <version>");
+            + "    <version>");
         encodeTextInXhtml(release.getVersion(), out);
         out.write("</version>\n"
-          + "</dependency>");
+            + "</dependency>");
         for (Release dependency : dependenciesList) {
           out.write(
-            "\n<dependency>\n"
-            + "    <groupId>");
+              "\n<dependency>\n"
+                  + "    <groupId>");
           encodeTextInXhtml(dependency.getGroupId(), out);
           out.write("</groupId>\n"
-            + "    <artifactId>");
+              + "    <artifactId>");
           encodeTextInXhtml(dependency.getArtifactId(), out);
           out.write("</artifactId>\n"
-            + "    <version>");
+              + "    <version>");
           encodeTextInXhtml(dependency.getVersion(), out);
           out.write("</version>\n"
-            + "</dependency>");
+              + "</dependency>");
         }
       } else if (buildSystem.equalsIgnoreCase("Buildr")) {
         out.write('\'');
@@ -180,15 +183,15 @@ public class GenerateDependencyTag extends EncodingNullTag {
         }
       } else if (buildSystem.equalsIgnoreCase("Grape")) {
         out.write(
-          "@Grapes(\n"
-          + "    @Grab(group='");
+            "@Grapes(\n"
+                + "    @Grab(group='");
         encodeTextInJavascript(release.getGroupId(), out);
         out.write("', module='");
         encodeTextInJavascript(release.getArtifactId(), out);
         out.write("', version='");
         encodeTextInJavascript(release.getVersion(), out);
         out.write(
-          "')\n");
+            "')\n");
         for (Release dependency : dependenciesList) {
           out.write("    @Grab(group='");
           encodeTextInJavascript(dependency.getGroupId(), out);
@@ -197,7 +200,7 @@ public class GenerateDependencyTag extends EncodingNullTag {
           out.write("', version='");
           encodeTextInJavascript(dependency.getVersion(), out);
           out.write(
-            "')\n");
+              "')\n");
         }
         out.write(')');
       } else if (buildSystem.equalsIgnoreCase("Grails")) {
