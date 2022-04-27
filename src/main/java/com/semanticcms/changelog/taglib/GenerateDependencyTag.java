@@ -119,7 +119,7 @@ public class GenerateDependencyTag extends EncodingNullTag {
       if (
           buildSystem == null
               || buildSystem.isEmpty()
-              || buildSystem.equalsIgnoreCase("Maven")
+              || "Maven".equalsIgnoreCase(buildSystem)
       ) {
         out.write(
             "<dependency>\n"
@@ -147,7 +147,7 @@ public class GenerateDependencyTag extends EncodingNullTag {
           out.write("</version>\n"
               + "</dependency>");
         }
-      } else if (buildSystem.equalsIgnoreCase("Buildr")) {
+      } else if ("Buildr".equalsIgnoreCase(buildSystem)) {
         out.write('\'');
         encodeTextInJavascript(release.getGroupId(), out);
         out.write(':');
@@ -164,7 +164,7 @@ public class GenerateDependencyTag extends EncodingNullTag {
           encodeTextInJavascript(dependency.getVersion(), out);
           out.write('\'');
         }
-      } else if (buildSystem.equalsIgnoreCase("Ivy")) {
+      } else if ("Ivy".equalsIgnoreCase(buildSystem)) {
         out.write("<dependency org=\"");
         encodeTextInXhtmlAttribute(release.getGroupId(), out);
         out.write("\" name=\"");
@@ -181,7 +181,7 @@ public class GenerateDependencyTag extends EncodingNullTag {
           encodeTextInXhtmlAttribute(dependency.getVersion(), out);
           out.write("\" />");
         }
-      } else if (buildSystem.equalsIgnoreCase("Grape")) {
+      } else if ("Grape".equalsIgnoreCase(buildSystem)) {
         out.write(
             "@Grapes(\n"
                 + "    @Grab(group='");
@@ -203,7 +203,7 @@ public class GenerateDependencyTag extends EncodingNullTag {
               "')\n");
         }
         out.write(')');
-      } else if (buildSystem.equalsIgnoreCase("Grails")) {
+      } else if ("Grails".equalsIgnoreCase(buildSystem)) {
         out.write("compile '");
         encodeTextInJavascript(release.getGroupId(), out);
         out.write(':');
@@ -220,7 +220,7 @@ public class GenerateDependencyTag extends EncodingNullTag {
           encodeTextInJavascript(dependency.getVersion(), out);
           out.write('\'');
         }
-      } else if (buildSystem.equalsIgnoreCase("SBT")) {
+      } else if ("SBT".equalsIgnoreCase(buildSystem)) {
         out.write("libraryDependencies += \"");
         encodeTextInJavascript(release.getGroupId(), out);
         out.write("\" % \"");
@@ -237,7 +237,7 @@ public class GenerateDependencyTag extends EncodingNullTag {
           encodeTextInJavascript(dependency.getVersion(), out);
           out.write('"');
         }
-      } else if (buildSystem.equalsIgnoreCase("Leiningen")) {
+      } else if ("Leiningen".equalsIgnoreCase(buildSystem)) {
         out.write('[');
         out.write(release.getGroupId());
         out.write('/');
