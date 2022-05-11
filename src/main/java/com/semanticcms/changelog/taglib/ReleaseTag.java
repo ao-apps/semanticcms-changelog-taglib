@@ -23,14 +23,15 @@
 
 package com.semanticcms.changelog.taglib;
 
-import com.aoapps.net.URIEncoder;
 import static com.aoapps.taglib.AttributeUtils.resolveValue;
-import com.semanticcms.core.controller.PageUtils;
-import com.semanticcms.core.pages.CaptureLevel;
-import com.semanticcms.core.pages.local.CurrentCaptureLevel;
 import static com.semanticcms.core.pages.local.PageContextEncoder.encodeTextInXhtml;
 import static com.semanticcms.core.pages.local.PageContextEncoder.encodeTextInXhtmlAttribute;
 import static com.semanticcms.core.pages.local.PageContextWriter.print;
+
+import com.aoapps.net.URIEncoder;
+import com.semanticcms.core.controller.PageUtils;
+import com.semanticcms.core.pages.CaptureLevel;
+import com.semanticcms.core.pages.local.CurrentCaptureLevel;
 import com.semanticcms.core.servlet.Link;
 import com.semanticcms.news.servlet.News;
 import com.semanticcms.section.servlet.Nav;
@@ -54,6 +55,9 @@ import org.apache.commons.lang3.NotImplementedException;
 import org.joda.time.ReadableDateTime;
 import org.joda.time.format.DateTimeFormat;
 
+/**
+ * Adds a changelog entry to the current page.
+ */
 public class ReleaseTag extends SimpleTagSupport {
 
   private static final String SNAPSHOT_END = "-SNAPSHOT";
@@ -211,7 +215,7 @@ public class ReleaseTag extends SimpleTagSupport {
       final String groupId = resolveValue(this.groupIdExpr, String.class, elContext);
       final String artifactId = resolveValue(this.artifactIdExpr, String.class, elContext);
       final String repository = resolveValue(this.repositoryExpr, String.class, elContext);
-      String tag = resolveValue(this.tagExpr, String.class, elContext);
+      final String tag = resolveValue(this.tagExpr, String.class, elContext);
       final String scmUrl = resolveValue(this.scmUrlExpr, String.class, elContext);
       // Check rules between attribute values vs documented in semanticcms-changelog.tld
       boolean isSnapshot = version.endsWith(SNAPSHOT_END);
@@ -260,6 +264,7 @@ public class ReleaseTag extends SimpleTagSupport {
                 public PrintWriter getWriter() {
                   return pw;
                 }
+
                 @Override
                 public ServletOutputStream getOutputStream() {
                   throw new NotImplementedException("getOutputStream not expected");
@@ -295,6 +300,7 @@ public class ReleaseTag extends SimpleTagSupport {
               public PrintWriter getWriter() {
                 return pw;
               }
+
               @Override
               public ServletOutputStream getOutputStream() {
                 throw new NotImplementedException("getOutputStream not expected");

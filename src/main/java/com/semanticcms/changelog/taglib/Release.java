@@ -26,6 +26,9 @@ package com.semanticcms.changelog.taglib;
 import com.semanticcms.section.model.Section;
 import org.joda.time.ReadableDateTime;
 
+/**
+ * A changelog entry.
+ */
 public class Release extends Section {
 
   static final String DEFAULT_ID_PREFIX = "release-notes";
@@ -84,6 +87,9 @@ public class Release extends Section {
     return tagName;
   }
 
+  /**
+   * Creates a new changelog entry.
+   */
   public Release(
       String projectName,
       String version,

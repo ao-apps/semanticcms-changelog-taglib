@@ -28,6 +28,9 @@ import com.semanticcms.core.model.Node;
 import java.util.Collection;
 import java.util.Iterator;
 
+/**
+ * Tag library function implementations.
+ */
 public final class Functions {
 
   /** Make no instances. */
@@ -35,6 +38,9 @@ public final class Functions {
     throw new AssertionError();
   }
 
+  /**
+   * Finds a release in the provided page or element.
+   */
   public static Release findRelease(Node node) {
     Release[] firstSnapshot = new Release[1];
     Release release = findReleaseRecurse(node, firstSnapshot);
@@ -61,6 +67,9 @@ public final class Functions {
     return null;
   }
 
+  /**
+   * Counts the number of dependencies.
+   */
   public static int countDependencies(Object dependencies) {
     if (dependencies == null) {
       return 0;

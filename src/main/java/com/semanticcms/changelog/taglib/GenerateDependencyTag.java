@@ -23,12 +23,13 @@
 
 package com.semanticcms.changelog.taglib;
 
-import com.aoapps.encoding.MediaType;
 import static com.aoapps.encoding.TextInJavaScriptEncoder.encodeTextInJavascript;
 import static com.aoapps.encoding.TextInXhtmlAttributeEncoder.encodeTextInXhtmlAttribute;
 import static com.aoapps.encoding.TextInXhtmlEncoder.encodeTextInXhtml;
-import com.aoapps.encoding.taglib.EncodingNullTag;
 import static com.aoapps.taglib.AttributeUtils.resolveValue;
+
+import com.aoapps.encoding.MediaType;
+import com.aoapps.encoding.taglib.EncodingNullTag;
 import com.semanticcms.core.pages.CaptureLevel;
 import com.semanticcms.core.pages.local.CurrentCaptureLevel;
 import java.io.IOException;
@@ -46,6 +47,9 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.PageContext;
 
+/**
+ * Generates a dependency declaration for a given release and build system.
+ */
 // TODO: BodyTag
 public class GenerateDependencyTag extends EncodingNullTag {
 
