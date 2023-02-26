@@ -33,7 +33,7 @@ along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licen
   <packaging>bundle</packaging>
 
   <properties>
-    <project.build.outputTimestamp>2023-02-08T21:06:04Z</project.build.outputTimestamp>
+    <project.build.outputTimestamp>2023-02-26T14:03:56Z</project.build.outputTimestamp>
     <module.name>com.semanticcms.changelog.taglib</module.name>
     <javadoc.breadcrumbs><![CDATA[<a target="${javadoc.target}" href="https://semanticcms.com/">SemanticCMS</a>
 / <a target="${javadoc.target}" href="${project.url}">Changelog Taglib</a>]]></javadoc.breadcrumbs>

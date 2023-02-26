@@ -1,6 +1,6 @@
 /*
  * semanticcms-changelog-taglib - Taglib for managing changelogs in a JSP environment.
- * Copyright (C) 2016, 2017, 2019, 2020, 2021, 2022  AO Industries, Inc.
+ * Copyright (C) 2016, 2017, 2019, 2020, 2021, 2022, 2023  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -168,16 +168,12 @@ public class ReleaseTag extends SimpleTagSupport {
           print("/\">Sonatype OSS Snapshot Repository</a></li>\n");
         } else {
           // Maven Central Repository
-          print("<li><a href=\"https://search.maven.org/#");
-          encodeTextInXhtmlAttribute(
-              URIEncoder.encodeURIComponent(
-                  "artifactdetails|"
-                      + groupId
-                      + '|' + artifactId
-                      + '|' + version
-                      + '|'
-              )
-          );
+          print("<li><a href=\"https://central.sonatype.com/artifact/");
+          encodeTextInXhtmlAttribute(URIEncoder.encodeURIComponent(groupId));
+          print('/');
+          encodeTextInXhtmlAttribute(URIEncoder.encodeURIComponent(artifactId));
+          print('/');
+          encodeTextInXhtmlAttribute(URIEncoder.encodeURIComponent(version));
           print("\">Maven Central Repository</a></li>\n");
         }
       }
