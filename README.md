@@ -24,7 +24,7 @@ Taglib for managing changelogs in a JSP environment.
 * [Changelog](https://semanticcms.com/changelog/taglib/changelog)
 * [Taglib Reference](https://semanticcms.com/changelog/taglib/semanticcms-changelog.tld/)
 * [API Docs](https://semanticcms.com/changelog/taglib/apidocs/)
-* [Maven Central Repository](https://search.maven.org/artifact/com.semanticcms/semanticcms-changelog-taglib)
+* [Maven Central Repository](https://central.sonatype.com/search?namespace=com.semanticcms&q=a%3Asemanticcms-changelog-taglib)
 * [GitHub](https://github.com/ao-apps/semanticcms-changelog-taglib)
 
 ## Contact Us

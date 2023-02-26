@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 semanticcms-changelog-taglib - Taglib for managing changelogs in a JSP environment.
-Copyright (C) 2016, 2017, 2019, 2021, 2022  AO Industries, Inc.
+Copyright (C) 2016, 2017, 2019, 2021, 2022, 2023  AO Industries, Inc.
     support@aoindustries.com
     7262 Bull Pen Cir
     Mobile, AL 36695
@@ -39,7 +39,7 @@ along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licen
   <uri>@{project.url}</uri>
   <tag>
     <!-- datePublished="2016-10-29T01:26:26-05:00" -->
-    <!-- dateModified="2019-04-20T21:06:09-05:00" -->
+    <!-- dateModified="2023-02-26T14:03:56Z" -->
     <description><![CDATA[
       <p>
         Adds a changelog entry to the current page.
@@ -124,7 +124,7 @@ along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licen
       <description><![CDATA[
         <p>
           The optional Maven repository.  When not provided, an appropriate
-          link will be created to <a href="https://search.maven.org/">https://search.maven.org/</a>.
+          link will be created to <a href="https://central.sonatype.com/">https://central.sonatype.com/</a>.
           Both artifactId and groupId attributes required when this is provided.
         </p>
       ]]></description>
@@ -163,7 +163,7 @@ along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licen
   </tag>
   <tag>
     <!-- datePublished="2017-07-17T09:53:04-05:00" -->
-    <!-- dateModified="2021-06-16T14:18:10-05:00" -->
+    <!-- dateModified="2023-02-26T14:03:56Z" -->
     <description><![CDATA[
       <p>
         Generates a dependency declaration for a given release and build system.
@@ -226,8 +226,8 @@ along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licen
           <li><code>"Leiningen"</code> - <a href="https://leiningen.org/">Leiningen</a></li>
         </ul>
         <p>
-          The supported systems match those at <a href="https://search.maven.org/">https://search.maven.org/</a>
-          as of 2017-07-15.
+          The supported systems match those at <a href="https://central.sonatype.com/">https://central.sonatype.com/</a>
+          (formerly <a href="https://search.maven.org/">https://search.maven.org/</a>) as of 2017-07-15.
         </p>
       ]]></description>
       <name>buildSystem</name>
