@@ -33,7 +33,6 @@ along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licen
   <packaging>bundle</packaging>
 
   <properties>
-    <project.build.outputTimestamp>2023-02-26T14:03:56Z</project.build.outputTimestamp>
     <module.name>com.semanticcms.changelog.taglib.book</module.name>
     <!-- These values are copied from the project being documented -->
     <documented.artifactId>semanticcms-changelog-taglib</documented.artifactId>
