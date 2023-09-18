@@ -115,6 +115,12 @@ public class ReleaseTag extends SimpleTagSupport {
     this.scmUrlExpr = scmUrl;
   }
 
+  private ValueExpression newsAllowRobotsExpr;
+
+  public void setNewsAllowRobots(ValueExpression allowRobots) {
+    this.newsAllowRobotsExpr = allowRobots;
+  }
+
   protected void printLinks(
       CaptureLevel captureLevel,
       String version,
@@ -212,6 +218,26 @@ public class ReleaseTag extends SimpleTagSupport {
       final String repository = resolveValue(this.repositoryExpr, String.class, elContext);
       final String tag = resolveValue(this.tagExpr, String.class, elContext);
       final String scmUrl = resolveValue(this.scmUrlExpr, String.class, elContext);
+      String newsAllowRobotsStr = resolveValue(newsAllowRobotsExpr, String.class, elContext);
+      final Boolean newsAllowRobots;
+      // Not using Boolean.valueOf to be more specific in parsing, "blarg" is not same as "false".
+      if (
+          newsAllowRobotsStr == null
+              || (newsAllowRobotsStr = newsAllowRobotsStr.trim()).isEmpty()
+              || "auto".equalsIgnoreCase(newsAllowRobotsStr)
+      ) {
+        newsAllowRobots = null;
+      } else if ("true".equalsIgnoreCase(newsAllowRobotsStr)) {
+        newsAllowRobots = true;
+      } else if ("false".equalsIgnoreCase(newsAllowRobotsStr)) {
+        newsAllowRobots = false;
+      } else {
+        // Matches ao-tld-parser:XmlHelper.java
+        // Matches semanticcms-changelog-taglib:ReleaseTag.java
+        // Matches semanticcms-core-taglib:PageTag.java
+        // Matches semanticcms-news-taglib:NewsTag.java
+        throw new IllegalArgumentException("Unexpected value for newsAllowRobots, expect one of \"auto\", \"true\", or \"false\": " + newsAllowRobotsStr);
+      }
       // Check rules between attribute values vs documented in semanticcms-changelog.tld
       boolean isSnapshot = version.endsWith(SNAPSHOT_END);
       if (!isSnapshot && datePublished == null) {
@@ -266,7 +292,7 @@ public class ReleaseTag extends SimpleTagSupport {
                 }
               },
               datePublished, projectName + " " + version + " released."
-          ).element(id).title(tagName).invoke(() ->
+          ).element(id).title(tagName).allowRobots(newsAllowRobots).invoke(() ->
               // TODO: We want the links directly in the RSS feed, too.
               // TODO: Should the links be written into "description", with the current description becoming the "title"?
               // TODO: This would then cause the links to be directly inside the RSS feed?
@@ -309,6 +335,7 @@ public class ReleaseTag extends SimpleTagSupport {
                 artifactId,
                 repository,
                 scmUrl,
+                newsAllowRobots,
                 isSnapshot,
                 tagName
             ),

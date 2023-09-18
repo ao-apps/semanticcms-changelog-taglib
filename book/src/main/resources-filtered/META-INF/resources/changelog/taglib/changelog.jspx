@@ -37,7 +37,7 @@ along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licen
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-10-30T16:08:35-05:00"
-    dateModified="2023-02-27T21:12:52Z"
+    dateModified="2023-09-18T03:16:04Z"
   >
     <c:set var="latestRelease" value="1.6.0" />
     <c:if test="${
@@ -52,7 +52,14 @@ along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licen
         artifactId="@{documented.artifactId}"
         repository="@{nexusUrl}content/repositories/snapshots/"
         scmUrl="@{project.scm.url}"
-      />
+      >
+        <ul>
+          <li>
+            Generated news entries now have their own <code>newsAllowRobots</code>, which overrides the default
+            inherited from the page.
+          </li>
+        </ul>
+      </changelog:release>
     </c:if>
 
     <changelog:release
