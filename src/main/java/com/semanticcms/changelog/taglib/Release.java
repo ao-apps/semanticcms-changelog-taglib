@@ -1,6 +1,6 @@
 /*
  * semanticcms-changelog-taglib - Taglib for managing changelogs in a JSP environment.
- * Copyright (C) 2017, 2022  AO Industries, Inc.
+ * Copyright (C) 2017, 2022, 2023  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -75,6 +75,12 @@ public class Release extends Section {
     return scmUrl;
   }
 
+  private final Boolean newsAllowRobots;
+
+  public Boolean getNewsAllowRobots() {
+    return newsAllowRobots;
+  }
+
   private final boolean isSnapshot;
 
   public boolean getIsSnapshot() {
@@ -98,6 +104,7 @@ public class Release extends Section {
       String artifactId,
       String repository,
       String scmUrl,
+      Boolean newsAllowRobots,
       boolean isSnapshot,
       String tagName
   ) {
@@ -108,6 +115,7 @@ public class Release extends Section {
     this.artifactId = artifactId;
     this.repository = repository;
     this.scmUrl = scmUrl;
+    this.newsAllowRobots = newsAllowRobots;
     this.isSnapshot = isSnapshot;
     this.tagName = tagName;
   }
