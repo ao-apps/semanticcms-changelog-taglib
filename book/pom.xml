@@ -41,6 +41,9 @@ along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licen
     <documented.artifactId>semanticcms-changelog-taglib</documented.artifactId>
     <documented.name>SemanticCMS Changelog Taglib</documented.name>
     <documented.description>Taglib for managing changelogs in a JSP environment.</documented.description>
+    <javadoc.breadcrumbs><![CDATA[<a target="${javadoc.target}" href="https://semanticcms.com/">SemanticCMS</a>
+/ <a target="${javadoc.target}" href="${project.url}">Changelog Taglib</a>]]></javadoc.breadcrumbs>
+    <javadoc.taglibReference><![CDATA[<li><a target="${javadoc.target}" href="${project.url}semanticcms-changelog.tld/">Taglib Reference</a></li>]]></javadoc.taglibReference>
 
     <description.html><![CDATA[Documentation for <a target="${javadoc.target}" href="${project.url}">${documented.name}</a> in <a target="${javadoc.target}" href="https://semanticcms.com/">SemanticCMS</a> format.]]></description.html>
   </properties>
