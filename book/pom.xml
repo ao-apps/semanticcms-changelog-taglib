@@ -29,12 +29,12 @@ along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licen
     <relativePath>../../parent/pom.xml</relativePath>
   </parent>
 
-  <groupId>com.semanticcms</groupId><artifactId>semanticcms-changelog-taglib-book</artifactId><version>1.7.1-SNAPSHOT</version>
+  <groupId>com.semanticcms</groupId><artifactId>semanticcms-changelog-taglib-book</artifactId><version>1.7.1</version>
   <packaging>jar</packaging>
 
   <properties>
     <!-- Must be set to ${git.commit.time} for snapshots or ISO 8601 timestamp for releases. -->
-    <project.build.outputTimestamp>${git.commit.time}</project.build.outputTimestamp>
+    <project.build.outputTimestamp>2023-09-24T07:05:19Z</project.build.outputTimestamp>
     <module.name>com.semanticcms.changelog.taglib.book</module.name>
     <subproject.subpath>book/</subproject.subpath>
     <!-- These values are copied from the project being documented -->
@@ -82,7 +82,7 @@ along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licen
     <connection>scm:git:git://github.com/ao-apps/semanticcms-changelog-taglib.git</connection>
     <developerConnection>scm:git:git@github.com:ao-apps/semanticcms-changelog-taglib.git</developerConnection>
     <url>https://github.com/ao-apps/semanticcms-changelog-taglib</url>
-    <tag>HEAD</tag>
+    <tag>semanticcms-changelog-taglib-book-1.7.1</tag>
   </scm>
 
   <issueManagement>
