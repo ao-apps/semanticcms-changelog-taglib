@@ -29,7 +29,7 @@ along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licen
     <relativePath>../parent/pom.xml</relativePath>
   </parent>
 
-  <groupId>com.semanticcms</groupId><artifactId>semanticcms-changelog-taglib</artifactId><version>1.7.0-POST-SNAPSHOT</version>
+  <groupId>com.semanticcms</groupId><artifactId>semanticcms-changelog-taglib</artifactId><version>1.7.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <properties>
