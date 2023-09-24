@@ -39,7 +39,7 @@ along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licen
   <uri>@{project.url}</uri>
   <tag>
     <!-- datePublished="2016-10-29T01:26:26-05:00" -->
-    <!-- dateModified="2023-09-18T03:16:04Z" -->
+    <!-- dateModified="2023-09-24T19:14:00Z" -->
     <description><![CDATA[
       <p>
         Adds a changelog entry to the current page.
@@ -63,7 +63,7 @@ along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licen
     <attribute>
       <description><![CDATA[
         <p>
-          The version of the release in <a href="http://semver.org/">Semantic Versioning</a> format.
+          The version of the release in <a href="https://semver.org/">Semantic Versioning</a> format.
         </p>
       ]]></description>
       <name>version</name>
