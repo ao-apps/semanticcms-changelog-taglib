@@ -31,6 +31,7 @@ def upstreamProjects = [
   '../oss/encoding', // <groupId>com.aoapps</groupId><artifactId>ao-encoding</artifactId>
   '../oss/encoding-taglib', // <groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId>
   '../oss/net-types', // <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId>
+  '../oss/servlet-util', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId>
   '../oss/taglib', // <groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId>
   // No Jenkins: <groupId>org.apache.commons</groupId><artifactId>commons-lang3</artifactId>
   // No Jenkins: <groupId>javax.el</groupId><artifactId>javax.el-api</artifactId>

@@ -1,6 +1,6 @@
 /*
  * semanticcms-changelog-taglib - Taglib for managing changelogs in a JSP environment.
- * Copyright (C) 2017, 2020, 2021, 2022  AO Industries, Inc.
+ * Copyright (C) 2017, 2020, 2021, 2022, 2023  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -26,7 +26,7 @@ package com.semanticcms.changelog.taglib;
 import static com.aoapps.encoding.TextInJavaScriptEncoder.encodeTextInJavascript;
 import static com.aoapps.encoding.TextInXhtmlAttributeEncoder.encodeTextInXhtmlAttribute;
 import static com.aoapps.encoding.TextInXhtmlEncoder.encodeTextInXhtml;
-import static com.aoapps.taglib.AttributeUtils.resolveValue;
+import static com.aoapps.servlet.el.ElUtils.resolveValue;
 
 import com.aoapps.encoding.MediaType;
 import com.aoapps.encoding.taglib.EncodingNullTag;
