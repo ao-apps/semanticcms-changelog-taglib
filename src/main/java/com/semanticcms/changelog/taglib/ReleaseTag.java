@@ -23,7 +23,7 @@
 
 package com.semanticcms.changelog.taglib;
 
-import static com.aoapps.taglib.AttributeUtils.resolveValue;
+import static com.aoapps.servlet.el.ElUtils.resolveValue;
 import static com.semanticcms.core.pages.local.PageContextEncoder.encodeTextInXhtml;
 import static com.semanticcms.core.pages.local.PageContextEncoder.encodeTextInXhtmlAttribute;
 import static com.semanticcms.core.pages.local.PageContextWriter.print;

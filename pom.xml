@@ -114,6 +114,15 @@ along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licen
   <build>
     <plugins>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId><artifactId>maven-dependency-plugin</artifactId>
+        <configuration>
+          <usedDependencies>
+            <!-- JSP Only -->
+            <dependency>com.aoapps:ao-taglib</dependency>
+          </usedDependencies>
+        </configuration>
+      </plugin>
+      <plugin>
         <groupId>com.github.spotbugs</groupId><artifactId>spotbugs-maven-plugin</artifactId>
         <configuration>
           <!-- TODO: Clean-up SpotBugs -->
@@ -152,10 +161,11 @@ along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licen
                       <outputDirectory>${project.build.directory}/offlineLinks/com.aoapps/ao-net-types</outputDirectory>
                     </artifactItem>
                     <artifactItem>
-                      <groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId><classifier>javadoc</classifier>
+                      <groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId><classifier>javadoc</classifier>
                       <includes>element-list, package-list</includes>
-                      <outputDirectory>${project.build.directory}/offlineLinks/com.aoapps/ao-taglib</outputDirectory>
+                      <outputDirectory>${project.build.directory}/offlineLinks/com.aoapps/ao-servlet-util</outputDirectory>
                     </artifactItem>
+                    <!-- JSP Only: <groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId><classifier>javadoc</classifier> -->
                     <artifactItem>
                       <groupId>org.apache.commons</groupId><artifactId>commons-lang3</artifactId><classifier>javadoc</classifier>
                       <includes>element-list, package-list</includes>
@@ -232,9 +242,10 @@ along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licen
                   <location>${project.build.directory}/offlineLinks/com.aoapps/ao-net-types</location>
                 </offlineLink>
                 <offlineLink>
-                  <url>https://oss.aoapps.com/taglib/apidocs/</url>
-                  <location>${project.build.directory}/offlineLinks/com.aoapps/ao-taglib</location>
+                  <url>https://oss.aoapps.com/servlet-util/apidocs/</url>
+                  <location>${project.build.directory}/offlineLinks/com.aoapps/ao-servlet-util</location>
                 </offlineLink>
+                <!-- JSP Only: <groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId><classifier>javadoc</classifier> -->
                 <offlineLink>
                   <url>https://javadoc.io/doc/org.apache.commons/commons-lang3/${org.apache.commons:commons-lang3:jar.version}/</url>
                   <location>${project.build.directory}/offlineLinks/org.apache.commons/commons-lang3</location>
@@ -346,6 +357,9 @@ along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licen
         <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId><version>2.0.2${POST-SNAPSHOT}</version>
       </dependency>
       <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId><version>5.3.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId><version>8.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
       </dependency>
       <dependency>
@@ -416,9 +430,6 @@ along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licen
         <groupId>com.aoapps</groupId><artifactId>ao-servlet-subrequest</artifactId><version>2.0.0${POST-SNAPSHOT}</version>
       </dependency>
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId><version>5.3.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-      </dependency>
-      <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-tempfiles</artifactId><version>3.0.2${POST-SNAPSHOT}</version>
       </dependency>
       <dependency>
@@ -479,6 +490,9 @@ along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licen
     </dependency>
     <dependency>
       <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId>
     </dependency>
     <dependency>
       <groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId>
