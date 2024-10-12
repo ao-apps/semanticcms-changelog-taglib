@@ -1,6 +1,6 @@
 /*
  * semanticcms-changelog-taglib - Taglib for managing changelogs in a JSP environment.
- * Copyright (C) 2016, 2017, 2019, 2020, 2021, 2022, 2023  AO Industries, Inc.
+ * Copyright (C) 2016, 2017, 2019, 2020, 2021, 2022, 2023, 2024  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -121,6 +121,9 @@ public class ReleaseTag extends SimpleTagSupport {
     this.newsAllowRobotsExpr = allowRobots;
   }
 
+  /**
+   * Prints the set of links for the release.
+   */
   protected void printLinks(
       CaptureLevel captureLevel,
       String version,
