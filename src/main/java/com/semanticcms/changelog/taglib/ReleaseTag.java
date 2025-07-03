@@ -1,6 +1,6 @@
 /*
  * semanticcms-changelog-taglib - Taglib for managing changelogs in a JSP environment.
- * Copyright (C) 2016, 2017, 2019, 2020, 2021, 2022, 2023, 2024  AO Industries, Inc.
+ * Copyright (C) 2016, 2017, 2019, 2020, 2021, 2022, 2023, 2024, 2025  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -156,7 +156,11 @@ public class ReleaseTag extends SimpleTagSupport {
         print('/');
         encodeTextInXhtmlAttribute(URIEncoder.encodeURIComponent(version));
         print("/\">");
-        if (
+        if (repository.startsWith("https://central.sonatype.com/repository/maven-snapshots")) {
+          print("Central Snapshot Repository");
+        } else if (repository.startsWith("https://central.sonatype.com/artifact")) {
+          print("Central Repository");
+        } else if (
             repository.startsWith("https://oss.sonatype.org/content/repositories/snapshots")
                 || repository.startsWith("https://s01.oss.sonatype.org/content/repositories/snapshots")
         ) {
@@ -168,22 +172,22 @@ public class ReleaseTag extends SimpleTagSupport {
       } else if (groupId != null) {
         if (isSnapshot) {
           // Sonatype snapshots
-          print("<li><a href=\"https://oss.sonatype.org/content/repositories/snapshots/");
+          print("<li><a href=\"https://central.sonatype.com/repository/maven-snapshots/");
           encodeTextInXhtmlAttribute(URIEncoder.encodeURIComponent(groupId).replace('.', '/'));
           print('/');
           encodeTextInXhtmlAttribute(URIEncoder.encodeURIComponent(artifactId));
           print('/');
           encodeTextInXhtmlAttribute(URIEncoder.encodeURIComponent(version));
-          print("/\">Sonatype OSS Snapshot Repository</a></li>\n");
+          print("/\">Central Snapshot Repository</a></li>\n");
         } else {
-          // Maven Central Repository
+          // Central Repository
           print("<li><a href=\"https://central.sonatype.com/artifact/");
           encodeTextInXhtmlAttribute(URIEncoder.encodeURIComponent(groupId));
           print('/');
           encodeTextInXhtmlAttribute(URIEncoder.encodeURIComponent(artifactId));
           print('/');
           encodeTextInXhtmlAttribute(URIEncoder.encodeURIComponent(version));
-          print("\">Maven Central Repository</a></li>\n");
+          print("\">Central Repository</a></li>\n");
         }
       }
       if (scmUrl != null) {
