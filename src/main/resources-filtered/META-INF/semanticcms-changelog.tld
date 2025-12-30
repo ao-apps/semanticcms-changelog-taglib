@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 semanticcms-changelog-taglib - Taglib for managing changelogs in a JSP environment.
-Copyright (C) 2016, 2017, 2019, 2021, 2022, 2023  AO Industries, Inc.
+Copyright (C) 2016, 2017, 2019, 2021, 2022, 2023, 2025  AO Industries, Inc.
     support@aoindustries.com
     7262 Bull Pen Cir
     Mobile, AL 36695
@@ -39,7 +39,7 @@ along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licen
   <uri>@{project.url}</uri>
   <tag>
     <!-- datePublished="2016-10-29T01:26:26-05:00" -->
-    <!-- dateModified="2023-09-24T19:14:00Z" -->
+    <!-- dateModified="2025-12-30T07:58:25Z" -->
     <description><![CDATA[
       <p>
         Adds a changelog entry to the current page.
@@ -81,8 +81,6 @@ along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licen
           At least <code>YYYY-MM-DD</code> is required,
           and when time not specified will default to midnight in the current system time zone.
           A long value of <code>-1</code> or <code>0</code> is converted to <code>null</code>.
-          Any value accepted by Joda Time <a href="@{jodaTimeApidocs}org/joda/time/DateTime.html#DateTime-java.lang.Object-">DateTime</a>
-          is accepted.
         </p>
         <p>
           Required unless is a <code>*-SNAPSHOT</code> version.
