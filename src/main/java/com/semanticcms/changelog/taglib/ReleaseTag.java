@@ -37,6 +37,9 @@ import com.semanticcms.section.servlet.Nav;
 import com.semanticcms.section.servlet.Section;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import javax.el.ELContext;
 import javax.el.ValueExpression;
 import javax.servlet.ServletException;
@@ -51,8 +54,6 @@ import javax.servlet.jsp.SkipPageException;
 import javax.servlet.jsp.tagext.JspFragment;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 import org.apache.commons.lang3.NotImplementedException;
-import org.joda.time.ReadableDateTime;
-import org.joda.time.format.DateTimeFormat;
 
 /**
  * Adds a changelog entry to the current page.
@@ -219,7 +220,7 @@ public class ReleaseTag extends SimpleTagSupport {
       ELContext elContext = pageContext.getELContext();
       final String projectName = resolveValue(this.projectNameExpr, String.class, elContext);
       final String version = resolveValue(this.versionExpr, String.class, elContext);
-      final ReadableDateTime datePublished = PageUtils.toDateTime(resolveValue(this.datePublishedExpr, Object.class, elContext));
+      final ZonedDateTime datePublished = PageUtils.toDateTime(resolveValue(this.datePublishedExpr, Object.class, elContext));
       final String groupId = resolveValue(this.groupIdExpr, String.class, elContext);
       final String artifactId = resolveValue(this.artifactIdExpr, String.class, elContext);
       final String repository = resolveValue(this.repositoryExpr, String.class, elContext);
@@ -352,7 +353,8 @@ public class ReleaseTag extends SimpleTagSupport {
             print("<footer><time itemprop=\"datePublished\" datetime=\"");
             encodeTextInXhtmlAttribute(datePublished.toString());
             print("\">");
-            encodeTextInXhtml(DateTimeFormat.forStyle("L-").withLocale(response.getLocale()).print(datePublished));
+            DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).withLocale(response.getLocale());
+            encodeTextInXhtml(datePublished.format(formatter));
             print("</time></footer>\n");
           }
           new Nav(isSnapshot ? "Snapshot Links" : "Release Links").id("release-links-" + version).invoke(() ->

@@ -1,6 +1,6 @@
 /*
  * semanticcms-changelog-taglib - Taglib for managing changelogs in a JSP environment.
- * Copyright (C) 2017, 2022, 2023  AO Industries, Inc.
+ * Copyright (C) 2017, 2022, 2023, 2025  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -24,7 +24,7 @@
 package com.semanticcms.changelog.taglib;
 
 import com.semanticcms.section.model.Section;
-import org.joda.time.ReadableDateTime;
+import java.time.ZonedDateTime;
 
 /**
  * A changelog entry.
@@ -45,9 +45,9 @@ public class Release extends Section {
     return version;
   }
 
-  private final ReadableDateTime datePublished;
+  private final ZonedDateTime datePublished;
 
-  public ReadableDateTime getDatePublished() {
+  public ZonedDateTime getDatePublished() {
     return datePublished;
   }
 
@@ -99,7 +99,7 @@ public class Release extends Section {
   public Release(
       String projectName,
       String version,
-      ReadableDateTime datePublished,
+      ZonedDateTime datePublished,
       String groupId,
       String artifactId,
       String repository,
