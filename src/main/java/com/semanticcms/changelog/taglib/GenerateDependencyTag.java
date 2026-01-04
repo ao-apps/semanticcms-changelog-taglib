@@ -1,6 +1,6 @@
 /*
  * semanticcms-changelog-taglib - Taglib for managing changelogs in a JSP environment.
- * Copyright (C) 2017, 2020, 2021, 2022, 2023  AO Industries, Inc.
+ * Copyright (C) 2017, 2020, 2021, 2022, 2023, 2025, 2026  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -31,6 +31,12 @@ import static com.aoapps.servlet.el.ElUtils.resolveValue;
 import com.aoapps.encoding.MediaType;
 import com.aoapps.encoding.taglib.EncodingNullTag;
 import com.semanticcms.core.servlet.CaptureLevel;
+import jakarta.el.ELContext;
+import jakarta.el.ValueExpression;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.jsp.JspException;
+import jakarta.servlet.jsp.JspTagException;
+import jakarta.servlet.jsp.PageContext;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
@@ -39,12 +45,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-import javax.el.ELContext;
-import javax.el.ValueExpression;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.jsp.JspException;
-import javax.servlet.jsp.JspTagException;
-import javax.servlet.jsp.PageContext;
 
 /**
  * Generates a dependency declaration for a given release and build system.
