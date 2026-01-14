@@ -119,10 +119,6 @@ along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licen
             <!-- JSP Only -->
             <dependency>com.aoapps:ao-taglib</dependency>
           </usedDependencies>
-          <ignoredDependencies>
-            <!-- No "module-info.java" in some release builds -->
-            <dependency>com.aoapps:ao-collections</dependency>
-          </ignoredDependencies>
         </configuration>
       </plugin>
       <plugin>
