@@ -346,7 +346,7 @@ along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licen
         <groupId>com.aoapps</groupId><artifactId>ao-web-resources-registry</artifactId><version>0.7.0${POST-SNAPSHOT}</version>
       </dependency>
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-web-resources-servlet</artifactId><version>0.7.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+        <groupId>com.aoapps</groupId><artifactId>ao-web-resources-servlet</artifactId><version>0.7.0${POST-SNAPSHOT}</version>
       </dependency>
       <!-- jakartaee-web-profile-bom: <groupId>jakarta.servlet.jsp.jstl</groupId><artifactId>jakarta.servlet.jsp.jstl-api</artifactId> -->
       <dependency>
