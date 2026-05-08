@@ -215,9 +215,9 @@ public class ReleaseTag extends SimpleTagSupport {
     HttpServletRequest request = (HttpServletRequest) pageContext.getRequest();
     final CaptureLevel captureLevel = CaptureLevel.getCaptureLevel(request);
     if (captureLevel.compareTo(CaptureLevel.META) >= 0) {
-      HttpServletResponse response = (HttpServletResponse) pageContext.getResponse();
+      final HttpServletResponse response = (HttpServletResponse) pageContext.getResponse();
       // Resolve attributes
-      ELContext elContext = pageContext.getELContext();
+      final ELContext elContext = pageContext.getELContext();
       final String projectName = resolveValue(this.projectNameExpr, String.class, elContext);
       final String version = resolveValue(this.versionExpr, String.class, elContext);
       final ZonedDateTime datePublished = PageUtils.toDateTime(resolveValue(this.datePublishedExpr, Object.class, elContext));
