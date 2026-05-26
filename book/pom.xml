@@ -183,7 +183,7 @@ along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licen
     <dependencies>
       <!-- Direct -->
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-badges</artifactId><version>2.0.1${POST-SNAPSHOT}</version>
+        <groupId>com.aoapps</groupId><artifactId>ao-badges</artifactId><version>2.1.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
       </dependency>
       <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId><version>5.7.0${POST-SNAPSHOT}</version>
@@ -210,7 +210,7 @@ along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licen
         <groupId>com.semanticcms</groupId><artifactId>semanticcms-section-taglib</artifactId><version>2.0.1${POST-SNAPSHOT}</version>
       </dependency>
       <dependency>
-        <groupId>com.semanticcms</groupId><artifactId>semanticcms-tag-reference</artifactId><version>2.0.0${POST-SNAPSHOT}</version>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-tag-reference</artifactId><version>2.1.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
       </dependency>
       <!-- Transitive -->
       <dependency>
@@ -298,7 +298,7 @@ along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licen
       </dependency>
       <!-- Runtime Transitive -->
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-javadoc-offline</artifactId><version>3.5.0${POST-SNAPSHOT}</version>
+        <groupId>com.aoapps</groupId><artifactId>ao-javadoc-offline</artifactId><version>3.6.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
       </dependency>
       <!-- Imports -->
       <dependency>
