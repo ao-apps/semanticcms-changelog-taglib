@@ -21,7 +21,6 @@
  * along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licenses/>.
  */
 module com.semanticcms.changelog.taglib {
-  exports com.semanticcms.changelog.taglib;
   // Direct
   requires com.aoapps.encoding; // <groupId>com.aoapps</groupId><artifactId>ao-encoding</artifactId>
   requires com.aoapps.encoding.taglib; // <groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId>
@@ -37,4 +36,6 @@ module com.semanticcms.changelog.taglib {
   requires com.semanticcms.news.servlet; // <groupId>com.semanticcms</groupId><artifactId>semanticcms-news-servlet</artifactId>
   requires com.semanticcms.section.model; // <groupId>com.semanticcms</groupId><artifactId>semanticcms-section-model</artifactId>
   requires com.semanticcms.section.servlet; // <groupId>com.semanticcms</groupId><artifactId>semanticcms-section-servlet</artifactId>
+
+  exports com.semanticcms.changelog.taglib;
 }
