@@ -37,7 +37,7 @@ along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licen
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-10-30T16:08:35-05:00"
-    dateModified="2026-02-01T07:26:55Z"
+    dateModified="2026-11-13T02:11:58Z"
   >
     <c:set var="latestRelease" value="2.0.0" />
     <c:if test="${
@@ -51,7 +51,15 @@ along with semanticcms-changelog-taglib.  If not, see <https://www.gnu.org/licen
         groupId="@{project.groupId}"
         artifactId="@{documented.artifactId}"
         scmUrl="@{project.scm.url}"
-      />
+      >
+        <ul>
+          <li>Added support for <ao:a href="https://snapshots.maven.aoapps.com/">AOApps Snapshot Repository</ao:a>.</li>
+          <li>
+            Changed the default snapshot repository from <ao:a href="https://central.sonatype.com/repository/maven-snapshots/">Central Snapshot Repository</ao:a>
+            to the <ao:a href="https://snapshots.maven.aoapps.com/">AOApps Snapshot Repository</ao:a>.
+          </li>
+        </ul>
+      </changelog:release>
     </c:if>
 
     <changelog:release

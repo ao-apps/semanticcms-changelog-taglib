@@ -156,7 +156,9 @@ public class ReleaseTag extends SimpleTagSupport {
         print('/');
         encodeTextInXhtmlAttribute(URIEncoder.encodeURIComponent(version));
         print("/\">");
-        if (repository.startsWith("https://central.sonatype.com/repository/maven-snapshots")) {
+        if (repository.startsWith("https://snapshots.maven.aoapps.com/")) {
+          print("AOApps Snapshot Repository");
+        } else if (repository.startsWith("https://central.sonatype.com/repository/maven-snapshots")) {
           print("Central Snapshot Repository");
         } else if (repository.startsWith("https://central.sonatype.com/artifact")) {
           print("Central Repository");
@@ -171,14 +173,14 @@ public class ReleaseTag extends SimpleTagSupport {
         print("</a></li>\n");
       } else if (groupId != null) {
         if (isSnapshot) {
-          // Sonatype snapshots
-          print("<li><a href=\"https://central.sonatype.com/repository/maven-snapshots/");
+          // AOApps Snapshot Repository
+          print("<li><a href=\"https://snapshots.maven.aoapps.com/");
           encodeTextInXhtmlAttribute(URIEncoder.encodeURIComponent(groupId).replace('.', '/'));
           print('/');
           encodeTextInXhtmlAttribute(URIEncoder.encodeURIComponent(artifactId));
           print('/');
           encodeTextInXhtmlAttribute(URIEncoder.encodeURIComponent(version));
-          print("/\">Central Snapshot Repository</a></li>\n");
+          print("/\">AOApps Snapshot Repository</a></li>\n");
         } else {
           // Central Repository
           print("<li><a href=\"https://central.sonatype.com/artifact/");
